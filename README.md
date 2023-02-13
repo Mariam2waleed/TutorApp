@@ -1,7 +1,11 @@
-# tutor
+# Tutor
 
-A new Flutter project.
-
+Tutoring app is based on communication between student or parents and teacher.
+Using: - Flutter (Front-end)
+       - NodeJs (Back-end)
+       - Mongodb (Database)
+    
+    
 ## Getting Started
 
 This project is a starting point for a Flutter application.
