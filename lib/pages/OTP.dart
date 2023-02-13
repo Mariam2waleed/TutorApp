@@ -1,0 +1,115 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:tutor/components/comp.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:tutor/pages/ForgotPassword.dart';
+import 'package:tutor/pages/NewPassword.dart';
+import 'package:tutor/pages/OTP.dart';
+
+class OTP extends StatefulWidget {
+  // const OTP({super.key});
+  final String PhoneNumber;
+//  OTP({super.key, required this.PhoneNumber});
+  const OTP({Key? key, required this.PhoneNumber}) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() => OTPState(PhoneNumber);
+}
+
+class OTPState extends State<OTP> {
+  OTPState( this.PhoneNumber, {Key? key});
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  //============================================================================
+  TextEditingController otp = TextEditingController();
+    final String PhoneNumber;
+
+  //============================================================================
+
+  //============================================================================
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Container(
+          padding: padding(25, 10),
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              SvgPicture.asset(
+                "assets/images/aast.svg",
+                width: MediaQuery.of(context).size.width * 0.5,
+                color: basecolor,
+              ),
+              SizedBox(height: 70.0),
+              // title
+              Text(
+                'OTP VERIFICATION',
+                style: TextStyle(
+                    fontFamily: 'sen',
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 15.0),
+              // Hint
+              Text('Enter the OTP sent to' + PhoneNumber.toString(),
+                  style: TextStyle(color: Colors.black54, fontSize: 15)),
+              //Text(PhoneNumber),
+              SizedBox(height: 25.0),
+              // Enter code
+              InputField(otp, "Enter the code", numbers: true),
+              SizedBox(height: 25.0),
+              // Re-send
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Don't receive code?"),
+                  ButtonBar(alignment: MainAxisAlignment.start, children: [
+                    TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const ForgotPassword()));
+                        },
+                        child: Text('Re-send',
+                            style: TextStyle(
+                                decoration: TextDecoration.underline)))
+                  ]),
+                ],
+              ),
+              SizedBox(height: 25.0),
+              // Submit
+              LoadButton(
+                  idle_txt: "Submit",
+                  // load_txt: "Continue..",
+                  action: () async {
+                    // debugPrint("Loding");
+                    // await Future.delayed(Duration(seconds: 2));
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const NewPassword()),
+                    );
+                  }),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
