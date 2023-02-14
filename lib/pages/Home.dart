@@ -13,7 +13,6 @@ import 'package:tutor/pages/Notification.dart';
 import '../components/NavBar.dart';
 
 class HomePage extends StatefulWidget {
-  
   const HomePage({super.key});
   @override
   State<StatefulWidget> createState() => HomePageState();
@@ -65,14 +64,21 @@ class HomePageState extends State<HomePage> {
               Text('Hello ' + currUser!.fname,
                   style: TextStyle(color: Colors.black45, fontSize: 14.0)),
               SizedBox(height: 5),
-              Text(
-                "Your Courses",
-                style: TextStyle(
-                    color: black, fontSize: 25.0, fontWeight: FontWeight.bold),
+              Row(
+                children: [
+                  Text(
+                    "Subject Categories",
+                    style: TextStyle(
+                        color: black,
+                        fontSize: 25.0,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Icon(Icons.arrow_forward, color: black),
+                ],
               ),
               SizedBox(height: 2),
               Text(
-                "Enrolled subjects for this term",
+                "Choose your subject to find your tutor",
                 style: TextStyle(color: Colors.black54, fontSize: 14.0),
               ),
             ]),
@@ -123,14 +129,15 @@ class HomePageState extends State<HomePage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                             CoursePage(group[index].id)));
+                                            CoursePage(group[index].id)));
                                 print(index);
                               },
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  SvgPicture.asset('assets/images/aast.svg'),
+                                  Image.asset('assets/images/student.jpg',
+                                      width: 130, height: 100),
                                   Text(
                                     group[index].course_name,
                                     style: TextStyle(
@@ -147,11 +154,11 @@ class HomePageState extends State<HomePage> {
                     ),
                   ),
                   SizedBox(height: 25),
-                  // News Feed
+                  // Home
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('News Feed',
+                      Text('Featured lists',
                           style: TextStyle(
                               color: basecolor,
                               fontSize: 25,

@@ -7,18 +7,18 @@ User? currUser = User(
   fname: 'Mariam ',
   lname: 'Waleed',
   gender: 'Female',
-  branch: 'Alamein',
-  college: 'Artificial Intelligence',
-  dep: 'Data Science',
-  sem: 4,
+  branch: 'Alexandria',
+  college: 'Software engineering',
+  dep: ' SIM ',
+  sem: 8,
   gpa: 3.2,
 );
 
 List<Group> group = [
-  Group(id: 0, name: 'A/1', course_code: 'GN111', course_name: 'Intro to Computing', course_color: Colors.orange,),
-  Group(id: 1, name: 'F/3', course_code: 'GN222', course_name: 'Computer Networking', course_color: Colors.yellow,),
-  Group(id: 2, name: 'B/1', course_code: 'BA101', course_name: 'Calculus 1', course_color: Colors.green,),
-  Group(id: 3, name: 'C/2', course_code: 'BA304', course_name: 'Linear Algebra', course_color: Colors.pink),
+  Group(id: 0, name: 'A/1', course_code: 'GN111', course_name: 'Arabic', course_color: Colors.orange,),
+  Group(id: 1, name: 'F/3', course_code: 'GN222', course_name: 'English ', course_color: Colors.yellow,),
+  Group(id: 2, name: 'B/1', course_code: 'BA101', course_name: 'Math', course_color: Colors.green,),
+  Group(id: 3, name: 'C/2', course_code: 'BA304', course_name: 'Physics ', course_color: Colors.pink),
 ];
 
 List chatsData = [
