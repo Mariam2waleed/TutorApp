@@ -78,7 +78,7 @@ class LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              SvgPicture.asset("assets\images\TUTOR.svg",
+              SvgPicture.asset("assets/images/aast.svg",
                   width: MediaQuery.of(context).size.width * 0.5,
                   color: basecolor),
               SizedBox(height: 20.0),

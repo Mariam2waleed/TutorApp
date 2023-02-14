@@ -33,7 +33,7 @@ class PostsList extends StatelessWidget {
                     children: [
                       Row(children: [
                         CircleAvatar(
-                            radius: 20,
+                            radius: 30,
                             child: SvgPicture.asset('assets/images/aast.svg')),
                         Padding(
                             padding: EdgeInsets.only(left: 10),

@@ -207,7 +207,7 @@ class CoursePageState extends State<CoursePage> {
                   builder: (BuildContext context) => AlertDialog(
                     title: Row(children: [
                       CircleAvatar(
-                          radius: 20,
+                          //radius: 20,
                           child: SvgPicture.asset('assets/images/aast.svg')),
                       Padding(
                           padding: EdgeInsets.only(left: 10),

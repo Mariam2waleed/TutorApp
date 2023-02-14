@@ -13,6 +13,7 @@ import 'package:tutor/pages/OTP.dart';
 import 'package:tutor/pages/Profile.dart';
 import 'package:tutor/pages/Schedule.dart';
 import 'package:tutor/pages/Splash.dart';
+import 'package:tutor/service/store.dart';
 
 void main() {
   runApp(MyApp());

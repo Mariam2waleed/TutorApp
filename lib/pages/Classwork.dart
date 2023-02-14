@@ -1,12 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tutor/components/comp.dart';
-import 'package:tutor/pages/Messages.dart';
-import 'package:tutor/pages/Home.dart';
 import 'package:tutor/pages/Notification.dart';
 import 'package:tutor/pages/Profile.dart';
 import 'package:tutor/components/TAList.dart';
-import 'package:tutor/pages/Schedule.dart';
 import 'package:tutor/service/store.dart';
 
 import '../components/NavBar.dart';
