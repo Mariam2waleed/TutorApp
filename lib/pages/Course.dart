@@ -6,19 +6,15 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tutor/components/comp.dart';
 import 'package:tutor/components/TAList.dart';
-import 'package:tutor/components/lectureList.dart';
 import 'package:tutor/components/PostsList.dart';
-import 'package:tutor/components/studentsList.dart';
-import 'package:tutor/pages/Classwork.dart';
-import 'package:tutor/pages/Messages.dart';
-import 'package:tutor/pages/NewsFeed.dart';
 import 'package:tutor/pages/Notification.dart';
 import 'package:tutor/pages/Profile.dart';
-import 'package:tutor/pages/Schedule.dart';
 import 'package:tutor/service/store.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
+
+import '../components/NavBar.dart';
 
 class CoursePage extends StatefulWidget {
   final int index;
@@ -103,19 +99,6 @@ class CoursePageState extends State<CoursePage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Text('Lectuer',
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                  fontSize: 25, fontWeight: FontWeight.bold, color: basecolor)),
-          ListView.builder(
-            shrinkWrap: true,
-            physics: ScrollPhysics(),
-            itemCount: group.length,
-            itemBuilder: (context, index) => LectureList(
-              group: group[index],
-              onPress: () {},
-            ),
-          ),
           Text('TA',
               textAlign: TextAlign.start,
               style: TextStyle(
@@ -129,19 +112,6 @@ class CoursePageState extends State<CoursePage> {
               onPress: () {},
             ),
           ),
-          Text('Students',
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                  fontSize: 25, fontWeight: FontWeight.bold, color: basecolor)),
-          ListView.builder(
-            shrinkWrap: true,
-            physics: ScrollPhysics(),
-            itemCount: group.length,
-            itemBuilder: (context, index) => StudentList(
-              group: group[index],
-              onPress: () {},
-            ),
-          ),
         ],
       ),
     );
@@ -151,6 +121,7 @@ class CoursePageState extends State<CoursePage> {
   void openFile(PlatformFile file) {
     OpenFile.open(file.path!);
   }
+
   //===========================================================================
   Future<File> saveFilePermanentli(PlatformFile file) async {
     final appStorage = await getApplicationDocumentsDirectory();
@@ -159,7 +130,7 @@ class CoursePageState extends State<CoursePage> {
     return File(file.path!).copy(newFile.path);
   }
   //============================================================================
- // void openFiles(List<PlatformFile> files) => Navigator.of(context).push(MaterialPageRoute(builder: (context) => FilePage( files: files, onOpenedFile: openFile,),));
+  // void openFiles(List<PlatformFile> files) => Navigator.of(context).push(MaterialPageRoute(builder: (context) => FilePage( files: files, onOpenedFile: openFile,),));
   //============================================================================
 
   @override
@@ -272,7 +243,7 @@ class CoursePageState extends State<CoursePage> {
                               onPressed: () async {
                                 final result =
                                     await FilePicker.platform.pickFiles();
-                                    // await FilePicker.platform.pickFiles(allowMultiple: true);
+                                // await FilePicker.platform.pickFiles(allowMultiple: true);
 
                                 if (result == null) return;
 
@@ -280,7 +251,7 @@ class CoursePageState extends State<CoursePage> {
                                 final file = result.files.first;
                                 //openFile(file);
 
-                                // Multiple files 
+                                // Multiple files
                                 // openFiles(result.files);
 
                                 print('Name: ${file.name}');
@@ -289,10 +260,9 @@ class CoursePageState extends State<CoursePage> {
                                 print('Extension: ${file.extension}');
                                 print('Path: ${file.path}');
 
-                               final newFile = await saveFilePermanentli(file);
-                             print('From path: ${file.path!}');
-                             print('to path: ${newFile.path}');
-                             
+                                final newFile = await saveFilePermanentli(file);
+                                print('From path: ${file.path!}');
+                                print('to path: ${newFile.path}');
                               }),
                         )
                       ],
@@ -344,60 +314,7 @@ class CoursePageState extends State<CoursePage> {
         ],
       ),
       //bottom navigation bar on scaffold
-      bottomNavigationBar: BottomAppBar(
-        color: basecolor,
-        shape: CircularNotchedRectangle(), //shape of notch
-        notchMargin:
-            8, //notche margin between floating button and bottom appbar
-        child: Row(
-          //children inside bottom appbar
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            IconButton(
-                tooltip: 'News Feed',
-                icon: Icon(Icons.post_add, color: Colors.white38),
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const NewsFeedPage()),
-                  );
-                }),
-            IconButton(
-                tooltip: 'ClassWork',
-                icon: Icon(Icons.class_, color: Colors.white38),
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const ClassworkPage()),
-                  );
-                }),
-            Container(height: 60),
-            IconButton(
-                tooltip: 'Schedule',
-                icon: Icon(Icons.calendar_today, color: Colors.white38),
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SchedulePage()),
-                  );
-                }),
-            IconButton(
-                tooltip: 'Messages',
-                icon: Icon(Icons.message_outlined, color: Colors.white38),
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const MessagesPage()),
-                  );
-                }),
-          ],
-        ),
-      ),
+      bottomNavigationBar: NavBar(),
     );
   }
 }

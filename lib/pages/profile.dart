@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tutor/components/comp.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:tutor/components/bottom_nav_bar.dart';
+import 'package:tutor/components/NavBar.dart';
 import 'package:tutor/components/courseList.dart';
 import 'package:tutor/pages/Classwork.dart';
 import 'package:tutor/pages/Messages.dart';
-import 'package:tutor/pages/NewsFeed.dart';
+import 'package:tutor/pages/Home.dart';
 import 'package:tutor/pages/Notification.dart';
 import 'package:tutor/pages/Schedule.dart';
 import 'package:tutor/service/store.dart';
@@ -191,64 +191,7 @@ class ProfilePageState extends State<ProfilePage> {
         ),
       ),
       //bottom navigation bar on scaffold
-      bottomNavigationBar: BottomAppBar(
-        color: basecolor,
-        shape: CircularNotchedRectangle(), //shape of notch
-        notchMargin:
-            8, //notche margin between floating button and bottom appbar
-        child: Row(
-          //children inside bottom appbar
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            IconButton(
-                tooltip: 'News Feed',
-                icon: Icon(
-                  Icons.post_add,
-                  color: Colors.white38,
-                  semanticLabel: 'cccc',
-                ),
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const NewsFeedPage()),
-                  );
-                }),
-            IconButton(
-                tooltip: 'ClassWork',
-                icon: Icon(Icons.class_, color: Colors.white38),
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const ClassworkPage()),
-                  );
-                }),
-            Container(height: 60),
-            IconButton(
-                tooltip: 'Schedule',
-                icon: Icon(Icons.calendar_today, color: Colors.white38),
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SchedulePage()),
-                  );
-                }),
-            IconButton(
-                tooltip: 'Messages',
-                icon: Icon(Icons.message_outlined, color: Colors.white38),
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const MessagesPage()),
-                  );
-                }),
-          ],
-        ),
-      ),
+      bottomNavigationBar: NavBar(),
     );
   }
 }

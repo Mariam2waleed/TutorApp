@@ -3,10 +3,15 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
+import '../pages/Classwork.dart';
+import '../pages/Home.dart';
+import '../pages/Messages.dart';
+import '../pages/Schedule.dart';
+
 // Color basecolor = Color(#691CC1);
-Color basecolor = Color.fromARGB(137, 53, 4, 83);
+Color basecolor = Color.fromARGB(226, 118, 5, 189);
 // Color basecolor3 = Colors.red;
-Color basecolor3 = Color.fromARGB(180, 152, 54, 209);
+Color basecolor3 = Color.fromARGB(242, 160, 62, 218);
 Color black = Colors.black;
 Color white = Colors.white;
 //Color course_color = Color.fromARGB(255, 36, 212, 20);
@@ -192,3 +197,4 @@ Widget baseButton({idle_txt = "",color= Colors.grey, action = null, args = const
             ])));
   });
 }
+

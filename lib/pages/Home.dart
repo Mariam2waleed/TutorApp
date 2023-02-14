@@ -10,15 +10,17 @@ import 'package:tutor/pages/Schedule.dart';
 import 'package:tutor/service/store.dart';
 import 'package:tutor/pages/Notification.dart';
 
-class NewsFeedPage extends StatefulWidget {
+import '../components/NavBar.dart';
+
+class HomePage extends StatefulWidget {
   
-  const NewsFeedPage({super.key});
+  const HomePage({super.key});
   @override
-  State<StatefulWidget> createState() => NewsFeedPageState();
+  State<StatefulWidget> createState() => HomePageState();
 }
 
-class NewsFeedPageState extends State<NewsFeedPage> {
-  NewsFeedPageState({Key? key});
+class HomePageState extends State<HomePage> {
+  HomePageState({Key? key});
   @override
   void initState() {
     super.initState();
@@ -42,7 +44,7 @@ class NewsFeedPageState extends State<NewsFeedPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    var scaffold = Scaffold(
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.person),
         backgroundColor: basecolor,
@@ -257,61 +259,9 @@ class NewsFeedPageState extends State<NewsFeedPage> {
                 ]))
       ]),
       //bottom navigation bar on scaffold
-      bottomNavigationBar: BottomAppBar(
-        color: basecolor,
-        shape: CircularNotchedRectangle(), //shape of notch
-        notchMargin:
-            8, //notche margin between floating button and bottom appbar
-        child: Row(
-          //children inside bottom appbar
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            IconButton(
-                tooltip: 'News Feed',
-                icon: Icon(Icons.post_add, color: white),
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const NewsFeedPage()),
-                  );
-                }),
-            IconButton(
-                tooltip: 'ClassWork',
-                icon: Icon(Icons.class_, color: Colors.white38),
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const ClassworkPage()),
-                  );
-                }),
-            Container(height: 60),
-            IconButton(
-                tooltip: 'Schedule',
-                icon: Icon(Icons.calendar_today, color: Colors.white38),
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SchedulePage()),
-                  );
-                }),
-            IconButton(
-                tooltip: 'Messages',
-                icon: Icon(Icons.message_outlined, color: Colors.white38),
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const MessagesPage()),
-                  );
-                }),
-          ],
-        ),
-      ),
+      bottomNavigationBar: NavBar(),
     );
+    return scaffold;
   }
 }
 //============================================================================

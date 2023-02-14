@@ -7,7 +7,7 @@ import 'package:tutor/components/comp.dart';
 import 'package:tutor/components/structureList.dart';
 import 'package:tutor/pages/Classwork.dart';
 import 'package:tutor/pages/Messages.dart';
-import 'package:tutor/pages/NewsFeed.dart';
+import 'package:tutor/pages/Home.dart';
 import 'package:tutor/pages/Notification.dart';
 import 'package:tutor/pages/Profile.dart';
 import 'package:tutor/pages/Schedule.dart';
@@ -16,6 +16,8 @@ import 'package:file_picker/file_picker.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:accordion/accordion.dart';
+
+import '../components/NavBar.dart';
 
 class BroadCast extends StatefulWidget {
   const BroadCast({Key? key}) : super(key: key);
@@ -167,7 +169,7 @@ class BroadCastState extends State<BroadCast> {
                       content: Stack(
                         children: [
                           // poll options
-                         // SizedBox(height: MediaQuery.of(context).size.height),
+                          // SizedBox(height: MediaQuery.of(context).size.height),
                           Column(
                             children: [
                               InputField(options, 'First option'),
@@ -452,60 +454,7 @@ class BroadCastState extends State<BroadCast> {
         ),
       ),
       //bottom navigation bar on scaffold
-      bottomNavigationBar: BottomAppBar(
-        color: basecolor,
-        shape: CircularNotchedRectangle(), //shape of notch
-        notchMargin:
-            8, //notche margin between floating button and bottom appbar
-        child: Row(
-          //children inside bottom appbar
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            IconButton(
-                tooltip: 'News Feed',
-                icon: Icon(Icons.post_add, color: Colors.white38),
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const NewsFeedPage()),
-                  );
-                }),
-            IconButton(
-                tooltip: 'ClassWork',
-                icon: Icon(Icons.class_, color: Colors.white38),
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const ClassworkPage()),
-                  );
-                }),
-            Container(height: 60),
-            IconButton(
-                tooltip: 'Schedule',
-                icon: Icon(Icons.calendar_today, color: Colors.white38),
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SchedulePage()),
-                  );
-                }),
-            IconButton(
-                tooltip: 'Messages',
-                icon: Icon(Icons.message_outlined, color: Colors.white38),
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const MessagesPage()),
-                  );
-                }),
-          ],
-        ),
-      ),
+      bottomNavigationBar: NavBar(),
     );
   }
 }

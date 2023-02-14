@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tutor/components/comp.dart';
-import 'package:tutor/pages/Assignment.dart';
 import 'package:tutor/pages/Broadcast.dart';
 import 'package:tutor/pages/Classwork.dart';
 import 'package:tutor/pages/ForgotPassword.dart';
@@ -8,7 +7,7 @@ import 'package:tutor/pages/Login.dart';
 import 'package:tutor/pages/Messages.dart';
 import 'package:tutor/pages/Course.dart';
 import 'package:tutor/pages/NewPassword.dart';
-import 'package:tutor/pages/NewsFeed.dart';
+import 'package:tutor/pages/Home.dart';
 import 'package:tutor/pages/Notification.dart';
 import 'package:tutor/pages/OTP.dart';
 import 'package:tutor/pages/Profile.dart';
@@ -27,7 +26,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const ProfilePage(),
+      home: const SplashScreen(),
     );
   }
 }
