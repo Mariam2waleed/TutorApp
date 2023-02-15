@@ -45,7 +45,7 @@ class OTPState extends State<OTP> {
     return Scaffold(
       body: Center(
         child: Container(
-          padding: padding(25, 10),
+          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
           width: MediaQuery.of(context).size.width,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -57,7 +57,7 @@ class OTPState extends State<OTP> {
               ),
               SizedBox(height: 70.0),
               // title
-              Text(
+              const Text(
                 'OTP VERIFICATION',
                 style: TextStyle(
                     fontFamily: 'sen',
@@ -66,8 +66,9 @@ class OTPState extends State<OTP> {
               ),
               SizedBox(height: 15.0),
               // Hint
-              Text('Enter the OTP sent to' + PhoneNumber.toString(),
-                  style: TextStyle(color: Colors.black54, fontSize: 15)),
+              //////////+ PhoneNumber.toString()
+              Text('Enter the OTP sent to$PhoneNumber',
+                  style: const TextStyle(color: Colors.black54, fontSize: 15)),
               //Text(PhoneNumber),
               SizedBox(height: 25.0),
               // Enter code
@@ -87,7 +88,7 @@ class OTPState extends State<OTP> {
                                   builder: (context) =>
                                       const ForgotPassword()));
                         },
-                        child: Text('Re-send',
+                        child: const Text('Re-send',
                             style: TextStyle(
                                 decoration: TextDecoration.underline)))
                   ]),

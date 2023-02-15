@@ -265,12 +265,12 @@ class BroadCastState extends State<BroadCast> {
                     elevation: 7,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15)),
-                    padding: EdgeInsets.all(25),
+                    padding: const EdgeInsets.all(25),
                   ),
                   onPressed: () {
                     print(textarea.text);
                   },
-                  child: Text(" Post ",
+                  child: const Text(" Post ",
                       style: TextStyle(fontWeight: FontWeight.bold)),
                 ),
               ],
@@ -307,12 +307,12 @@ class BroadCastState extends State<BroadCast> {
                 style: TextStyle(
                     color: black, fontSize: 25.0, fontWeight: FontWeight.bold),
               ),
-              Text('This will appear on the newsfeed',
+              const Text('This will appear on the newsfeed',
                   style: TextStyle(color: Colors.black38, fontSize: 14.0)),
             ]),
         actions: [
           IconButton(
-              padding: EdgeInsets.only(right: 40),
+              padding: const EdgeInsets.only(right: 40),
               icon: Icon(
                 Icons.notifications,
                 color: basecolor,
@@ -331,7 +331,7 @@ class BroadCastState extends State<BroadCast> {
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        padding: padding(10, 10),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: SingleChildScrollView(
           child: Column(
             // mainAxisAlignment: MainAxisAlignment.start,
@@ -366,7 +366,7 @@ class BroadCastState extends State<BroadCast> {
                           },
                           child: ListTile(
                             title: Text("${branch['name']}",
-                                style: styler(basecolor, 14, wbold)),
+                                style: TextStyle(color: basecolor, fontSize: 14, fontWeight: FontWeight.bold)),
                           ),
                         );
                       },

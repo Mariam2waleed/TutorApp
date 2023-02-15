@@ -61,8 +61,8 @@ class HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Hello ' + currUser!.fname,
-                  style: TextStyle(color: Colors.black45, fontSize: 14.0)),
+              Text('Hello ${currUser!.fname}',
+                  style: const TextStyle(color: Colors.black45, fontSize: 14.0)),
               SizedBox(height: 5),
               Row(
                 children: [
@@ -77,7 +77,7 @@ class HomePageState extends State<HomePage> {
                 ],
               ),
               SizedBox(height: 2),
-              Text(
+              const Text(
                 "Choose your subject to find your tutor",
                 style: TextStyle(color: Colors.black54, fontSize: 14.0),
               ),

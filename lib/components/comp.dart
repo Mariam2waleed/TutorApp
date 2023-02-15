@@ -16,10 +16,10 @@ Color black = Colors.black;
 Color white = Colors.white;
 //Color course_color = Color.fromARGB(255, 36, 212, 20);
 
-FontWeight wbold = FontWeight.bold;
-FontWeight wnoral = FontWeight.normal;
-padding(h, v) => EdgeInsets.symmetric(horizontal: h, vertical: v);
-styler(c, s, w) => TextStyle(color: c, fontSize: s, fontWeight: w);
+// FontWeight wbold = FontWeight.bold;
+// FontWeight wnoral = FontWeight.normal;
+// padding(h, v) => EdgeInsets.symmetric(horizontal: h, vertical: v);
+// styler(c, s, w) => TextStyle(color: c, fontSize: s, fontWeight: w);
 
 Widget CheckBoxX(label, controller, {trigger = null}){
   return StatefulBuilder(builder: ((context, setState){
@@ -144,7 +144,7 @@ Widget LoadButton({idle_txt = "", load_txt = "", action = null, args = const []}
                   flex: 8,
                   child: Text((loading) ? load_txt : idle_txt,
                       textAlign: TextAlign.center,
-                      style: styler(white, 20, wbold))),
+                      style: TextStyle(color: white, fontSize: 20, fontWeight: FontWeight.bold))),
               Expanded(
                 flex: 2,
                 child: Container(),
@@ -189,7 +189,7 @@ Widget baseButton({idle_txt = "",color= Colors.grey, action = null, args = const
                   flex: 8,
                   child: Text(idle_txt,
                       textAlign: TextAlign.center,
-                      style: styler(white, 20, wbold))),
+                      style: TextStyle(color: white, fontSize: 20, fontWeight: FontWeight.bold))),
               Expanded(
                 flex: 2,
                 child: Container(),

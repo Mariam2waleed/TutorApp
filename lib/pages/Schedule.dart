@@ -43,7 +43,7 @@ class SchedulePageState extends State<SchedulePage> {
     return SizedBox(
         width: MediaQuery.of(context).size.width,
         child: CupertinoSegmentedControl(
-            padding: padding(0, 10),
+            padding: EdgeInsets.symmetric(horizontal: 0, vertical: 10),
             selectedColor: white,
             borderColor: basecolor,
             pressedColor: white,
@@ -66,7 +66,7 @@ class SchedulePageState extends State<SchedulePage> {
                   index,
                   Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                     Text(value,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 15, fontWeight: FontWeight.bold)),
                   ]));
             })));
@@ -76,7 +76,7 @@ class SchedulePageState extends State<SchedulePage> {
   Widget posts() {
     return ListView.builder(
       shrinkWrap: true,
-      physics: ScrollPhysics(),
+      physics: const ScrollPhysics(),
       itemCount: group.length,
       itemBuilder: (context, index) => PostsList(
         group: group[index],
@@ -93,12 +93,12 @@ class SchedulePageState extends State<SchedulePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.person),
         backgroundColor: basecolor,
         onPressed: () {
           Navigator.pushReplacement(context,
               MaterialPageRoute(builder: (context) => const ProfilePage()));
         },
+        child: const Icon(Icons.person),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       appBar: AppBar(

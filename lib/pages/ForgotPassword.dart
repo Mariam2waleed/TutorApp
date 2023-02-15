@@ -37,7 +37,7 @@ class ForgotPasswordState extends State<ForgotPassword> {
     return Scaffold(
       body: Center(
         child: Container(
-          padding: padding(25, 10),
+          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
           width: MediaQuery.of(context).size.width,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

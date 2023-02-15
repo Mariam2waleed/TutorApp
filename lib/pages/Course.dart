@@ -50,7 +50,7 @@ class CoursePageState extends State<CoursePage> {
       //width:10,
       child: CupertinoSegmentedControl(
           // height: 70,
-          padding: padding(55, 10),
+          padding: const EdgeInsets.symmetric(horizontal: 55, vertical: 10),
           selectedColor: basecolor,
           borderColor: basecolor,
           pressedColor: basecolor,
@@ -65,14 +65,14 @@ class CoursePageState extends State<CoursePage> {
             return MapEntry(
                 index,
                 Padding(
-                    padding: padding(0, 10),
+                    padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 10),
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(value,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.bold)),
-                          SizedBox(width: 5.0),
+                          const SizedBox(width: 5.0),
                         ])));
           })),
     );

@@ -39,7 +39,7 @@ class NewPasswordState extends State<NewPassword> {
     return Scaffold(
       body: Center(
         child: Container(
-          padding: padding(30, 10),
+          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
           width: MediaQuery.of(context).size.width,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

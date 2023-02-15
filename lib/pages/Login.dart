@@ -39,7 +39,7 @@ class LoginPageState extends State<LoginPage> {
         width: MediaQuery.of(context).size.width,
         child: CupertinoSegmentedControl(
             // height: 70,
-            padding: padding(0, 10),
+            padding: EdgeInsets.symmetric(horizontal: 0, vertical: 10),
             selectedColor: basecolor,
             borderColor: basecolor,
             pressedColor: basecolor,
@@ -54,7 +54,7 @@ class LoginPageState extends State<LoginPage> {
               return MapEntry(
                   index,
                   Padding(
-                      padding: padding(0, 10),
+                      padding: EdgeInsets.symmetric(horizontal: 0, vertical: 10),
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -73,7 +73,7 @@ class LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: Center(
         child: Container(
-          padding: padding(30, 10),
+          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
           width: MediaQuery.of(context).size.width,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -82,7 +82,11 @@ class LoginPageState extends State<LoginPage> {
                   width: MediaQuery.of(context).size.width * 0.5,
                   color: basecolor),
               SizedBox(height: 20.0),
-              Text("TUTOR", style: styler(basecolor, 34, wbold)),
+              Text("TUTOR",
+                  style: TextStyle(
+                      color: basecolor,
+                      fontSize: 34,
+                      fontWeight: FontWeight.bold)),
               // Text("Community", style: styler(basecolor, 20, wnoral)),
               SizedBox(height: 15.0),
               // Student or Teacher
@@ -104,7 +108,7 @@ class LoginPageState extends State<LoginPage> {
                           MaterialPageRoute(
                               builder: (context) => const ForgotPassword()));
                     },
-                    child: Text('Forgot Password?',
+                    child: const Text('Forgot Password?',
                         style: TextStyle(decoration: TextDecoration.underline)))
               ]),
               SizedBox(height: 25.0),
@@ -114,14 +118,14 @@ class LoginPageState extends State<LoginPage> {
                   load_txt: "Signing In",
                   action: () async {
                     debugPrint("Loding");
-                    await Future.delayed(Duration(seconds: 1));
+                    await Future.delayed(const Duration(seconds: 1));
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const HomePage()));
                   }),
               // don't have account.
-                ButtonBar(alignment: MainAxisAlignment.start, children: [
+              ButtonBar(alignment: MainAxisAlignment.start, children: [
                 TextButton(
                     onPressed: () {
                       Navigator.push(
