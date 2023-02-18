@@ -7,9 +7,10 @@ Using:
        - Mongodb (Database)
     
 ## Important Links:
+
+ #      [Tutor Documentation](https://1drv.ms/w/s!ArKWacGpG17z1WNOkD2t3S9auumk?e=I3V9XH)   
  #      [Tutor Plan](https://docs.google.com/spreadsheets/d/1smS6Ph3S-ElV21F6QldiBCxVYemYcEL-ctm2Prj-S3E/edit?usp=sharing)
  #      [Tutor Survey](https://forms.gle/jhbgBFZNcpbhyn1KA) 
  #      [Tutor Diagram](https://www.figma.com/file/ajJXif8bNaNuSU9tZP7GBA/Tutor_-Diagrams?node-id=0%3A1&t=VNyMUKmPyJfdvJJ1-1)  
  #      [Tutor presentation](https://prezi.com/view/dnfUxxCOHThodL5O5b7F/)
- #      [Tutor Prototype](https://www.figma.com/file/BVRwn5KDlazkiy3HP3Bwf2/Tutor-App?node-id=0%3A1&t=MDEiSvDlbprodeMM-1)   
 
