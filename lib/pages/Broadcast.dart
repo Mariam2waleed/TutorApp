@@ -93,7 +93,7 @@ class BroadCastState extends State<BroadCast> {
   Widget makeBot() {
     return Container(
       decoration:
-          BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20))),
+          const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20))),
       child: Stack(
         children: [
           // Post content
@@ -104,7 +104,7 @@ class BroadCastState extends State<BroadCast> {
             decoration: InputDecoration(
               hintText: " Type somthing.. ",
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(width: 2, color: Colors.black26),
+                borderSide: const BorderSide(width: 2, color: Colors.black26),
                 borderRadius: BorderRadius.circular(20),
               ),
             ),
@@ -146,7 +146,7 @@ class BroadCastState extends State<BroadCast> {
                 // to create Poll
                 FloatingActionButton(
                   backgroundColor: basecolor3,
-                  child: Icon(Icons.bar_chart),
+                  child: const Icon(Icons.bar_chart),
                   onPressed: () => showDialog<String>(
                     context: context,
                     builder: (BuildContext context) => AlertDialog(
@@ -184,7 +184,7 @@ class BroadCastState extends State<BroadCast> {
                             right: 5,
                             child: FloatingActionButton(
                                 backgroundColor: basecolor3,
-                                child: Icon(Icons.add),
+                                child: const Icon(Icons.add),
                                 onPressed: () {
                                   InputField(options, 'Second option');
                                 }),
@@ -198,10 +198,10 @@ class BroadCastState extends State<BroadCast> {
                             primary: white,
                             // elevation: 3,
                             side: BorderSide(width: 3, color: basecolor),
-                            shape: RoundedRectangleBorder(
+                            shape: const RoundedRectangleBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(25))),
-                            padding: EdgeInsets.all(25),
+                            padding: const EdgeInsets.all(25),
                           ),
                           onPressed: () => Navigator.pop(context, 'Cancel'),
                           child: Text('Cancel',
@@ -227,7 +227,7 @@ class BroadCastState extends State<BroadCast> {
                           onPressed: () {
                             print(textarea.text);
                           },
-                          child: Text("Create Poll",
+                          child: const Text("Create Poll",
                               style: TextStyle(fontWeight: FontWeight.bold)),
                         ),
                       ],

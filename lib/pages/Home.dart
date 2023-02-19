@@ -266,7 +266,7 @@ class HomePageState extends State<HomePage> {
                 ]))
       ]),
       //bottom navigation bar on scaffold
-      bottomNavigationBar: NavBar(),
+    //  bottomNavigationBar: const NavBar(),
     );
     return scaffold;
   }

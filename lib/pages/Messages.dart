@@ -107,7 +107,7 @@ class MessagesPageState extends State<MessagesPage> {
         child: ListView(children: [messages()]),
       ),
       //bottom navigation bar on scaffold
-      bottomNavigationBar: NavBar(),
+      // bottomNavigationBar: NavBar(),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tutor/components/NavBar.dart';
 import 'package:tutor/components/comp.dart';
 import 'package:tutor/pages/Broadcast.dart';
 import 'package:tutor/pages/Classwork.dart';

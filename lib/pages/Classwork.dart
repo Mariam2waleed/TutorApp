@@ -109,7 +109,7 @@ class ClassworkPageState extends State<ClassworkPage> {
         child: ListView(children: [members()]),
       ),
       //bottom navigation bar on scaffold
-      bottomNavigationBar: NavBar(),
+      // bottomNavigationBar: NavBar(),
     );
   }
 }

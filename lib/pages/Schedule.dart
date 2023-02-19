@@ -152,7 +152,7 @@ class SchedulePageState extends State<SchedulePage> {
       ]),
 
       //bottom navigation bar on scaffold
-      bottomNavigationBar: NavBar(),
+      // bottomNavigationBar: NavBar(),
     );
   }
 }

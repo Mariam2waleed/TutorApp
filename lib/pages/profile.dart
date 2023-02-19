@@ -191,7 +191,7 @@ class ProfilePageState extends State<ProfilePage> {
         ),
       ),
       //bottom navigation bar on scaffold
-      bottomNavigationBar: NavBar(),
+      // bottomNavigationBar: NavBar(),
     );
   }
 }

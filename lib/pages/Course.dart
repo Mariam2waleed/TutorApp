@@ -314,7 +314,7 @@ class CoursePageState extends State<CoursePage> {
         ],
       ),
       //bottom navigation bar on scaffold
-      bottomNavigationBar: NavBar(),
+      // bottomNavigationBar: NavBar(),
     );
   }
 }
