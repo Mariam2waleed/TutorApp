@@ -4,11 +4,7 @@ import 'package:tutor/components/comp.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tutor/components/NavBar.dart';
 import 'package:tutor/components/courseList.dart';
-import 'package:tutor/pages/Classwork.dart';
-import 'package:tutor/pages/Messages.dart';
-import 'package:tutor/pages/Home.dart';
 import 'package:tutor/pages/Notification.dart';
-import 'package:tutor/pages/Schedule.dart';
 import 'package:tutor/service/store.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -191,7 +187,7 @@ class ProfilePageState extends State<ProfilePage> {
         ),
       ),
       //bottom navigation bar on scaffold
-      // bottomNavigationBar: NavBar(),
+      bottomNavigationBar: NavBar(),
     );
   }
 }

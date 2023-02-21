@@ -5,7 +5,7 @@ import 'package:tutor/pages/Broadcast.dart';
 import 'package:tutor/pages/Classwork.dart';
 import 'package:tutor/pages/ForgotPassword.dart';
 import 'package:tutor/pages/Login.dart';
-import 'package:tutor/pages/Messages.dart';
+import 'package:tutor/pages/Inbox.dart';
 import 'package:tutor/pages/Course.dart';
 import 'package:tutor/pages/NewPassword.dart';
 import 'package:tutor/pages/Home.dart';

@@ -5,7 +5,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import '../pages/Classwork.dart';
 import '../pages/Home.dart';
-import '../pages/Messages.dart';
+import '../pages/Inbox.dart';
 import '../pages/Schedule.dart';
 
 // Color basecolor = Color(#691CC1);

@@ -4,7 +4,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:tutor/components/comp.dart';
 import 'package:tutor/pages/Classwork.dart';
 import 'package:tutor/pages/Course.dart';
-import 'package:tutor/pages/Messages.dart';
 import 'package:tutor/pages/Profile.dart';
 import 'package:tutor/pages/Schedule.dart';
 import 'package:tutor/service/store.dart';

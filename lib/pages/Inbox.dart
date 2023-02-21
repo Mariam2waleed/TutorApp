@@ -10,14 +10,14 @@ import 'package:tutor/service/store.dart';
 
 import '../components/NavBar.dart';
 
-class MessagesPage extends StatefulWidget {
-  const MessagesPage({super.key});
+class InboxPage extends StatefulWidget {
+  const InboxPage({super.key});
   @override
-  State<StatefulWidget> createState() => MessagesPageState();
+  State<StatefulWidget> createState() => InboxPageState();
 }
 
-class MessagesPageState extends State<MessagesPage> {
-  MessagesPageState({Key? key});
+class InboxPageState extends State<InboxPage> {
+  InboxPageState({Key? key});
   late TextEditingController textController;
 
   @override

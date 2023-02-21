@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tutor/components/comp.dart';
 import 'package:tutor/pages/Classwork.dart';
-import 'package:tutor/pages/Messages.dart';
+import 'package:tutor/pages/Inbox.dart';
 import 'package:tutor/pages/Home.dart';
 import 'package:tutor/pages/Profile.dart';
 import 'package:tutor/pages/Schedule.dart';
@@ -21,7 +21,7 @@ class NavBarState extends State<NavBar> {
   int index = 1;
   final screens = [
     HomePage(),
-    MessagesPage(),
+    InboxPage(),
     ProfilePage(),
     SchedulePage(),
     ClassworkPage(),

@@ -6,7 +6,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tutor/components/comp.dart';
 import 'package:tutor/components/structureList.dart';
 import 'package:tutor/pages/Classwork.dart';
-import 'package:tutor/pages/Messages.dart';
 import 'package:tutor/pages/Home.dart';
 import 'package:tutor/pages/Notification.dart';
 import 'package:tutor/pages/Profile.dart';
