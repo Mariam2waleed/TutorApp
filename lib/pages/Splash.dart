@@ -39,7 +39,7 @@ class SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: SvgPicture.asset("assets/images/aast.svg",
+      child: SvgPicture.asset("assets/images/log.svg",
           width: MediaQuery.of(context).size.width, color: basecolor),
       //FlutterLogo(size: MediaQuery.of(context).size.height),
     );

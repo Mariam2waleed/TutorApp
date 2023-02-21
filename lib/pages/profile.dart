@@ -84,7 +84,7 @@ class ProfilePageState extends State<ProfilePage> {
                     // profile image
                     CircleAvatar(
                       radius: 50,
-                      child: SvgPicture.asset('assets/images/aast.svg'),
+                      child: SvgPicture.asset('assets/images/log.svg'),
                     ),
                     // profile labels
                     Padding(

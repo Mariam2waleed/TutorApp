@@ -108,7 +108,7 @@ class structureList extends StatelessWidget {
 
 //  Container(
 //               width: 60,
-//               child: SvgPicture.asset('assets/images/aast.svg'),
+//               child: SvgPicture.asset('assets/images/log.svg'),
 //             ),
 //             SizedBox(
 //               width: 20,

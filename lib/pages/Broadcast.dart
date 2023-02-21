@@ -153,7 +153,7 @@ class BroadCastState extends State<BroadCast> {
                         // profile image
                         CircleAvatar(
                             radius: 20,
-                            child: SvgPicture.asset('assets/images/aast.svg')),
+                            child: SvgPicture.asset('assets/images/log.svg')),
                         // User name
                         Padding(
                             padding: EdgeInsets.only(left: 10),

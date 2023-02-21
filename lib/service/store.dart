@@ -22,10 +22,10 @@ List<Group> group = [
 ];
 
 List chatsData = [
-  Chat(name: "Mariam waleed ", lastMessage: "my last", image: 'assets/images/aast.svg', time: '3m ago', isActive: false),
-  Chat(name: "Mariam waleed 1", lastMessage: "my last", image: 'assets/images/aast.svg', time: '3m ago', isActive: false),
-  Chat(name: "Mariam waleed 2", lastMessage: "my last", image: 'assets/images/aast.svg', time: '3m ago', isActive: false),
-  Chat(name: "Mariam waleed 3", lastMessage: "my last", image: 'assets/images/aast.svg', time: '3m ago', isActive: false),
+  Chat(name: "Mariam waleed ", lastMessage: "my last", image: 'assets/images/log.svg', time: '3m ago', isActive: false),
+  Chat(name: "Mariam waleed 1", lastMessage: "my last", image: 'assets/images/log.svg', time: '3m ago', isActive: false),
+  Chat(name: "Mariam waleed 2", lastMessage: "my last", image: 'assets/images/log.svg', time: '3m ago', isActive: false),
+  Chat(name: "Mariam waleed 3", lastMessage: "my last", image: 'assets/images/log.svg', time: '3m ago', isActive: false),
 ];
 
 List<Map> structure = [

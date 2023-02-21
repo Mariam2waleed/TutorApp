@@ -1,20 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tutor/components/NavBar.dart';
 import 'package:tutor/components/comp.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tutor/pages/ForgotPassword.dart';
 import 'package:tutor/pages/Home.dart';
-import 'package:tutor/pages/SignUp.dart';
+import 'package:tutor/pages/Profile.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
   @override
-  State<StatefulWidget> createState() => LoginPageState();
+  State<StatefulWidget> createState() => SignUpPageState();
 }
 
-class LoginPageState extends State<LoginPage> {
-  LoginPageState({Key? key});
+class SignUpPageState extends State<SignUpPage> {
+  SignUpPageState({Key? key});
   @override
   void initState() {
     super.initState();
@@ -35,46 +34,15 @@ class LoginPageState extends State<LoginPage> {
   TextEditingController ctrl_username = TextEditingController();
   TextEditingController ctrl_passcode = TextEditingController();
   //============================================================================
-  Widget login_type_selector() {
-    return SizedBox(
-        width: MediaQuery.of(context).size.width,
-        child: CupertinoSegmentedControl(
-            // height: 70,
-            padding: EdgeInsets.symmetric(horizontal: 0, vertical: 10),
-            selectedColor: basecolor,
-            borderColor: basecolor,
-            pressedColor: basecolor,
-            unselectedColor: white,
-            groupValue: login_type,
-            onValueChanged: (int new_index) {
-              setState(() {
-                login_type = new_index;
-              });
-            },
-            children: ["Student", "Teacher"].asMap().map((index, value) {
-              return MapEntry(
-                  index,
-                  Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 0, vertical: 10),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(value,
-                                style: TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.bold)),
-                            SizedBox(width: 5.0),
-                            Icon(Icons.person),
-                          ])));
-            })));
-  }
 
   //============================================================================
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:// ListView(
-        // children: [
+      appBar: AppBar(),
+      body: ListView(
+        padding: EdgeInsetsDirectional.only(top: 22),
+        children: [
           Container(
             padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
             width: MediaQuery.of(context).size.width,
@@ -93,7 +61,6 @@ class LoginPageState extends State<LoginPage> {
                 // Text("Community", style: styler(basecolor, 20, wnoral)),
                 SizedBox(height: 15.0),
                 // Student or Teacher
-                login_type_selector(),
                 SizedBox(height: 15.0),
                 // Enter ID
                 InputField(ctrl_username,
@@ -126,7 +93,7 @@ class LoginPageState extends State<LoginPage> {
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const NavBar()));
+                              builder: (context) => const HomePage()));
                     }),
                 // don't have account.
                 ButtonBar(alignment: MainAxisAlignment.start, children: [
@@ -135,7 +102,7 @@ class LoginPageState extends State<LoginPage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const SignUpPage()));
+                                builder: (context) => const ForgotPassword()));
                       },
                       child: Text('Dont have account? Sign up',
                           style:
@@ -144,8 +111,8 @@ class LoginPageState extends State<LoginPage> {
               ],
             ),
           ),
-      //   ],
-      // ),
+        ],
+      ),
     );
   }
 }

@@ -34,7 +34,7 @@ class PostsList extends StatelessWidget {
                       Row(children: [
                         CircleAvatar(
                             radius: 30,
-                            child: SvgPicture.asset('assets/images/aast.svg')),
+                            child: SvgPicture.asset('assets/images/log.svg')),
                         Padding(
                             padding: EdgeInsets.only(left: 10),
                             child: Column(
@@ -95,7 +95,7 @@ class PostsList extends StatelessWidget {
           //     children: [
           //       Container(
           //         width: 60,
-          //         child: SvgPicture.asset('assets/images/aast.svg'),
+          //         child: SvgPicture.asset('assets/images/log.svg'),
           //       ),
           //       SizedBox(
           //         width: 20,

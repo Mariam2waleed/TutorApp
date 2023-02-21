@@ -184,7 +184,7 @@ class HomePageState extends State<HomePage> {
                               CircleAvatar(
                                 radius: 20,
                                 child:
-                                    SvgPicture.asset('assets/images/aast.svg'),
+                                    SvgPicture.asset('assets/images/log.svg'),
                               ),
                               Padding(
                                 padding: EdgeInsets.only(left: 10),
@@ -231,7 +231,7 @@ class HomePageState extends State<HomePage> {
                               CircleAvatar(
                                 radius: 20,
                                 child:
-                                    SvgPicture.asset('assets/images/aast.svg'),
+                                    SvgPicture.asset('assets/images/log.svg'),
                               ),
                               Padding(
                                   padding: EdgeInsets.only(left: 10),
@@ -265,7 +265,7 @@ class HomePageState extends State<HomePage> {
                 ]))
       ]),
       //bottom navigation bar on scaffold
-    //  bottomNavigationBar: const NavBar(),
+     bottomNavigationBar: const NavBar(),
     );
     return scaffold;
   }

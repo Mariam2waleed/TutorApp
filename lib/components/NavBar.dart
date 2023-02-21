@@ -18,7 +18,7 @@ class NavBarState extends State<NavBar> {
   NavBarState({Key? key});
   @override
   final navigationKey = GlobalKey<CurvedNavigationBarState>();
-  int index = 1;
+  int index = 0;
   final screens = [
     HomePage(),
     InboxPage(),
@@ -34,6 +34,7 @@ class NavBarState extends State<NavBar> {
         top: false,
         child: Scaffold(
           extendBody: true,
+          appBar: AppBar(),
           body: screens[index],
           bottomNavigationBar: Theme(
             data:
@@ -190,19 +191,19 @@ class NavBarState extends State<NavBar> {
     //       children: [
     //         Opacity(
     //           opacity: 0.5,
-    //           child: SvgPicture.asset('assets/images/aast.svg'),
+    //           child: SvgPicture.asset('assets/images/log.svg'),
     //         ),
     //         Opacity(
     //           opacity: 0.5,
-    //           child: SvgPicture.asset('assets/images/aast.svg'),
+    //           child: SvgPicture.asset('assets/images/log.svg'),
     //         ),
     //         Opacity(
     //           opacity: 0.5,
-    //           child: SvgPicture.asset('assets/images/aast.svg'),
+    //           child: SvgPicture.asset('assets/images/log.svg'),
     //         ),
     //         Opacity(
     //           opacity: 0.5,
-    //           child: SvgPicture.asset('assets/images/aast.svg'),
+    //           child: SvgPicture.asset('assets/images/log.svg'),
     //         ),
     //       ],
     //     ),

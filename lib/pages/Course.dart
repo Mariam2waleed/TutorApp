@@ -208,7 +208,7 @@ class CoursePageState extends State<CoursePage> {
                     title: Row(children: [
                       CircleAvatar(
                           //radius: 20,
-                          child: SvgPicture.asset('assets/images/aast.svg')),
+                          child: SvgPicture.asset('assets/images/log.svg')),
                       Padding(
                           padding: EdgeInsets.only(left: 10),
                           child: Column(
