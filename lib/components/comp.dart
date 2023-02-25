@@ -10,6 +10,7 @@ import '../pages/Schedule.dart';
 
 // Color basecolor = Color(#691CC1);
 Color basecolor = Color.fromARGB(226, 118, 5, 189);
+LinearGradient basecolor1 = LinearGradient(colors: [basecolor,basecolor3]);
 // Color basecolor3 = Colors.red;
 Color basecolor3 = Color.fromARGB(242, 160, 62, 218);
 Color black = Colors.black;

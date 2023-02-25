@@ -5,6 +5,7 @@ import 'package:tutor/components/comp.dart';
 import 'package:tutor/pages/Classwork.dart';
 import 'package:tutor/pages/Inbox.dart';
 import 'package:tutor/pages/Home.dart';
+import 'package:tutor/pages/Notification.dart';
 import 'package:tutor/pages/Profile.dart';
 import 'package:tutor/pages/Schedule.dart';
 
@@ -23,7 +24,7 @@ class NavBarState extends State<NavBar> {
     HomePage(),
     InboxPage(),
     ProfilePage(),
-    SchedulePage(),
+    NotificationPage(),
     ClassworkPage(),
   ];
 
@@ -34,7 +35,7 @@ class NavBarState extends State<NavBar> {
         top: false,
         child: Scaffold(
           extendBody: true,
-          appBar: AppBar(),
+          // appBar: AppBar(),
           body: screens[index],
           bottomNavigationBar: Theme(
             data:

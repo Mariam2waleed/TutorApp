@@ -2,30 +2,75 @@ import 'package:flutter/material.dart';
 import 'package:tutor/service/models.dart';
 
 User? currUser = User(
-  type: 'student',
-  id: '1',
-  fname: 'Mariam ',
-  lname: 'Waleed',
-  gender: 'Female',
-  branch: 'Alexandria',
-  college: 'Software engineering',
-  dep: ' SIM ',
-  sem: 8,
-  gpa: 3.2,
-);
+    type: 'student',
+    id: '1',
+    fname: 'Mariam ',
+    lname: 'Waleed',
+    gender: 'Female',
+    branch: 'Alexandria',
+    college: 'Software engineering',
+    dep: ' SIM ',
+    sem: 8,
+    gpa: 3.2,
+    profileImage:
+        // const Image(image: AssetImage('assets/images/Me.jpeg'))
+        'assets/images/Me.jpeg');
 
 List<Group> group = [
-  Group(id: 0, name: 'A/1', course_code: 'GN111', course_name: 'Arabic', course_color: Colors.orange,),
-  Group(id: 1, name: 'F/3', course_code: 'GN222', course_name: 'English ', course_color: Colors.yellow,),
-  Group(id: 2, name: 'B/1', course_code: 'BA101', course_name: 'Math', course_color: Colors.green,),
-  Group(id: 3, name: 'C/2', course_code: 'BA304', course_name: 'Physics ', course_color: Colors.pink),
+  Group(
+    id: 0,
+    name: 'A/1',
+    course_code: 'GN111',
+    course_name: 'Arabic',
+    course_color: Colors.orange,
+  ),
+  Group(
+    id: 1,
+    name: 'F/3',
+    course_code: 'GN222',
+    course_name: 'English ',
+    course_color: Colors.yellow,
+  ),
+  Group(
+    id: 2,
+    name: 'B/1',
+    course_code: 'BA101',
+    course_name: 'Math',
+    course_color: Colors.green,
+  ),
+  Group(
+      id: 3,
+      name: 'C/2',
+      course_code: 'BA304',
+      course_name: 'Physics ',
+      course_color: Colors.pink),
 ];
 
 List chatsData = [
-  Chat(name: "Mariam waleed ", lastMessage: "my last", image: 'assets/images/log.svg', time: '3m ago', isActive: false),
-  Chat(name: "Mariam waleed 1", lastMessage: "my last", image: 'assets/images/log.svg', time: '3m ago', isActive: false),
-  Chat(name: "Mariam waleed 2", lastMessage: "my last", image: 'assets/images/log.svg', time: '3m ago', isActive: false),
-  Chat(name: "Mariam waleed 3", lastMessage: "my last", image: 'assets/images/log.svg', time: '3m ago', isActive: false),
+  Chat(
+      name: "Mariam waleed ",
+      lastMessage: "my last",
+      image: 'assets/images/log.svg',
+      time: '3m ago',
+      isActive: false),
+  Chat(
+      name: "Mariam waleed 1",
+      lastMessage: "my last",
+      image: 'assets/images/log.svg',
+      time: '3m ago',
+      isActive: false),
+  Chat(
+      name: "Mariam waleed 2",
+      lastMessage: "my last",
+      image: 'assets/images/log.svg',
+      time: '3m ago',
+      isActive: false),
+  Chat(
+      name: "Mariam waleed 3",
+      lastMessage: "my last",
+      image: 'assets/images/log.svg',
+      time: '3m ago',
+      isActive: false),
 ];
 
 List<Map> structure = [
@@ -34,7 +79,7 @@ List<Map> structure = [
     "name": "Abu-Kir",
     "selected": false,
     "expanded": false,
-    "colleges":[
+    "colleges": [
       {
         "id": 11,
         "name": "Engineering",
@@ -76,7 +121,7 @@ List<Map> structure = [
     "name": "Smart Village",
     "selected": false,
     "expanded": false,
-    "colleges":[
+    "colleges": [
       {
         "id": 21,
         "name": "Languange",
@@ -117,7 +162,7 @@ List<Map> structure = [
   //   "id": 3,
   //   "name": "Alamein",
   //   "selected": false,
-    // "expanded": false,
+  // "expanded": false,
   //   "colleges":[]
   // },
   // {

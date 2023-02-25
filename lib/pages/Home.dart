@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -43,62 +45,77 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     var scaffold = Scaffold(
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.person),
-        backgroundColor: basecolor,
-        onPressed: () {
-          Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => const ProfilePage()));
-        },
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       appBar: AppBar(
         toolbarHeight: 110.0,
         elevation: 0,
         backgroundColor: white,
-        title: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('Hello ${currUser!.fname}',
-                  style: const TextStyle(color: Colors.black45, fontSize: 14.0)),
-              SizedBox(height: 5),
-              Row(
-                children: [
-                  Text(
-                    "Subject Categories",
-                    style: TextStyle(
-                        color: black,
-                        fontSize: 25.0,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Icon(Icons.arrow_forward, color: black),
-                ],
-              ),
-              SizedBox(height: 2),
-              const Text(
-                "Choose your subject to find your tutor",
-                style: TextStyle(color: Colors.black54, fontSize: 14.0),
-              ),
-            ]),
+        // automaticallyImplyLeading: false,
+        leading: IconButton(
+          onPressed: () {},
+          icon: Icon(
+            Icons.menu,
+            color: black,
+          ),
+        ),
+        title: Center(
+            child: Text(
+          "Home",
+          style: TextStyle(color: black, fontWeight: FontWeight.bold),
+        )),
         actions: [
           IconButton(
-              padding: EdgeInsets.only(right: 40),
-              icon: Icon(
-                Icons.notifications,
-                color: basecolor,
-                size: 35,
-              ),
-              onPressed: () {
-                Navigator.push(
+            highlightColor: Colors.deepPurple[300],
+            iconSize: 48.0,
+            icon:
+                // ImageIcon(Image.asset('assets/images/Me.jpeq').image)
+                CircleAvatar(
+              radius: 50,
+              child: ClipRRect(
+                  borderRadius: BorderRadius.circular(50),
+                  child:
+                      Image.asset(currUser!.profileImage, fit: BoxFit.cover)),
+            ),
+            onPressed: () => {
+              Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const NotificationPage()),
-                );
-              })
+                      builder: (context) => const ProfilePage()))
+            },
+          ),
         ],
+
+        // actions: [
+        //   IconButton(
+        //       padding: EdgeInsets.only(right: 40),
+        //       icon: Icon(
+        //         Icons.arrow_back_ios,
+        //         color: basecolor,
+        //         size: 35,
+        //       ),
+        //       onPressed: () {
+        //         Navigator.pop(context);
+        //       })
+        // ],
+        // title: Column(
+        //     mainAxisAlignment: MainAxisAlignment.start,
+        //     crossAxisAlignment: CrossAxisAlignment.start,
+        //     children: [
+        //       Row(),
+        //       SizedBox(height: 2),
+        //       const Text(
+        //         "Choose your subject to find your tutor",
+        //         style: TextStyle(color: Colors.black54, fontSize: 14.0),
+        //       ),
+        //     ]),
       ),
+      /////////////////////////////////////////////////
       body: ListView(children: [
+        Text(
+          "Subject Categories",
+          style: TextStyle(
+              color: black, fontSize: 25.0, fontWeight: FontWeight.bold),
+        ),
+        Icon(Icons.arrow_forward, color: black),
         Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Column(
@@ -265,7 +282,7 @@ class HomePageState extends State<HomePage> {
                 ]))
       ]),
       //bottom navigation bar on scaffold
-     bottomNavigationBar: const NavBar(),
+      //  bottomNavigationBar: const NavBar(),
     );
     return scaffold;
   }

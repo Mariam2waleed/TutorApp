@@ -1,6 +1,11 @@
 // import 'package:flutter/cupertino.dart';
+import 'dart:ui';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:tutor/components/comp.dart';
+import 'package:flutter_svg/svg.dart';
 
 class Access {
   String code;
@@ -25,30 +30,41 @@ class User {
   //---------------------------------------------------------
   int sem = 0;
   double gpa = 0.0;
-  User(
-      {this.type = '',
-      this.id = '',
-      this.title = '',
-      this.gender = '',
-      this.fname = '',
-      this.lname = '',
-      this.branch = '',
-      this.college = '',
-      this.dep = '',
-      this.sem = 0,
-      this.gpa = 0.0});
+  // Image profileImage = Image.asset('assets/images/Me.jpeq');
+String profileImage;
+
+  User({
+    this.type = '',
+    this.id = '',
+    this.title = '',
+    this.gender = '',
+    this.fname = '',
+    this.lname = '',
+    this.branch = '',
+    this.college = '',
+    this.dep = '',
+    this.sem = 0,
+    this.gpa = 0.0,
+    this.profileImage = ''
+
+    // Image.asset('assets/images/Me.jpeq'),
+    // required this.profileImage,
+  });
   static User decode(Map map) {
     return User(
-      type: map['type'] ?? '',
-      id: map['id'] ?? '',
-      fname: map['fname'] ?? '',
-      lname: map['lname'] ?? '',
-      branch: map['branch'] ?? '',
-      college: map['college'] ?? '',
-      dep: map['dep'] ?? '',
-      sem: map['sem'] ?? 0,
-      gpa: map['gpa'] ?? 0.0,
-    );
+        type: map['type'] ?? '',
+        id: map['id'] ?? '',
+        fname: map['fname'] ?? '',
+        lname: map['lname'] ?? '',
+        branch: map['branch'] ?? '',
+        college: map['college'] ?? '',
+        dep: map['dep'] ?? '',
+        sem: map['sem'] ?? 0,
+        gpa: map['gpa'] ?? 0.0,
+        profileImage: 'assets/images/log.svg'
+
+        // const Image(image: AssetImage('assets/images/Me.jpeg'),)
+        );
   }
 
   String getName() {
