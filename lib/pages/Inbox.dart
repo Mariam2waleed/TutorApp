@@ -105,7 +105,7 @@ class InboxPageState extends State<InboxPage> {
                       Image.asset(currUser!.profileImage, fit: BoxFit.cover)),
             ),
             onPressed: () => {
-              Navigator.pushReplacement(context,
+              Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const ProfilePage()))
             },
           ),

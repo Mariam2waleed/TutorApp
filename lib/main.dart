@@ -32,6 +32,7 @@ class MyApp extends StatelessWidget {
       ),
       home: AnimatedSplashScreen(
         splash:
+        ///////Linear Gradient
             // Container(
             //   decoration: const BoxDecoration(
             //       gradient: LinearGradient(

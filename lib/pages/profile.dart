@@ -41,17 +41,25 @@ class ProfilePageState extends State<ProfilePage> {
       //   onPressed: () {},
       // ),
       // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      appBar: AppBar(
+      appBar:AppBar(
         toolbarHeight: 110.0,
         elevation: 0,
         backgroundColor: white,
-        title: Text.rich(TextSpan(
-            text: 'My Profile',
-            style: TextStyle(
-                fontFamily: 'sen',
-                fontWeight: FontWeight.bold,
-                color: black,
-                fontSize: 25))),
+        // automaticallyImplyLeading: false,
+        leading: IconButton(
+          onPressed: () {
+            //Navigator.pop(context)
+            },
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: black,
+          ),
+        ),
+        title: Center(
+            child: Text(
+          "Profile",
+          style: TextStyle(color: black, fontWeight: FontWeight.bold),
+        )),
         actions: [
           IconButton(
               padding: EdgeInsets.only(right: 40),
@@ -67,8 +75,10 @@ class ProfilePageState extends State<ProfilePage> {
                       builder: (context) => const NotificationPage()),
                 );
               }),
+        
         ],
       ),
+  //============================================================================
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15.0),
         child: ListView(
