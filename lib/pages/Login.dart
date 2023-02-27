@@ -93,17 +93,7 @@ class LoginPageState extends State<LoginPage> {
                 // Text("Community", style: styler(basecolor, 20, wnoral)),
                 SizedBox(height: 15.0),
                 // Student or Teacher
-                login_type_selector(),
-                SizedBox(height: 15.0),
-                // Enter ID
-                InputField(ctrl_username,
-                    (login_type == 0) ? "Registration ID" : "Employee ID",
-                    numbers: true),
-                SizedBox(height: 15.0),
-                // Enter Password
-                PasswordField(ctrl_passcode, "Password", numbers: true),
-                // Forgot password
-                ButtonBar(alignment: MainAxisAlignment.start, children: [
+                  ButtonBar(alignment: MainAxisAlignment.start, children: [
                   TextButton(
                       onPressed: () {
                         Navigator.push(
