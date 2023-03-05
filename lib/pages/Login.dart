@@ -31,44 +31,8 @@ class LoginPageState extends State<LoginPage> {
   }
 
   //============================================================================
-  int login_type = 0;
-  TextEditingController ctrl_username = TextEditingController();
-  TextEditingController ctrl_passcode = TextEditingController();
   //============================================================================
-  Widget login_type_selector() {
-    return SizedBox(
-        width: MediaQuery.of(context).size.width,
-        child: CupertinoSegmentedControl(
-            // height: 70,
-            padding: EdgeInsets.symmetric(horizontal: 0, vertical: 10),
-            selectedColor: basecolor,
-            borderColor: basecolor,
-            pressedColor: basecolor,
-            unselectedColor: white,
-            groupValue: login_type,
-            onValueChanged: (int new_index) {
-              setState(() {
-                login_type = new_index;
-              });
-            },
-            children: ["Student", "Teacher"].asMap().map((index, value) {
-              return MapEntry(
-                  index,
-                  Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 0, vertical: 10),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(value,
-                                style: TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.bold)),
-                            SizedBox(width: 5.0),
-                            Icon(Icons.person),
-                          ])));
-            })));
-  }
-
+ 
   //============================================================================
   @override
   Widget build(BuildContext context) {
@@ -81,31 +45,6 @@ class LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                SvgPicture.asset("assets/images/log.svg",
-                    width: MediaQuery.of(context).size.width * 0.5,
-                    color: basecolor),
-                SizedBox(height: 20.0),
-                Text("TUTOR",
-                    style: TextStyle(
-                        color: basecolor,
-                        fontSize: 34,
-                        fontWeight: FontWeight.bold)),
-                // Text("Community", style: styler(basecolor, 20, wnoral)),
-                SizedBox(height: 15.0),
-                // Student or Teacher
-                  ButtonBar(alignment: MainAxisAlignment.start, children: [
-                  TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const ForgotPassword()));
-                      },
-                      child: const Text('Forgot Password?',
-                          style:
-                              TextStyle(decoration: TextDecoration.underline)))
-                ]),
-                SizedBox(height: 25.0),
                 // Sign In
                 LoadButton(
                     idle_txt: "Sign In",
@@ -118,19 +57,6 @@ class LoginPageState extends State<LoginPage> {
                           MaterialPageRoute(
                               builder: (context) => const NavBar()));
                     }),
-                // don't have account.
-                ButtonBar(alignment: MainAxisAlignment.start, children: [
-                  TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const SignUpPage()));
-                      },
-                      child: Text('Dont have account? Sign up',
-                          style:
-                              TextStyle(decoration: TextDecoration.underline)))
-                ]),
               ],
             ),
           ),
