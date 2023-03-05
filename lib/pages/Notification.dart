@@ -34,17 +34,6 @@ class NotificationPageState extends State<NotificationPage> {
   //============================================================================
 
   //============================================================================
-  Widget Notification() {
-    return ListView.builder(
-      shrinkWrap: true,
-      physics: ScrollPhysics(),
-      itemCount: group.length,
-      itemBuilder: (context, index) => PostsList(
-        group: group[index],
-        onPress: () {},
-      ),
-    );
-  }
   //============================================================================
 
   //============================================================================
@@ -61,38 +50,8 @@ class NotificationPageState extends State<NotificationPage> {
       //   },
       // ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      appBar: AppBar(
-        toolbarHeight: 110.0,
-        elevation: 0,
-        backgroundColor: white,
-        title: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Notifications",
-                style: TextStyle(
-                    color: basecolor,
-                    fontSize: 25.0,
-                    fontWeight: FontWeight.bold),
-              ),
-              Opacity(
-                opacity: 0.5,
-                child: Text('Lorem ipsum ipsum lorem',
-                    style: TextStyle(color: black, fontSize: 14.0)),
-              )
-            ]),
-      ),
-      // Notifications
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 15),
-        child: ListView(children: [
-          Notification(),
-        ]),
-      ),
-      //bottom navigation bar on scaffold
-      // bottomNavigationBar: NavBar(),
-    );
+      
+      );
   }
 }
 //============================================================================
