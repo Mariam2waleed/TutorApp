@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
         nextScreen: const LoginPage(),
         splashTransition: SplashTransition.fadeTransition,
         backgroundColor: Color.fromARGB(255, 114, 43, 172),
-        duration: 3000,
+        duration: 3,
       ),
     );
   }

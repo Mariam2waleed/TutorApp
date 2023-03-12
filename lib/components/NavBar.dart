@@ -25,7 +25,6 @@ class NavBarState extends State<NavBar> {
     InboxPage(),
     ProfilePage(),
     NotificationPage(),
-    ClassworkPage(),
   ];
 
   @override
@@ -38,8 +37,8 @@ class NavBarState extends State<NavBar> {
           // appBar: AppBar(),
           body: screens[index],
           bottomNavigationBar: Theme(
-            data:
-                Theme.of(context).copyWith(iconTheme: IconThemeData(color: white)),
+            data: Theme.of(context)
+                .copyWith(iconTheme: IconThemeData(color: white)),
             child: CurvedNavigationBar(
               key: navigationKey,
               color: basecolor,
@@ -53,7 +52,6 @@ class NavBarState extends State<NavBar> {
                 Icon(Icons.chat, size: 30),
                 Icon(Icons.favorite, size: 30),
                 Icon(Icons.notifications, size: 30),
-                Icon(Icons.list, size: 30),
               ],
               onTap: (index) => setState(() => this.index = index),
               //Handle button tap
