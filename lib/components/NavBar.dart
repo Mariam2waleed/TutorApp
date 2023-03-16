@@ -50,7 +50,7 @@ class NavBarState extends State<NavBar> {
               items: <Widget>[
                 Icon(Icons.home, size: 30),
                 Icon(Icons.chat, size: 30),
-                Icon(Icons.favorite, size: 30),
+                Icon(Icons.calendar_today_rounded, size: 30),
                 Icon(Icons.notifications, size: 30),
               ],
               onTap: (index) => setState(() => this.index = index),
