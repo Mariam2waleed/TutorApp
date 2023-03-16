@@ -150,6 +150,15 @@ class CoursePageState extends State<CoursePage> {
         toolbarHeight: 110.0,
         elevation: 0,
         backgroundColor: white,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: black,
+          ),
+        ),
         title: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
