@@ -51,7 +51,9 @@ class HomePageState extends State<HomePage> {
         backgroundColor: white,
         // automaticallyImplyLeading: false,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            
+          },
           icon: Icon(
             Icons.menu,
             color: black,
@@ -76,7 +78,7 @@ class HomePageState extends State<HomePage> {
                       Image.asset(currUser!.profileImage, fit: BoxFit.cover)),
             ),
             onPressed: () => {
-              Navigator.pushReplacement(
+              Navigator.push(
                   context,
                   MaterialPageRoute(
                       builder: (context) => const ProfilePage()))

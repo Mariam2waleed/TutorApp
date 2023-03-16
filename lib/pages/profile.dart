@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tutor/components/SideMenu.dart';
 import 'package:tutor/components/comp.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tutor/components/NavBar.dart';
@@ -41,17 +42,15 @@ class ProfilePageState extends State<ProfilePage> {
       //   onPressed: () {},
       // ),
       // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      appBar:AppBar(
+      appBar: AppBar(
         toolbarHeight: 110.0,
         elevation: 0,
         backgroundColor: white,
         // automaticallyImplyLeading: false,
         leading: IconButton(
           onPressed: () {
-            //Navigator.pop(context)
-            // ok
-            
-            },
+            Navigator.pop(context);
+          },
           icon: Icon(
             Icons.arrow_back_ios,
             color: black,
@@ -77,14 +76,14 @@ class ProfilePageState extends State<ProfilePage> {
                       builder: (context) => const NotificationPage()),
                 );
               }),
-        
         ],
       ),
-  //============================================================================
+      drawer: SideMenu(),
+      //============================================================================
       // body:
-      
-      
-      );
+
+      //  bottomNavigationBar: const NavBar(),
+    );
   }
 }
 //============================================================================

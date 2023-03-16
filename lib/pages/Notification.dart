@@ -49,9 +49,45 @@ class NotificationPageState extends State<NotificationPage> {
       //         MaterialPageRoute(builder: (context) => const ProfilePage()));
       //   },
       // ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      
-      );
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      appBar: AppBar(
+        toolbarHeight: 110.0,
+        elevation: 0,
+        backgroundColor: white,
+        // automaticallyImplyLeading: false,
+        leading: IconButton(
+          onPressed: () => {},
+          icon: Icon(
+            Icons.menu,
+            color: black,
+          ),
+        ),
+        title: Center(
+            child: Text(
+          "Notifications",
+          style: TextStyle(color: black, fontWeight: FontWeight.bold),
+        )),
+        actions: [
+          IconButton(
+            highlightColor: Colors.deepPurple[300],
+            iconSize: 48.0,
+            icon:
+                // ImageIcon(Image.asset('assets/images/Me.jpeq').image)
+                CircleAvatar(
+              radius: 50,
+              child: ClipRRect(
+                  borderRadius: BorderRadius.circular(50),
+                  child:
+                      Image.asset(currUser!.profileImage, fit: BoxFit.cover)),
+            ),
+            onPressed: () => {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const ProfilePage()))
+            },
+          ),
+        ],
+      ),
+    );
   }
 }
 //============================================================================

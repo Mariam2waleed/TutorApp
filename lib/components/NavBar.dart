@@ -23,7 +23,7 @@ class NavBarState extends State<NavBar> {
   final screens = [
     HomePage(),
     InboxPage(),
-    ProfilePage(),
+    SchedulePage(),
     NotificationPage(),
   ];
 
