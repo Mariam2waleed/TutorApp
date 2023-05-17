@@ -49,44 +49,57 @@ class LoginPageState extends State<LoginPage> {
           children: <Widget>[
             // Sign In
             MaterialButton(
-              // minWidth: 20,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(70.0)),
-              padding: const EdgeInsets.all(0.0),
-              child: Ink(
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          Colors.deepPurple,
-                          Color.fromARGB(255, 188, 112, 207)
-                        ]),
-                    borderRadius: BorderRadius.all(Radius.circular(70.0)),
-                  ),
-                  child: Container(
-                      constraints: const BoxConstraints(
-                          maxWidth: 150,
-                          // minWidth: 30.0,
-                          minHeight: 44.0), // min sizes for Material buttons
-                      alignment: Alignment.center,
-                      child: const Text(
-                        'LOGIN',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25),
-                        textAlign: TextAlign.center,
-                      ))),
-              onPressed: () async {
-                debugPrint("Loding");
-                await Future.delayed(const Duration(seconds: 2));
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => const NavBar()));
-              }
+                // minWidth: 20,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(70.0)),
+                padding: const EdgeInsets.all(0.0),
+                child: Ink(
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Colors.deepPurple,
+                            Color.fromARGB(255, 188, 112, 207)
+                          ]),
+                      borderRadius: BorderRadius.all(Radius.circular(70.0)),
+                    ),
+                    child: Container(
+                        constraints: const BoxConstraints(
+                            maxWidth: 150,
+                            // minWidth: 30.0,
+                            minHeight: 44.0), // min sizes for Material buttons
+                        alignment: Alignment.center,
+                        child: const Text(
+                          'LOGIN',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 25),
+                          textAlign: TextAlign.center,
+                        ))),
+                onPressed: () async {
+                  debugPrint("Loding");
+                  await Future.delayed(const Duration(seconds: 2));
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => const NavBar()));
+                }),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("Don't have an account?"),
+                // Text( 'Register here', style: TextStyle(color: Colors.blue), ),
+                TextButton(
+                  style: TextButton.styleFrom(
+                      textStyle: const TextStyle(fontWeight: FontWeight.bold)),
+                  onPressed: () => {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const SignUpPage()))
+                  },
+                  child: const Text('Register here'),
+                ),
+              ],
             ),
-            Text("Don't have an account?"), 
-            Text( 'Register here', style: TextStyle(color: Colors.blue), )
           ],
         ),
       ),
