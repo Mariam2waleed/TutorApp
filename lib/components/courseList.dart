@@ -107,7 +107,7 @@ class CourseList extends StatelessWidget {
 
 //  Container(
 //               width: 60,
-//               child: SvgPicture.asset('assets/images/log.svg'),
+//               child: SvgPicture.asset('Assets/images/log.svg'),
 //             ),
 //             SizedBox(
 //               width: 20,

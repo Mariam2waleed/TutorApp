@@ -10,7 +10,7 @@ import 'package:tutor/pages/Profile.dart';
 import 'package:tutor/pages/Schedule.dart';
 import 'package:tutor/service/store.dart';
 import 'package:tutor/pages/Notification.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import '../components/AppDrawer.dart';
 import '../components/NavBar.dart';
 
@@ -38,14 +38,13 @@ class HomePageState extends State<HomePage> {
   }
 
   //============================================================================
-
   //===========================================================================
 
   //============================================================================
 
   @override
   Widget build(BuildContext context) {
-    var scaffold = Scaffold(
+    return Scaffold(
         appBar: AppBar(
             toolbarHeight: 110.0,
             elevation: 0,
@@ -69,7 +68,7 @@ class HomePageState extends State<HomePage> {
                   highlightColor: Colors.deepPurple[300],
                   iconSize: 48.0,
                   icon:
-                      // ImageIcon(Image.asset('assets/images/Me.jpeq').image)
+                      // ImageIcon(Image.asset('Assets/images/Me.jpeq').image)
                       CircleAvatar(
                           radius: 50,
                           child: ClipRRect(
@@ -87,12 +86,21 @@ class HomePageState extends State<HomePage> {
 
         /////////////////////////////////////////////////
         body: ListView(children: [
-          Text(
-            "Subject Categories",
-            style: TextStyle(
-                color: black, fontSize: 25.0, fontWeight: FontWeight.bold),
+          /// Subject
+          Row(
+            children: [
+              Text("Subject Categories",
+                  style: 
+                  // GoogleFonts.pacifico(),
+                  TextStyle(
+                      color: black,
+                      fontSize: 25.0,
+                      fontWeight: FontWeight.bold)
+                  ),
+              Icon(Icons.arrow_forward, color: black)
+            ],
           ),
-          Icon(Icons.arrow_forward, color: black),
+          // Body of home page
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Column(
@@ -101,52 +109,62 @@ class HomePageState extends State<HomePage> {
                   children: [
                     // Course Horizontal List
                     Container(
-                        height: 150.0,
-                        child: ListView.builder(
-                            // This next line does the trick.
-                            scrollDirection: Axis.horizontal,
-                            itemCount: group.length,
-                            itemBuilder: (BuildContext context, int index) {
-                              return Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(horizontal: 5),
-                                  child: Container(
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.all(
+                      height: 100.0,
+                      child: ListView.builder(
+                          // This next line does the trick.
+                          scrollDirection: Axis.horizontal,
+                          itemCount: group.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 5),
+                                child: Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius: const BorderRadius.all(
                                             Radius.circular(50)),
-                                        color: group[index].course_color,
-                                      ),
-                                      width: 145.0,
-                                      child: GestureDetector(
-                                          onTap: () {
-                                            Navigator.pushReplacement(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        CoursePage(
-                                                            group[index].id)));
-                                            print(index);
-                                          },
-                                          child: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: [
-                                                Image.asset(
-                                                    'assets/images/student.jpg',
-                                                    width: 130,
-                                                    height: 100),
-                                                Text(group[index].course_name,
-                                                    style: TextStyle(
-                                                        color: white,
-                                                        fontSize: 13,
-                                                        fontWeight:
-                                                            FontWeight.w900))
-                                              ]))));
-                            })),
+                                        color: group[index].course_color),
+                                    width: 100.0,
+                                    child: GestureDetector(
+                                        onTap: () {
+                                          Navigator.pushReplacement(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      CoursePage(
+                                                          group[index].id)));
+                                          // print(index);
+                                        },
+                                        child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(65),
+                                                  child: Image.asset(
+                                                    group[index].course_img,
+                                                    fit: BoxFit.cover,
+                                                    width: 80,
+                                                    height: 80,
+                                                  )),
+                                              // Image.asset(
+                                              //     group[index].course_img,
+                                              //     width: 40,
+                                              //     height: 40,
+                                              //     fit: BoxFit.cover),
+                                              Text(group[index].course_name,
+                                                  style: TextStyle(
+                                                      color: black,
+                                                      fontSize: 13,
+                                                      fontWeight:
+                                                          FontWeight.w900))
+                                            ]))));
+                          }),
+                    ),
                     SizedBox(height: 25),
-                    // Home
+                    // Home  Featured lists
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -156,54 +174,68 @@ class HomePageState extends State<HomePage> {
                                 fontSize: 25,
                                 fontWeight: FontWeight.bold)),
                         SizedBox(height: 2.5),
-                        Text('You can see all the new posts here',
-                            style:
-                                TextStyle(color: Colors.black54, fontSize: 15)),
+                        // Text('You can see all the new posts here',
+                        //     style:
+                        //         TextStyle(color: Colors.black54, fontSize: 15)),
                       ],
                     ),
                     SizedBox(height: 15),
-                    //  alert
+                    // Horizontal Featured lists
                     Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(15)),
-                          color: basecolor3,
-                        ),
-                        child: Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: Column(children: [
-                              Row(children: [
-                                CircleAvatar(
-                                  radius: 20,
-                                  child:
-                                      SvgPicture.asset('assets/images/log.svg'),
-                                ),
-                                Padding(
-                                    padding: EdgeInsets.only(left: 10),
-                                    child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(currUser!.fname,
-                                              style: TextStyle(
-                                                  color: white,
-                                                  fontSize: 15.0)),
-                                          Text('2 hr ',
-                                              style: TextStyle(
-                                                  color: white,
-                                                  fontSize: 15.0)),
-                                        ])),
-                                Spacer(),
-                                Icon(
-                                  Icons.volume_up_rounded,
-                                  color: white,
-                                )
-                              ]),
-                              SizedBox(height: 15),
-                              Text(
-                                'Dear Students,                                                                                                            Thursday lectures are cancelled due to public holiday. All assignments will be due Sunday 17th',
-                                style: TextStyle(color: white, fontSize: 10),
-                              )
-                            ]))),
+                      height: 150.0,
+                      child: ListView.builder(
+                          // This next line does the trick.
+                          scrollDirection: Axis.horizontal,
+                          itemCount: group.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 5),
+                                child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(50)),
+                                      color: group[index].course_color,
+                                    ),
+                                    width: 145.0,
+                                    child: GestureDetector(
+                                        onTap: () {
+                                          Navigator.pushReplacement(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      CoursePage(
+                                                          group[index].id)));
+                                          print(index);
+                                        },
+                                        child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(50),
+                                                  child: Image.asset(
+                                                    'Assets/images/student.jpg',
+                                                    fit: BoxFit.cover,
+                                                    width: 130,
+                                                    height: 130,
+                                                  )),
+                                              // Image.asset(
+                                              //     'Assets/images/student.jpg',
+                                              //     width: 130,
+                                              //     height: 100),
+                                              Text(group[index].course_name,
+                                                  style: TextStyle(
+                                                      color: black,
+                                                      fontSize: 13,
+                                                      fontWeight:
+                                                          FontWeight.w900))
+                                            ]))));
+                          }),
+                    ),
                     SizedBox(height: 15),
                     Divider(color: Colors.grey, thickness: 2),
                     SizedBox(height: 15),
@@ -219,7 +251,7 @@ class HomePageState extends State<HomePage> {
                                 CircleAvatar(
                                     radius: 20,
                                     child: SvgPicture.asset(
-                                        'assets/images/log.svg')),
+                                        'Assets/images/log.svg')),
                                 Padding(
                                     padding: EdgeInsets.only(left: 10),
                                     child: Column(
@@ -254,10 +286,53 @@ class HomePageState extends State<HomePage> {
         //bottom navigation bar on scaffold
         //  bottomNavigationBar: const NavBar(),
         );
-    return scaffold;
+    // return scaffold;
   }
 }
 
 //============================================================================
 
 //===========================================================================
+
+//  alert
+// Container(
+//     decoration: BoxDecoration(
+//       borderRadius: BorderRadius.all(Radius.circular(15)),
+//       color: basecolor3,
+//     ),
+//     child: Padding(
+//         padding: const EdgeInsets.all(10.0),
+//         child: Column(children: [
+//           Row(children: [
+//             CircleAvatar(
+//               radius: 20,
+//               child:
+//                   SvgPicture.asset('Assets/images/log.svg'),
+//             ),
+//             Padding(
+//                 padding: EdgeInsets.only(left: 10),
+//                 child: Column(
+//                     crossAxisAlignment:
+//                         CrossAxisAlignment.start,
+//                     children: [
+//                       Text(currUser!.fname,
+//                           style: TextStyle(
+//                               color: white,
+//                               fontSize: 15.0)),
+//                       Text('2 hr ',
+//                           style: TextStyle(
+//                               color: white,
+//                               fontSize: 15.0)),
+//                     ])),
+//             Spacer(),
+//             Icon(
+//               Icons.volume_up_rounded,
+//               color: white,
+//             )
+//           ]),
+//           SizedBox(height: 15),
+//           Text(
+//             'Dear Students,                                                                                                            Thursday lectures are cancelled due to public holiday. All assignments will be due Sunday 17th',
+//             style: TextStyle(color: white, fontSize: 10),
+//           )
+//         ]))),

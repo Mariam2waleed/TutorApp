@@ -17,6 +17,8 @@ import 'package:tutor/pages/Schedule.dart';
 import 'package:tutor/service/store.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 
+import 'N/home.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -25,28 +27,54 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    // final double statusBarHeight = MediaQuery.of(context).padding.top;
+    // final double bottomBarHeight = MediaQuery.of(context).padding.bottom;
+    // final double screenHeight =
+    //     MediaQuery.of(context).size.height - statusBarHeight - bottomBarHeight;
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: AnimatedSplashScreen(
-        splash:
-        ///////Linear Gradient
-            // Container(
-            //   decoration: const BoxDecoration(
-            //       gradient: LinearGradient(
-            //           begin: Alignment.topLeft,
-            //           end: Alignment.bottomLeft,
-            //           colors: [Color.fromARGB(255, 169, 77, 255), Colors.purple])),
-            // child:
-            SvgPicture.asset('assets/images/log.svg', color: white),
-        // ),
-        nextScreen: const LoginPage(),
-        splashTransition: SplashTransition.fadeTransition,
-        backgroundColor: Color.fromARGB(255, 114, 43, 172),
-        duration: 3,
-      ),
+          scaffoldBackgroundColor: Colors.transparent,
+          visualDensity: VisualDensity.adaptivePlatformDensity),
+      home: Stack(children: [
+        AnimatedSplashScreen(
+            splash: Container(),
+            duration: 1000,
+            splashTransition: SplashTransition.fadeTransition,
+            // backgroundColor: Colors.blueGrey,
+            nextScreen: const LoginPage()),
+        Container(
+            height: MediaQuery.of(context).size.height,
+            decoration: const BoxDecoration(
+                image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: AssetImage('Assets/images/SplashSC.png'))))
+      ]),
+
+      //     AnimatedSplashScreen(
+      //         splash:
+      //     ///////Linear Gradient
+      //     // Container(
+      //     //   decoration: const BoxDecoration(
+      //     //       gradient: LinearGradient(
+      //     //           begin: Alignment.topLeft,
+      //     //           end: Alignment.bottomLeft,
+      //     //           colors: [Color.fromARGB(255, 169, 77, 255), Colors.purple])),
+      //     // child: Image.asset('Assets/images/SplashSC.png', fit: BoxFit.fill),
+      //     // ),
+      //     Container(
+      //   decoration: BoxDecoration(
+      //       color: Color.fromARGB(50, 255, 193, 7),
+      //       image: DecorationImage(
+      //         image: AssetImage('Assets/images/SplashSC.png'),
+      //         fit: BoxFit.contain,
+      //       )),
+      // ),
+      //     nextScreen: const LoginPage(),
+      //     splashTransition: SplashTransition.fadeTransition,
+      //     // backgroundColor: const Color.fromARGB(255, 114, 43, 172),
+      //     duration: 10000),
     );
   }
 }

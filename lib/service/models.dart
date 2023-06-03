@@ -21,6 +21,7 @@ class User {
   String gender = "";
   String fname = "";
   String lname = "";
+  String email= "";
   //---------------------------------------------------------
   String branch = "";
   String college = "";
@@ -30,40 +31,42 @@ class User {
   //---------------------------------------------------------
   int sem = 0;
   double gpa = 0.0;
-  // Image profileImage = Image.asset('assets/images/Me.jpeq');
-String profileImage;
+  // Image profileImage = Image.asset('Assets/images/Me.jpeq');
+  String profileImage;
 
-  User({
-    this.type = '',
-    this.id = '',
-    this.title = '',
-    this.gender = '',
-    this.fname = '',
-    this.lname = '',
-    this.branch = '',
-    this.college = '',
-    this.dep = '',
-    this.sem = 0,
-    this.gpa = 0.0,
-    this.profileImage = ''
+  User(
+      {this.type = '',
+      this.id = '',
+      this.title = '',
+      this.gender = '',
+      this.fname = '',
+      this.lname = '',
+      this.email = '',
+      this.branch = '',
+      this.college = '',
+      this.dep = '',
+      this.sem = 0,
+      this.gpa = 0.0,
+      this.profileImage = ''
 
-    // Image.asset('assets/images/Me.jpeq'),
-    // required this.profileImage,
-  });
+      // Image.asset('Assets/images/Me.jpeq'),
+      // required this.profileImage,
+      });
   static User decode(Map map) {
     return User(
         type: map['type'] ?? '',
         id: map['id'] ?? '',
         fname: map['fname'] ?? '',
         lname: map['lname'] ?? '',
+        email: map['email'] ?? '',
         branch: map['branch'] ?? '',
         college: map['college'] ?? '',
         dep: map['dep'] ?? '',
         sem: map['sem'] ?? 0,
         gpa: map['gpa'] ?? 0.0,
-        profileImage: 'assets/images/log.svg'
+        profileImage: 'Assets/images/log.svg'
 
-        // const Image(image: AssetImage('assets/images/Me.jpeg'),)
+        // const Image(image: AssetImage('Assets/images/Me.jpeg'),)
         );
   }
 
@@ -88,6 +91,7 @@ class Group {
   String course_code = "";
   String course_name = "";
   Color course_color = white;
+  String course_img;
   //---------------------------------------------------------
   String branch = "";
   String college = "";
@@ -99,6 +103,7 @@ class Group {
     this.course_code = '',
     this.course_name = '',
     this.course_color = Colors.white,
+    this.course_img = '',
   });
   static Group decode(Map map) {
     return Group(
@@ -107,12 +112,17 @@ class Group {
         course_code: map['course_code'] ?? '',
         course_name: map['course_name'] ?? '',
         course_color: map['course_color'] ?? white);
+        course_img:'Assets/images/log.svg';
   }
 }
 
 //==============================================================================
+
 class Chat {
-  final String name, lastMessage, image, time;
+  final String name;
+  final String lastMessage;
+  final String  image;
+  final String   time;
   final bool isActive;
   Chat({
     this.name = '',

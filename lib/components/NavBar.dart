@@ -30,6 +30,13 @@ class NavBarState extends State<NavBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      // decoration: BoxDecoration(
+      //     gradient: LinearGradient(
+      //       begin: Alignment.topCenter,
+      //       end: Alignment.bottomCenter,
+      //       colors: [Color(0xFFB48EE0), Color(0xFF6A1B9A)],
+      //     ),
+      //   ),
       child: SafeArea(
         top: false,
         child: Scaffold(
@@ -42,7 +49,7 @@ class NavBarState extends State<NavBar> {
             child: CurvedNavigationBar(
               key: navigationKey,
               color: basecolor,
-              buttonBackgroundColor: Colors.amber,
+              buttonBackgroundColor: basecolor3,
               backgroundColor: Colors.transparent,
               animationCurve: Curves.easeInOut,
               animationDuration: Duration(milliseconds: 300),
@@ -190,19 +197,19 @@ class NavBarState extends State<NavBar> {
     //       children: [
     //         Opacity(
     //           opacity: 0.5,
-    //           child: SvgPicture.asset('assets/images/log.svg'),
+    //           child: SvgPicture.asset('Assets/images/log.svg'),
     //         ),
     //         Opacity(
     //           opacity: 0.5,
-    //           child: SvgPicture.asset('assets/images/log.svg'),
+    //           child: SvgPicture.asset('Assets/images/log.svg'),
     //         ),
     //         Opacity(
     //           opacity: 0.5,
-    //           child: SvgPicture.asset('assets/images/log.svg'),
+    //           child: SvgPicture.asset('Assets/images/log.svg'),
     //         ),
     //         Opacity(
     //           opacity: 0.5,
-    //           child: SvgPicture.asset('assets/images/log.svg'),
+    //           child: SvgPicture.asset('Assets/images/log.svg'),
     //         ),
     //       ],
     //     ),

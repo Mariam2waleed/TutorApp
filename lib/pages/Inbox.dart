@@ -2,14 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tutor/components/comp.dart';
 import 'package:tutor/components/messagesList.dart';
-import 'package:tutor/pages/Classwork.dart';
-import 'package:tutor/pages/Home.dart';
+import 'package:tutor/pages/Chat.dart';
 import 'package:tutor/pages/Profile.dart';
-import 'package:tutor/pages/Schedule.dart';
 import 'package:tutor/service/store.dart';
 
 import '../components/AppDrawer.dart';
-import '../components/NavBar.dart';
 
 class InboxPage extends StatefulWidget {
   const InboxPage({super.key});
@@ -46,20 +43,6 @@ class InboxPageState extends State<InboxPage> {
   //============================================================================
 
   //============================================================================
-  Widget messages() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-      child: ListView.builder(
-        shrinkWrap: true,
-        physics: ScrollPhysics(),
-        itemCount: group.length,
-        itemBuilder: (context, index) => MessagesList(
-          group: group[index],
-          onPress: () {},
-        ),
-      ),
-    );
-  }
 
   //============================================================================
 
@@ -75,12 +58,13 @@ class InboxPageState extends State<InboxPage> {
       //   },
       // ),
       // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+
       appBar: AppBar(
           toolbarHeight: 110.0,
           elevation: 0,
           backgroundColor: white,
           // automaticallyImplyLeading: false,
-
+          iconTheme: IconThemeData(color: black),
           title: Center(
               child: Text(
             "Inbox",
@@ -91,7 +75,7 @@ class InboxPageState extends State<InboxPage> {
                 highlightColor: Colors.deepPurple[300],
                 iconSize: 48.0,
                 icon:
-                    // ImageIcon(Image.asset('assets/images/Me.jpeq').image)
+                    // ImageIcon(Image.asset('Assets/images/Me.jpeq').image)
                     CircleAvatar(
                   radius: 50,
                   child: ClipRRect(
@@ -135,10 +119,45 @@ class InboxPageState extends State<InboxPage> {
       //         ),
       //       ]),
       // Messages
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 15),
-        child: ListView(children: [messages()]),
+      body:
+      
+      //  Container(
+      //   child: Column(
+      //     children: [
+      //       Expanded(flex:9 ,child: Container()),
+      //       Expanded(child: Container(
+      //         color: Colors.amber,
+      //       )),
+      //     ],
+      //   ),
+      // )
+      
+      
+      ////////////////////////////////////////////////////////////////////      
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15),
+        child: ListView(children: [  IconButton(
+                highlightColor: Colors.deepPurple[300],
+                iconSize: 48.0,
+                icon:
+                    // ImageIcon(Image.asset('Assets/images/Me.jpeq').image)
+                    CircleAvatar(
+                  radius: 50,
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(50),
+                      child: Image.asset(currUser!.profileImage,
+                          fit: BoxFit.cover)),
+                ),
+                onPressed: () => {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ChatPage()))
+                    })]),
       ),
+      
+      ////////////////////////////////////////////////////////////////////
+      
       //bottom navigation bar on scaffold
       // bottomNavigationBar: NavBar(),
     );

@@ -9,11 +9,11 @@ import '../pages/Inbox.dart';
 import '../pages/Schedule.dart';
 
 // Color basecolor = Color(#691CC1);
-Color basecolor = Color.fromARGB(226, 118, 5, 189);
+Color basecolor = Color(0xFF691CC1);
 LinearGradient basecolorL = LinearGradient(colors: [basecolor,basecolor3]);
 Gradient basecolorG = LinearGradient(colors: [basecolor,basecolor3]);
 // Color basecolor3 = Colors.red;
-Color basecolor3 = Color.fromARGB(242, 160, 62, 218);
+Color basecolor3 = Color(0xFFB48EE0);
 Color black = Colors.black;
 Color white = Colors.white;
 //Color course_color = Color.fromARGB(255, 36, 212, 20);

@@ -51,7 +51,7 @@ class OTPState extends State<OTP> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               SvgPicture.asset(
-                "assets/images/log.svg",
+                "Assets/images/log.svg",
                 width: MediaQuery.of(context).size.width * 0.5,
                 color: basecolor,
               ),

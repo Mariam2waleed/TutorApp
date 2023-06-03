@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tutor/components/SideMenu.dart';
 import 'package:tutor/components/comp.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tutor/components/NavBar.dart';
@@ -47,15 +46,16 @@ class ProfilePageState extends State<ProfilePage> {
         elevation: 0,
         backgroundColor: white,
         // automaticallyImplyLeading: false,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(
-            Icons.arrow_back_ios,
-            color: black,
-          ),
-        ),
+        // leading: IconButton(
+        //   onPressed: () {
+        //     Navigator.pop(context);
+        //   },
+        //   icon: Icon(
+        //     Icons.arrow_back_ios,
+        //     color: black,
+        //   ),
+        // ),
+        iconTheme: IconThemeData(color: black),
         title: Center(
             child: Text(
           "Profile",
@@ -65,20 +65,20 @@ class ProfilePageState extends State<ProfilePage> {
           IconButton(
               padding: EdgeInsets.only(right: 40),
               icon: Icon(
-                Icons.notifications,
+                Icons.edit,
                 color: basecolor,
-                size: 35,
+                // size: 35,
               ),
               onPressed: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const NotificationPage()),
-                );
+                // Navigator.pushReplacement(
+                //   context,
+                //   MaterialPageRoute(
+                //       builder: (context) => const NotificationPage()),
+                // );
               }),
         ],
       ),
-      drawer: SideMenu(),
+      // drawer: SideMenu(),
       //============================================================================
       // body:
 

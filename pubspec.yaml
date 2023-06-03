@@ -48,7 +48,15 @@ dependencies:
   accordion: ^2.5.1
   curved_navigation_bar: ^1.0.3 #latest version
   # api hhtp .... ^0.12.0+1
-  http: any
+  http: ^0.13.4
+  flutter_rating_bar: ^4.0.1
+  intl: ^0.18.1
+  awesome_dialog: ^3.0.2
+  date_time_line: ^0.0.3
+  chat_bubbles: ^1.4.1
+  dash_chat_2: ^0.0.17
+  socket_io_client: ^2.0.2
+  get: ^4.6.5
 
 
 dev_dependencies:
@@ -70,7 +78,7 @@ dev_dependencies:
 flutter_icons:
   android: true
   ios: true
-  image_path: "assets/images/logo.svg"
+  image_path: "Assets/images/tutoricon.png"
 # The following section is specific to Flutter packages.
 flutter:
 
@@ -81,13 +89,22 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-      - assets/images/log.svg
-      - assets/images/logo.svg
-      - assets/images/student.jpg
-      - assets/images/study.svg
-      - assets/images/Me.jpeg
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+      # - android/app/src/main/res/mipmap-hdpi/tutoricon.png
+      - ios/Runner/Assets.xcassets/AppIcon.appiconset/tutoricon.png
+      - Assets/images/log.svg
+      - Assets/images/logo.svg
+      - Assets/images/student.jpg
+      - Assets/images/study.svg
+      - Assets/images/Arabic.png
+      - Assets/images/Me.jpeg
+      - Assets/images/Splash.png
+      - Assets/images/SplashSC.png
+      - Assets/images/Math.png
+      - Assets/images/English.png
+      - Assets/images/Physics.png
+    # - images/a_dot_burr.jpeg
+    # - images/a_dot_ham.jpeg
+    # - assets/images/Arabic.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

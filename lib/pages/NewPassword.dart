@@ -44,7 +44,7 @@ class NewPasswordState extends State<NewPassword> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              SvgPicture.asset("assets/images/log.svg",
+              SvgPicture.asset("Assets/images/log.svg",
                   width: MediaQuery.of(context).size.width * 0.5,
                   color: basecolor),
               SizedBox(height: 100.0),

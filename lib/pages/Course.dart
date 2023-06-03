@@ -137,15 +137,15 @@ class CoursePageState extends State<CoursePage> {
   Widget build(BuildContext context) {
     final int x = widget.index;
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.person),
-        backgroundColor: basecolor,
-        onPressed: () {
-          Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => const ProfilePage()));
-        },
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // floatingActionButton: FloatingActionButton(
+      //   child: Icon(Icons.person),
+      //   backgroundColor: basecolor,
+      //   onPressed: () {
+      //     Navigator.pushReplacement(context,
+      //         MaterialPageRoute(builder: (context) => const ProfilePage()));
+      //   },
+      // ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       appBar: AppBar(
         toolbarHeight: 110.0,
         elevation: 0,
@@ -172,20 +172,20 @@ class CoursePageState extends State<CoursePage> {
                   style: TextStyle(color: Colors.black38, fontSize: 14.0)),
             ]),
         actions: [
-          IconButton(
-              padding: EdgeInsets.only(right: 40),
-              icon: Icon(
-                Icons.notifications,
-                color: basecolor,
-                size: 35,
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const NotificationPage()),
-                );
-              })
+          // IconButton(
+          //     padding: EdgeInsets.only(right: 40),
+          //     icon: Icon(
+          //       Icons.notifications,
+          //       color: basecolor,
+          //       size: 35,
+          //     ),
+          //     onPressed: () {
+          //       // Navigator.push(
+          //       //   context,
+          //       //   MaterialPageRoute(
+          //       //       builder: (context) => const NotificationPage()),
+          //       // );
+          //     })
         ],
       ),
       // Course
@@ -217,7 +217,7 @@ class CoursePageState extends State<CoursePage> {
                     title: Row(children: [
                       CircleAvatar(
                           //radius: 20,
-                          child: SvgPicture.asset('assets/images/log.svg')),
+                          child: SvgPicture.asset('Assets/images/log.svg')),
                       Padding(
                           padding: EdgeInsets.only(left: 10),
                           child: Column(
