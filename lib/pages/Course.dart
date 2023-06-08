@@ -7,14 +7,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tutor/components/comp.dart';
 import 'package:tutor/components/TAList.dart';
 import 'package:tutor/components/PostsList.dart';
-import 'package:tutor/pages/Notification.dart';
-import 'package:tutor/pages/Profile.dart';
+// import 'package:tutor/pages/Notification.dart';
+// import 'package:tutor/pages/Profile.dart';
 import 'package:tutor/service/store.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 
-import '../components/NavBar.dart';
+// import '../components/NavBar.dart';
 
 class CoursePage extends StatefulWidget {
   final int index;

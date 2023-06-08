@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+// import 'package:flutter_svg/svg.dart';
 import 'package:tutor/components/comp.dart';
 import 'package:tutor/pages/Course.dart';
 import 'package:tutor/service/models.dart';
-import 'package:tutor/service/store.dart';
+// import 'package:tutor/service/store.dart';
 
 class structureList extends StatelessWidget {
   final Group group;
-  bool _customTileExpanded = false;
+  // bool _customTileExpanded = false;
 
   void Function()? onPress;
   structureList({

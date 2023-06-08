@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tutor/components/comp.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:tutor/pages/ForgotPassword.dart';
+// import 'package:tutor/pages/ForgotPassword.dart';
 import 'package:tutor/pages/Login.dart';
 
 class NewPassword extends StatefulWidget {

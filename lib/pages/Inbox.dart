@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tutor/components/comp.dart';
-import 'package:tutor/components/messagesList.dart';
+// import 'package:tutor/components/messagesList.dart';
 import 'package:tutor/pages/Chat.dart';
 import 'package:tutor/pages/Profile.dart';
 import 'package:tutor/service/store.dart';

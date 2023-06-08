@@ -4,17 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tutor/components/comp.dart';
-import 'package:tutor/components/structureList.dart';
-import 'package:tutor/pages/Classwork.dart';
-import 'package:tutor/pages/Home.dart';
+// import 'package:tutor/components/structureList.dart';
+// import 'package:tutor/pages/Classwork.dart';
+// import 'package:tutor/pages/Home.dart';
 import 'package:tutor/pages/Notification.dart';
 import 'package:tutor/pages/Profile.dart';
-import 'package:tutor/pages/Schedule.dart';
+// import 'package:tutor/pages/Schedule.dart';
 import 'package:tutor/service/store.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:accordion/accordion.dart';
+// import 'package:accordion/accordion.dart';
 
 import '../components/NavBar.dart';
 

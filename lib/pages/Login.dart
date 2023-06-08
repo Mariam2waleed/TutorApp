@@ -1,16 +1,16 @@
-import 'dart:convert';
+// import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:tutor/N/home.dart';
 import 'package:tutor/components/NavBar.dart';
-import 'package:tutor/components/comp.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:tutor/pages/ForgotPassword.dart';
-import 'package:tutor/pages/Home.dart';
-import 'package:tutor/pages/SignUp.dart';
-import 'package:http/http.dart' as http;
+// import 'package:tutor/components/comp.dart';
+// import 'package:flutter_svg/svg.dart';
+// import 'package:tutor/pages/ForgotPassword.dart';
+// import 'package:tutor/pages/Home.dart';
+// import 'package:tutor/pages/SignUp.dart';
+// import 'package:http/http.dart' as http;
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -103,12 +103,11 @@ class LoginPageState extends State<LoginPage> {
                           fontSize: 18.0,
                         ),
                         recognizer: TapGestureRecognizer()
-                          ..onTap = () => {
-                                Navigator.push(
+                          ..onTap = () => Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => const MainScreen()))
-                              })
+                                        builder: (context) => const ForgotPassword()))
+                              )
                   ]))
             ]))
             ]),

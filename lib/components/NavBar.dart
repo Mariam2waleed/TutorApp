@@ -1,12 +1,12 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tutor/components/comp.dart';
-import 'package:tutor/pages/Classwork.dart';
+// import 'package:tutor/pages/Classwork.dart';
 import 'package:tutor/pages/Inbox.dart';
 import 'package:tutor/pages/Home.dart';
 import 'package:tutor/pages/Notification.dart';
-import 'package:tutor/pages/Profile.dart';
+// import 'package:tutor/pages/Profile.dart';
 import 'package:tutor/pages/Schedule.dart';
 
 class NavBar extends StatefulWidget {
@@ -17,7 +17,6 @@ class NavBar extends StatefulWidget {
 
 class NavBarState extends State<NavBar> {
   NavBarState({Key? key});
-  @override
   final navigationKey = GlobalKey<CurvedNavigationBarState>();
   int index = 0;
   final screens = [
