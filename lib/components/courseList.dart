@@ -7,7 +7,7 @@ import 'package:tutor/service/models.dart';
 
 class CourseList extends StatelessWidget {
   final Group group;
-  bool _customTileExpanded = false;
+  // bool _customTileExpanded = false;
 
   void Function()? onPress;
   CourseList({
