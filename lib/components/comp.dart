@@ -3,10 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-import '../pages/Classwork.dart';
-import '../pages/Home.dart';
-import '../pages/Inbox.dart';
-import '../pages/Schedule.dart';
+// import '../pages/Classwork.dart';
+// import '../pages/Home.dart';
+// import '../pages/Inbox.dart';
+// import '../pages/Schedule.dart';
 
 // Color basecolor = Color(#691CC1);
 Color basecolor = Color(0xFF691CC1);
@@ -129,7 +129,7 @@ Widget LoadButton({idle_txt = "", load_txt = "", action = null, args = const []}
           borderRadius: BorderRadius.circular(20),
         ),
         child: Container(
-            color: (disabled) ? Colors.grey : Color.fromRGBO(67, 144, 84, 1),
+            color: (disabled) ? Colors.grey : const Color.fromRGBO(67, 144, 84, 1),
             child: Row(children: <Widget>[
               Expanded(
                   flex: 2,

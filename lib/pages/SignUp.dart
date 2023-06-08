@@ -1,13 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tutor/components/comp.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:tutor/pages/ForgotPassword.dart';
-import 'package:tutor/pages/Home.dart';
 import 'package:tutor/pages/Login.dart';
-import 'package:tutor/pages/Profile.dart';
 
-import '../components/NavBar.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});

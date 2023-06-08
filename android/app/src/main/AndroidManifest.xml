@@ -3,8 +3,8 @@
    <application
         android:label="Tutor"
         android:name="${applicationName}"
-        android:icon="@mipmap/tutoricon">
-        <!-- android:roundIcon="@mipmap-hdpi/tutoricon" -->
+        android:icon="@drawable/tutoricon"
+        android:roundIcon="@drawable/tutoricon">
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -194,7 +194,7 @@ class SchedulePageState extends State<SchedulePage> {
                 hintText: "10 task today",
                 onSelected: (value) {
                   setState(() {
-                    var date = value;
+                    // var date = value;
                   });
                 }),
             const SizedBox(height: 20),

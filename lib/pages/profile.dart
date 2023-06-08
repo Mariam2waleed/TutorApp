@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tutor/components/comp.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:tutor/components/NavBar.dart';
-import 'package:tutor/components/courseList.dart';
-import 'package:tutor/pages/Notification.dart';
-import 'package:tutor/service/store.dart';
+// import 'package:flutter_svg/svg.dart';
+// import 'package:tutor/components/NavBar.dart';
+// import 'package:tutor/components/courseList.dart';
+// import 'package:tutor/pages/Notification.dart';
+// import 'package:tutor/service/store.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});

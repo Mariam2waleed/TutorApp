@@ -4,7 +4,6 @@ import 'package:tutor/components/comp.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tutor/pages/ForgotPassword.dart';
 import 'package:tutor/pages/NewPassword.dart';
-import 'package:tutor/pages/OTP.dart';
 
 class OTP extends StatefulWidget {
   // const OTP({super.key});

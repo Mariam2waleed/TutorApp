@@ -4,14 +4,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tutor/components/comp.dart';
-import 'package:tutor/components/PostsList.dart';
 import 'package:tutor/pages/Profile.dart';
 import 'package:tutor/service/store.dart';
 import 'package:http/http.dart' as http;
 // import 'dart:io';
 import '../components/AppDrawer.dart';
-import '../components/NavBar.dart';
-import 'Login.dart';
 
 class NotificationPage extends StatefulWidget {
   const NotificationPage({super.key});

@@ -35,22 +35,23 @@ class _AppDrawerState extends State<AppDrawer> {
         ListTile(
             leading: Icon(Icons.favorite, color: basecolor3),
             title: const Text("Favorites"),
-            onTap: () => {
-                  // change app state...
-                  Navigator.pop(context) // close the drawer
-                }),
-        ListTile(
-          leading: Icon(Icons.change_history, color: basecolor3),
-          title: const Text('Change history'),
-          onTap: () => {Navigator.pop(context)},
-          trailing: ClipOval(
+            trailing: ClipOval(
               child: Container(
                   color: basecolor3,
                   width: 20,
                   height: 20,
                   child: Center(
                       child: Text('8',
-                          style: TextStyle(color: black, fontSize: 12))))),
+                          style: TextStyle(color: black, fontSize: 12)))),
+            ),
+            onTap: () => {
+                  // change app state...
+                  Navigator.pop(context) // close the drawer
+                }),
+        ListTile(
+          leading: Icon(Icons.info, color: basecolor3),
+          title: const Text('About'),
+          onTap: () => {Navigator.pop(context)},
         ),
         ListTile(
             leading: Icon(Icons.settings, color: basecolor3),
