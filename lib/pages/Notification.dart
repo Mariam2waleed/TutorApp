@@ -6,9 +6,10 @@ import 'package:flutter/services.dart';
 import 'package:tutor/components/comp.dart';
 import 'package:tutor/pages/Profile.dart';
 import 'package:tutor/service/store.dart';
-// import 'package:http/http.dart' as http;
+import 'package:http/http.dart' as http;
 // import 'dart:io';
 import '../components/AppDrawer.dart';
+import '../service/EndPoints.dart';
 
 class NotificationPage extends StatefulWidget {
   const NotificationPage({super.key});
@@ -41,10 +42,10 @@ class NotificationPageState extends State<NotificationPage> {
   var desc = TextEditingController();
   //============================================================================
   insert() async {
-    // var res = await http.post(
-    //     Uri.parse('https://tutor-running.herokuapp.com/product'),
-    //     body: {"name": name.text, "price": price.text, "desc": desc.text},
-    //     headers: {"Content-Type": "application/x-www-form-urlencoded"});
+    var res = await http.post(
+        Uri.parse(EndPoints.product),
+        body: {"name": name.text, "price": price.text, "desc": desc.text},
+        headers: {"Content-Type": "application/x-www-form-urlencoded"});
   }
   //============================================================================
 

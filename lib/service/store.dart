@@ -1,21 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:tutor/components/comp.dart';
 import 'package:tutor/service/models.dart';
 
-User? currUser = User(
-    type: 'student',
+UserModel? currUser = UserModel(
+    // type: 'student',
     id: '1',
     fname: 'Mariam ',
     lname: 'Waleed',
     email: 'Mariam2waleed@gmail.com',
     gender: 'Female',
-    branch: 'Alexandria',
-    college: 'Software engineering',
-    dep: ' SIM ',
-    sem: 8,
-    gpa: 3.2,
+    // branch: 'Alexandria',
+    // college: 'Software engineering',
+    // dep: ' SIM ',
+    // sem: 8,
+    // gpa: 3.2,
     profileImage:
         // const Image(image: AssetImage('Assets/images/Me.jpeg'))
-        'Assets/images/Me.jpeg');
+        'Assets/images/Me.jpeg',
+    role: Role.student,
+    location: 'Alexandria, Egypt',
+    phone_number: '01001167205',
+    age: 22);
 
 List<Group> group = [
   Group(
@@ -32,7 +37,7 @@ List<Group> group = [
     course_code: 'GN222',
     course_name: 'English ',
     course_color: Colors.yellow,
-    course_img: 'Assets/images/English.png',
+    course_img: 'c',
   ),
   Group(
     id: 2,
@@ -152,7 +157,6 @@ const info = [
   },
 ];
 
-
 const messages = [
   {"isMe": false, "text": "Hey What is up with you!!", "time": "10:00 am"},
   {"isMe": true, "text": "im fine,wbu?", "time": "11:00 am"},
@@ -183,19 +187,9 @@ const messages = [
     "text": "Looks great to me!",
     "time": "11:15 am",
   },
-  
-
   {"isMe": false, "text": "Thanks bro!", "time": "11:17 am"},
-  {
-    "isMe": false,
-    "text": "Did you subscribe?",
-    "time": "11:16 am"
-  },
-  {
-    "isMe": true,
-    "text": "Yes, surely bro!",
-    "time": "11:17 am"
-  },
+  {"isMe": false, "text": "Did you subscribe?", "time": "11:16 am"},
+  {"isMe": true, "text": "Yes, surely bro!", "time": "11:17 am"},
   {
     "isMe": false,
     "text": "Cool, did you like the content?",
@@ -212,7 +206,6 @@ const messages = [
     "time": "11:20 am",
   },
 ];
-
 
 List<Map> structure = [
   {

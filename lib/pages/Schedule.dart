@@ -1,14 +1,15 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:tutor/components/PostsList.dart';
-import 'package:tutor/components/comp.dart';
-import 'package:tutor/pages/Profile.dart';
-import 'package:tutor/service/store.dart';
+import '../components/PostsList.dart';
+import '../components/comp.dart';
+import '../pages/Profile.dart';
+import '../service/store.dart';
 import 'package:http/http.dart' as http;
 import 'package:date_time_line/date_time_line.dart';
 import '../components/AppDrawer.dart';
 import '../components/NavBar.dart';
+import '../service/EndPoints.dart';
 
 class SchedulePage extends StatefulWidget {
   const SchedulePage({super.key});
@@ -56,8 +57,7 @@ class SchedulePageState extends State<SchedulePage> {
   //============================================================================
   getProduct() async {
     // print("product: ");
-    var res = await http
-        .get(Uri.parse('https://tutor-running.herokuapp.com/product'));
+    var res = await http.get(Uri.parse(EndPoints.product));
     // print(res);
     // print(res.statusCode);
     if (res.statusCode == 200) {
@@ -69,32 +69,28 @@ class SchedulePageState extends State<SchedulePage> {
   }
 
   //============================================================================
-  ConirmDelete(id) {
-    showDialog(
-        context: context,
-        builder: (BuildContext context) => AlertDialog(
-              title: Text("Delete"),
-              content: Text("Are you sure you want to delete"),
-              actions: [
-                TextButton(
-                    child: const Text("Yes"),
-                    onPressed: () async {
-                      await http.delete(Uri.parse(
-                          'https://tutor-running.herokuapp.com/product/$id'));
-                      //  Navigator.pop(context);
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const NavBar()));
-                    }),
-                TextButton(
-                    child: Text("No"),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    })
-              ],
-            ));
-  }
+  ConirmDelete(id) async => showDialog(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+            title: const Text("Delete"),
+            content: const Text("Are you sure you want to delete"),
+            actions: [
+              TextButton(
+                  child: const Text("Yes"),
+                  onPressed: () async {
+                    await http.delete(Uri.parse('${EndPoints.product}/$id'));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const NavBar()));
+                  }),
+              TextButton(
+                  child: const Text("No"),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  })
+            ],
+          ));
   //============================================================================
 
   @override

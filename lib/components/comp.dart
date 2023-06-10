@@ -8,10 +8,12 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 // import '../pages/Inbox.dart';
 // import '../pages/Schedule.dart';
 
+enum Role { student, teacher, admin }
+
 // Color basecolor = Color(#691CC1);
 Color basecolor = Color(0xFF691CC1);
-LinearGradient basecolorL = LinearGradient(colors: [basecolor,basecolor3]);
-Gradient basecolorG = LinearGradient(colors: [basecolor,basecolor3]);
+LinearGradient basecolorL = LinearGradient(colors: [basecolor, basecolor3]);
+Gradient basecolorG = LinearGradient(colors: [basecolor, basecolor3]);
 // Color basecolor3 = Colors.red;
 Color basecolor3 = Color(0xFFB48EE0);
 Color black = Colors.black;
@@ -23,24 +25,23 @@ Color white = Colors.white;
 // padding(h, v) => EdgeInsets.symmetric(horizontal: h, vertical: v);
 // styler(c, s, w) => TextStyle(color: c, fontSize: s, fontWeight: w);
 
-Widget CheckBoxX(label, controller, {trigger = null}){
-  return StatefulBuilder(builder: ((context, setState){
+Widget CheckBoxX(label, controller, {trigger = null}) {
+  return StatefulBuilder(builder: ((context, setState) {
     return GestureDetector(
-      onTap: (){
-        setState(() => controller = !controller );
-      },
-      child: Row(
-        children: [
-          Checkbox(
-            value: controller,
-            onChanged: (new_val){
-              setState(() => controller = new_val );
-            },
-          ),
-          Text(label),
-        ],
-      )
-    );
+        onTap: () {
+          setState(() => controller = !controller);
+        },
+        child: Row(
+          children: [
+            Checkbox(
+              value: controller,
+              onChanged: (new_val) {
+                setState(() => controller = new_val);
+              },
+            ),
+            Text(label),
+          ],
+        ));
   }));
 }
 
@@ -102,7 +103,8 @@ Widget PasswordField(controller, placeholder, {numbers = false}) {
   });
 }
 
-Widget LoadButton({idle_txt = "", load_txt = "", action = null, args = const []}) {
+Widget LoadButton(
+    {idle_txt = "", load_txt = "", action = null, args = const []}) {
   bool loading = false;
   bool disabled = false;
   return StatefulBuilder(builder: (context, setState) {
@@ -129,7 +131,8 @@ Widget LoadButton({idle_txt = "", load_txt = "", action = null, args = const []}
           borderRadius: BorderRadius.circular(20),
         ),
         child: Container(
-            color: (disabled) ? Colors.grey : const Color.fromRGBO(67, 144, 84, 1),
+            color:
+                (disabled) ? Colors.grey : const Color.fromRGBO(67, 144, 84, 1),
             child: Row(children: <Widget>[
               Expanded(
                   flex: 2,
@@ -146,7 +149,10 @@ Widget LoadButton({idle_txt = "", load_txt = "", action = null, args = const []}
                   flex: 8,
                   child: Text((loading) ? load_txt : idle_txt,
                       textAlign: TextAlign.center,
-                      style: TextStyle(color: white, fontSize: 20, fontWeight: FontWeight.bold))),
+                      style: TextStyle(
+                          color: white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold))),
               Expanded(
                 flex: 2,
                 child: Container(),
@@ -155,7 +161,8 @@ Widget LoadButton({idle_txt = "", load_txt = "", action = null, args = const []}
   });
 }
 
-Widget baseButton({idle_txt = "",color= Colors.grey, action = null, args = const []}) {
+Widget baseButton(
+    {idle_txt = "", color = Colors.grey, action = null, args = const []}) {
   bool disabled = false;
   return StatefulBuilder(builder: (context, setState) {
     Future<void> makeAction() async {
@@ -191,7 +198,10 @@ Widget baseButton({idle_txt = "",color= Colors.grey, action = null, args = const
                   flex: 8,
                   child: Text(idle_txt,
                       textAlign: TextAlign.center,
-                      style: TextStyle(color: white, fontSize: 20, fontWeight: FontWeight.bold))),
+                      style: TextStyle(
+                          color: white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold))),
               Expanded(
                 flex: 2,
                 child: Container(),
