@@ -1,4 +1,5 @@
 // import 'package:flutter/cupertino.dart';
+// import 'dart:ffi';
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
@@ -92,39 +93,54 @@ class Access {
 
 //==============================================================================
 
-class UserModel {
-  final Role role;
+class userSchema {
   final String id;
   final String fname;
   final String lname;
   final String email;
   final String gender;
+  final Role role;
+  final String password;
+  final String school_system;
   final String location;
   final int age;
   final String profileImage;
   final String phone_number;
-  UserModel(
-      {required this.id,
-      required this.fname,
-      required this.lname,
-      required this.email,
-      required this.gender,
-      required this.role,
-      required this.location,
-      required this.phone_number,
-      required this.profileImage,
-      required this.age});
-  factory UserModel.fromjson(Map<String, dynamic> json) => UserModel(
-      id: json['_id'],
-      fname: json['fname'],
-      lname: json['lname'],
-      profileImage: json['profileImage'],
-      email: json['email'],
-      gender: json['gender'],
-      role: json['role'] == 'student' ? Role.student : Role.teacher,
-      location: json['location'],
-      phone_number: json['phone_number'],
-      age: json['age']);
+  // final Bool isAdmin;
+  final String accessToken;
+  userSchema({
+    required this.id,
+    required this.fname,
+    required this.lname,
+    required this.email,
+    required this.gender,
+    required this.role,
+    required this.password,
+    required this.school_system,
+    required this.age,
+    required this.location,
+    required this.profileImage,
+    required this.phone_number,
+    // required this.isAdmin,
+    required this.accessToken,
+  });
+  factory userSchema.fromjson(Map<String, dynamic> json) => userSchema(
+        id: json['_id'],
+        fname: json['fname'],
+        lname: json['lname'],
+        email: json['email'],
+        gender: json['gender'],
+        role: json['role'] == 'student' ? Role.student : Role.teacher,
+        password: json['password'],
+        school_system: json['school_system'],
+        age: json['age'],
+        location: json['location'],
+        phone_number: json['phone_number'],
+        profileImage: json['profileImage'],
+        // isAdmin: json['isAdmin'] == true,
+        // isAdmin: json[true],
+        accessToken: json['accessToken'],
+      );
   toJson() => {
         'id': id,
         'fname': fname,
@@ -135,6 +151,7 @@ class UserModel {
         'location': location,
         'age': age,
         'profileImage': profileImage,
+        // 'isAdmin': isAdmin,
         'phone_number': phone_number
       };
 }
@@ -143,12 +160,12 @@ class UserModel {
 class StudentModel {
   final String id;
   final int grade;
-  final UserModel user;
+  final userSchema user;
 
   StudentModel({required this.id, required this.grade, required this.user});
   factory StudentModel.fromJson(Map<String, dynamic> json) => StudentModel(
       id: json['_id'],
-      user: UserModel.fromjson(json['user']),
+      user: userSchema.fromjson(json['user']),
       grade: json['grade']);
   toJson() => {'grade': grade, ...user.toJson()};
 }
@@ -157,7 +174,7 @@ class StudentModel {
 class TutorModel {
   final String id;
   final SubjectModel state;
-  final UserModel user;
+  final userSchema user;
   final double? rating;
   final List certificates;
 
@@ -172,7 +189,7 @@ class TutorModel {
       rating: json['rating'],
       certificates: json['certificate'],
       state: SubjectModel.fromJson(json['state']),
-      user: UserModel.fromjson(json['user']));
+      user: userSchema.fromjson(json['user']));
   toJson() =>
       {'state': state.id, 'certificate': certificates, ...user.toJson()};
 }
@@ -181,7 +198,7 @@ class TutorModel {
 class AdminModel {
   final String id;
   final SubjectModel state;
-  final UserModel user;
+  final userSchema user;
   final double? rating;
   final List certificates;
 
@@ -196,7 +213,7 @@ class AdminModel {
       rating: json['rating'],
       certificates: json['certificate'],
       state: SubjectModel.fromJson(json['state']),
-      user: UserModel.fromjson(json['user']));
+      user: userSchema.fromjson(json['user']));
   toJson() =>
       {'state': state.id, 'certificate': certificates, ...user.toJson()};
 }
@@ -278,5 +295,7 @@ class Message {
     return Message(message: json["message"], sentByMe: json["sentByMe"]);
   }
 }
+
 //==============================================================================
+
 //==============================================================================

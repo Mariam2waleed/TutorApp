@@ -1,7 +1,10 @@
 class EndPoints {
-  static const BaseURL = 'https://tutor-running.herokuapp.com';
+  static const baseURL = 'https://tutor-running.herokuapp.com';
+  static const localURL = 'localhost:8080/auth/login';
 
-  static const register = '$BaseURL/auth/register';
-  static const login = '$BaseURL/auth/login';
-  static const product = '$BaseURL/product';
+  static const register = '$baseURL/auth/register';
+  static const login = '$baseURL/auth/login';
+  static const getUserProfile = '$localURL/auth/login';
+  static const product = '$baseURL/product';
+
 }

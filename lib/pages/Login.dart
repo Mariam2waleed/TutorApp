@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:tutor/api/api.dart';
 import 'package:tutor/components/NavBar.dart';
 import 'package:tutor/components/comp.dart';
 import 'package:tutor/pages/ForgotPassword.dart';
@@ -38,7 +39,8 @@ class LoginPageState extends State<LoginPage> {
 
   //============================================================================
   //============================================================================
-
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   //============================================================================
   @override
   Widget build(BuildContext context) {
@@ -83,6 +85,7 @@ class LoginPageState extends State<LoginPage> {
                             borderRadius: BorderRadius.circular(12),
                             color: white),
                         child: TextField(
+                            controller: emailController,
                             style: TextStyle(color: black),
                             decoration: InputDecoration(
                                 border: InputBorder.none,
@@ -103,12 +106,42 @@ class LoginPageState extends State<LoginPage> {
                           color: white,
                         ),
                         child: TextField(
+                            controller: passwordController,
                             style: TextStyle(color: black),
+                            obscureText: true,
                             decoration: InputDecoration(
                                 border: InputBorder.none,
                                 prefixIcon: Icon(Icons.lock, color: black),
                                 hintText: 'Password',
                                 hintStyle: TextStyle(color: black)))),
+                    const SizedBox(height: 10),
+                    ///////////////// Forget password  //////////////////////////////////
+                    RichText(
+                      text: TextSpan(
+                          text: " ",
+                          style: const TextStyle(
+                              // color: black,
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.bold),
+                          children: <TextSpan>[
+                            TextSpan(
+                                text: 'Forget your password?',
+                                style: const TextStyle(
+                                    // decoration: TextDecoration.underline,
+                                    decorationColor: Colors.blue,
+                                    // decorationThickness: 1.5,
+                                    color: Colors.blue,
+                                    // color: black,
+                                    fontSize: 15.0,
+                                    fontWeight: FontWeight.bold),
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () => Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const ForgotPassword())))
+                          ]),
+                    ),
                     const SizedBox(height: 35),
                     ///////////////// Sign In button  //////////////////////////////////
                     MaterialButton(
@@ -145,6 +178,25 @@ class LoginPageState extends State<LoginPage> {
                                   ))),
                         ),
                         onPressed: () async {
+                          final email = emailController.text;
+                          final password = passwordController.text;
+                          final response = await login(email, password);
+                          if (response['success']) {
+                            // Login successful
+                            final accessToken = response['accessToken'];
+                            debugPrint(accessToken);
+                            // Save token to local storage or global state
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const NavBar()));
+                          } else {
+                            // Login failed
+                            final message = response['message'];
+                            debugPrint(message);
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(SnackBar(content: Text(message)));
+                          }
                           debugPrint("Loding");
                           await Future.delayed(const Duration(seconds: 2));
                           Navigator.pushReplacement(
@@ -152,7 +204,7 @@ class LoginPageState extends State<LoginPage> {
                               MaterialPageRoute(
                                   builder: (context) => const NavBar()));
                         }),
-                    const SizedBox(height: 35),
+                    const SizedBox(height: 55),
                     ///////////////// Don't have account  //////////////////////////////////
                     RichText(
                       text: TextSpan(

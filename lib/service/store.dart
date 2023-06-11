@@ -2,25 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:tutor/components/comp.dart';
 import 'package:tutor/service/models.dart';
 
-UserModel? currUser = UserModel(
-    // type: 'student',
-    id: '1',
-    fname: 'Mariam ',
-    lname: 'Waleed',
-    email: 'Mariam2waleed@gmail.com',
-    gender: 'Female',
-    // branch: 'Alexandria',
-    // college: 'Software engineering',
-    // dep: ' SIM ',
-    // sem: 8,
-    // gpa: 3.2,
-    profileImage:
-        // const Image(image: AssetImage('Assets/images/Me.jpeg'))
-        'Assets/images/Me.jpeg',
-    role: Role.student,
-    location: 'Alexandria, Egypt',
-    phone_number: '01001167205',
-    age: 22);
+userSchema? currUser = userSchema(
+  // type: 'student',
+  id: '1',
+  fname: 'Mariam ',
+  lname: 'Waleed',
+  email: 'Mariam2waleed@gmail.com',
+  gender: 'female',
+  role: Role.student,
+  password: "Mariampass",
+  school_system: "international System",
+  location: 'Alexandria, Egypt',
+  age: 22,
+  // branch: 'Alexandria',
+  // college: 'Software engineering',
+  // dep: ' SIM ',
+  // sem: 8,
+  // gpa: 3.2,
+  profileImage:
+      // const Image(image: AssetImage('Assets/images/Me.jpeg'))
+      'Assets/images/Me.jpeg',
+  phone_number: '01001167205',
+  // isAdmin: true,
+  // isAdmin: true,
+  accessToken:
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODQxNGNjZGJkZWY0MmY4YjA3NGNlNCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NjM3NzcxMCwiZXhwIjoxNjg2OTgyNTEwfQ.Do81pBl3kvbyr5R2q5Q4eeYHXZlC97dl72Bf8csHiAM',
+);
 
 List<Group> group = [
   Group(
@@ -37,7 +44,7 @@ List<Group> group = [
     course_code: 'GN222',
     course_name: 'English ',
     course_color: Colors.yellow,
-    course_img: 'c',
+    course_img: 'Assets/images/English.png',
   ),
   Group(
     id: 2,
