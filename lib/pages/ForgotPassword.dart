@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:tutor/components/comp.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tutor/pages/OTP.dart';
@@ -37,7 +37,7 @@ class ForgotPasswordState extends State<ForgotPassword> {
     return Scaffold(
       body: Center(
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+          padding:  const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
           width: MediaQuery.of(context).size.width,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -47,8 +47,8 @@ class ForgotPasswordState extends State<ForgotPassword> {
                 width: MediaQuery.of(context).size.width * 0.5,
                 color: basecolor,
               ),
-              SizedBox(height: 70.0),
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              const SizedBox(height: 70.0),
+              const Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                // Title
                 Text(
                   'Forgot Password?',
@@ -63,11 +63,11 @@ class ForgotPasswordState extends State<ForgotPassword> {
                     'Don’t worry ! It happens. Please enter the phone number we will send the OTP in this phone number.',
                     style: TextStyle(color: Colors.black54, fontSize: 15))
               ]),
-              SizedBox(height: 15.0),
+              const SizedBox(height: 15.0),
               // Enter Phone Nuber
               InputField(ctrl_PhoneNumber, "Enter the phone Number",
                   numbers: true),
-              SizedBox(height: 25.0),
+              const SizedBox(height: 25.0),
               // Continue
               LoadButton(
                   idle_txt: "Continue",

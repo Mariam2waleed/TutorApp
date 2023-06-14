@@ -1,6 +1,6 @@
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'dart:convert';
 import '../components/PostsList.dart';
 import '../components/comp.dart';
 import '../pages/Profile.dart';
@@ -137,7 +137,7 @@ class SchedulePageState extends State<SchedulePage> {
                                 builder: (context) => const ProfilePage()))
                       })
             ]),
-        drawer: AppDrawer(),
+        drawer: const AppDrawer(),
 
         // appBar: AppBar(
         //   toolbarHeight: 110.0,
@@ -181,7 +181,7 @@ class SchedulePageState extends State<SchedulePage> {
         // Schedule
 
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Column(children: [
             // Body of home page
             DateTimeLine(

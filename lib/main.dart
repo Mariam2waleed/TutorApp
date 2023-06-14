@@ -20,23 +20,20 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 // import 'N/home.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // final double statusBarHeight = MediaQuery.of(context).padding.top;
-    // final double bottomBarHeight = MediaQuery.of(context).padding.bottom;
-    // final double screenHeight =
-    //     MediaQuery.of(context).size.height - statusBarHeight - bottomBarHeight;
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          scaffoldBackgroundColor: Colors.transparent,
-          visualDensity: VisualDensity.adaptivePlatformDensity),
+      // theme: ThemeData(
+      //     scaffoldBackgroundColor: Colors.transparent,
+      //     visualDensity: VisualDensity.adaptivePlatformDensity),
       home: Stack(children: [
         AnimatedSplashScreen(
             splash: Container(),
@@ -51,8 +48,13 @@ class MyApp extends StatelessWidget {
                     fit: BoxFit.fill,
                     image: AssetImage('Assets/images/SplashSC.png'))))
       ]),
-
-      //     AnimatedSplashScreen(
+//===========================================================================
+      // final double statusBarHeight = MediaQuery.of(context).padding.top;
+      // final double bottomBarHeight = MediaQuery.of(context).padding.bottom;
+      // final double screenHeight =
+      //     MediaQuery.of(context).size.height - statusBarHeight - bottomBarHeight;
+//===========================================================================      
+      //     //     AnimatedSplashScreen(
       //         splash:
       //     ///////Linear Gradient
       //     // Container(

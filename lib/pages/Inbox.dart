@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tutor/components/comp.dart';
 // import 'package:tutor/components/messagesList.dart';
@@ -90,7 +90,7 @@ class InboxPageState extends State<InboxPage> {
                               builder: (context) => const ProfilePage()))
                     })
           ]),
-      drawer: AppDrawer(),
+      drawer: const AppDrawer(),
 
       // AppBar(
       //   toolbarHeight: 200.0,

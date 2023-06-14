@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter_svg/svg.dart';
 import 'package:tutor/components/comp.dart';
@@ -22,12 +22,12 @@ class CourseList extends StatelessWidget {
       onTap: onPress,
       child: Column(
         children: [
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           Container(
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20)),
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
                 color: group.course_color),
-            padding: EdgeInsets.symmetric(vertical: 5),
+            padding: const EdgeInsets.symmetric(vertical: 5),
             child: Column(
               children: [
                 ExpansionTile(
@@ -42,7 +42,7 @@ class CourseList extends StatelessWidget {
                             idle_txt: "View Course",
                             action: () async {
                               debugPrint("Loding");
-                              await Future.delayed(Duration(seconds: 0));
+                              await Future.delayed(const Duration(seconds: 0));
                               // int index= group.id as int;
                               Navigator.pushReplacement(
                                   context,
@@ -50,9 +50,9 @@ class CourseList extends StatelessWidget {
                                       builder: (context) =>
                                            CoursePage(group.id)));
                             }),
-                        SizedBox(height: 5),
+                        const SizedBox(height: 5),
                         //  Course Outline
-                        ExpansionTile(
+                        const ExpansionTile(
                           title: Text('Course Outline'),
                           children: <Widget>[
                             ListTile(
@@ -60,9 +60,9 @@ class CourseList extends StatelessWidget {
                                     'data data data data data data data data data data ')),
                           ],
                         ),
-                        SizedBox(height: 5),
+                        const SizedBox(height: 5),
                         // Learning Objectives
-                        ExpansionTile(
+                        const ExpansionTile(
                           title: Text('Learning Objectives'),
                           children: <Widget>[
                             ListTile(
@@ -71,9 +71,9 @@ class CourseList extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(height: 5),
+                        const SizedBox(height: 5),
                         // Grading
-                        ExpansionTile(
+                        const ExpansionTile(
                           title: Text('Grading'),
                           children: <Widget>[
                             ListTile(
@@ -81,9 +81,9 @@ class CourseList extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(height: 5),
+                        const SizedBox(height: 5),
                         // Attendance
-                        ExpansionTile(
+                        const ExpansionTile(
                           title: Text('Attendance'),
                           children: <Widget>[
                             ListTile(

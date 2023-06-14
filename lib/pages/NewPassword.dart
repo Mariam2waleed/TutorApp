@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tutor/components/comp.dart';
 import 'package:flutter_svg/svg.dart';
@@ -39,7 +39,7 @@ class NewPasswordState extends State<NewPassword> {
     return Scaffold(
       body: Center(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
           width: MediaQuery.of(context).size.width,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -47,27 +47,28 @@ class NewPasswordState extends State<NewPassword> {
               SvgPicture.asset("Assets/images/log.svg",
                   width: MediaQuery.of(context).size.width * 0.5,
                   color: basecolor),
-              SizedBox(height: 100.0),
+              const SizedBox(height: 100.0),
               // New password
               PasswordField(ctrl_passcode, "Enter new password", numbers: true),
-              SizedBox(height: 25.0),
+              const SizedBox(height: 25.0),
               // Re-password
               PasswordField(ctrl_re_passcode, "Re-enter new password",
                   numbers: true),
-              SizedBox(height: 65.0),
+              const SizedBox(height: 65.0),
               // Save
               LoadButton(
                   idle_txt: "Save",
                   action: () async {
                     debugPrint("Loding");
-                    await Future.delayed(Duration(seconds: 1));
+                    await Future.delayed(const Duration(seconds: 1));
                     if (ctrl_passcode == ctrl_re_passcode) {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => const LoginPage()));
-                    } else
+                    } else {
                       ctrl_re_passcode.clear();
+                    }
                   }),
             ],
           ),

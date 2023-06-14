@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
+// import 'package:flutter/widgets.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 // import '../pages/Classwork.dart';
@@ -11,11 +11,11 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 enum Role { student, teacher, admin }
 
 // Color basecolor = Color(#691CC1);
-Color basecolor = Color(0xFF691CC1);
+Color basecolor = const Color(0xFF691CC1);
 LinearGradient basecolorL = LinearGradient(colors: [basecolor, basecolor3]);
 Gradient basecolorG = LinearGradient(colors: [basecolor, basecolor3]);
 // Color basecolor3 = Colors.red;
-Color basecolor3 = Color(0xFFB48EE0);
+Color basecolor3 = const Color(0xFFB48EE0);
 Color black = Colors.black;
 Color white = Colors.white;
 //Color course_color = Color.fromARGB(255, 36, 212, 20);
@@ -25,7 +25,7 @@ Color white = Colors.white;
 // padding(h, v) => EdgeInsets.symmetric(horizontal: h, vertical: v);
 // styler(c, s, w) => TextStyle(color: c, fontSize: s, fontWeight: w);
 
-Widget CheckBoxX(label, controller, {trigger = null}) {
+Widget CheckBoxX(label, controller, {trigger}) {
   return StatefulBuilder(builder: ((context, setState) {
     return GestureDetector(
         onTap: () {
@@ -35,8 +35,8 @@ Widget CheckBoxX(label, controller, {trigger = null}) {
           children: [
             Checkbox(
               value: controller,
-              onChanged: (new_val) {
-                setState(() => controller = new_val);
+              onChanged: (newVal) {
+                setState(() => controller = newVal);
               },
             ),
             Text(label),
@@ -57,7 +57,7 @@ Widget InputField(controller, placeholder, {numbers = false}) {
     inputFormatters: (numbers) ? [FilteringTextInputFormatter.digitsOnly] : [],
     decoration: InputDecoration(
         labelText: placeholder,
-        labelStyle: TextStyle(fontWeight: FontWeight.bold),
+        labelStyle: const TextStyle(fontWeight: FontWeight.bold),
         contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 1),
         enabledBorder: border,
         focusedBorder: border,
@@ -81,7 +81,7 @@ Widget PasswordField(controller, placeholder, {numbers = false}) {
           (numbers) ? [FilteringTextInputFormatter.digitsOnly] : [],
       decoration: InputDecoration(
         labelText: placeholder,
-        labelStyle: TextStyle(fontWeight: FontWeight.bold),
+        labelStyle: const TextStyle(fontWeight: FontWeight.bold),
         contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 1),
         enabledBorder: border,
         focusedBorder: border,
@@ -104,16 +104,16 @@ Widget PasswordField(controller, placeholder, {numbers = false}) {
 }
 
 Widget LoadButton(
-    {idle_txt = "", load_txt = "", action = null, args = const []}) {
+    {idle_txt = "", load_txt = "", action, args = const []}) {
   bool loading = false;
   bool disabled = false;
   return StatefulBuilder(builder: (context, setState) {
     Future<void> makeAction() async {
       if (loading) return;
       setState(() => loading = true);
-      if (args.isEmpty)
+      if (args.isEmpty) {
         await action();
-      else if (args.length == 1)
+      } else if (args.length == 1)
         await action(args[0]);
       else if (args.length == 2) await action(args[0], args[1]);
       setState(() => loading = false);
@@ -123,7 +123,7 @@ Widget LoadButton(
         minWidth: double.infinity,
         height: 60.0,
         onPressed: (disabled) ? null : makeAction,
-        color: Color.fromRGBO(67, 144, 84, 1),
+        color: const Color.fromRGBO(67, 144, 84, 1),
         disabledColor: Colors.grey,
         disabledTextColor: white,
         shape: RoundedRectangleBorder(
@@ -162,13 +162,13 @@ Widget LoadButton(
 }
 
 Widget baseButton(
-    {idle_txt = "", color = Colors.grey, action = null, args = const []}) {
+    {idle_txt = "", color = Colors.grey, action, args = const []}) {
   bool disabled = false;
   return StatefulBuilder(builder: (context, setState) {
     Future<void> makeAction() async {
-      if (args.isEmpty)
+      if (args.isEmpty) {
         await action();
-      else if (args.length == 1)
+      } else if (args.length == 1)
         await action(args[0]);
       else if (args.length == 2) await action(args[0], args[1]);
     }
@@ -190,7 +190,7 @@ Widget baseButton(
               Expanded(
                   flex: 2,
                   child: (() {
-                    return SizedBox(
+                    return const SizedBox(
                       height: 5.0,
                     );
                   })()),

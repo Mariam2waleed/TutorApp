@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tutor/components/comp.dart';
 import 'package:flutter_svg/svg.dart';
@@ -54,7 +54,7 @@ class OTPState extends State<OTP> {
                 width: MediaQuery.of(context).size.width * 0.5,
                 color: basecolor,
               ),
-              SizedBox(height: 70.0),
+              const SizedBox(height: 70.0),
               // title
               const Text(
                 'OTP VERIFICATION',
@@ -63,21 +63,21 @@ class OTPState extends State<OTP> {
                     fontSize: 25,
                     fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 15.0),
+              const SizedBox(height: 15.0),
               // Hint
               //////////+ PhoneNumber.toString()
               Text('Enter the OTP sent to$PhoneNumber',
                   style: const TextStyle(color: Colors.black54, fontSize: 15)),
               //Text(PhoneNumber),
-              SizedBox(height: 25.0),
+              const SizedBox(height: 25.0),
               // Enter code
               InputField(otp, "Enter the code", numbers: true),
-              SizedBox(height: 25.0),
+              const SizedBox(height: 25.0),
               // Re-send
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Don't receive code?"),
+                  const Text("Don't receive code?"),
                   ButtonBar(alignment: MainAxisAlignment.start, children: [
                     TextButton(
                         onPressed: () {
@@ -93,7 +93,7 @@ class OTPState extends State<OTP> {
                   ]),
                 ],
               ),
-              SizedBox(height: 25.0),
+              const SizedBox(height: 25.0),
               // Submit
               LoadButton(
                   idle_txt: "Submit",

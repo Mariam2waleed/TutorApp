@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tutor/components/comp.dart';
@@ -24,7 +24,7 @@ class PostsList extends StatelessWidget {
           Stack(
             children: [
               Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(15)),
                     color: Color.fromARGB(240, 236, 239, 236)),
                 child: Padding(
@@ -36,7 +36,7 @@ class PostsList extends StatelessWidget {
                             radius: 30,
                             child: SvgPicture.asset('Assets/images/log.svg')),
                         Padding(
-                            padding: EdgeInsets.only(left: 10),
+                            padding: const EdgeInsets.only(left: 10),
                             child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -51,11 +51,11 @@ class PostsList extends StatelessWidget {
                                   ])
                                 ]))
                       ]),
-                      SizedBox(height: 15),
+                      const SizedBox(height: 15),
                       Text(
                           'Dear Students,                                                                                                            Thursday lectures are cancelled due to public holiday. All assignments will be due Sunday 17th',
                           style: TextStyle(color: black, fontSize: 10)),
-                      SizedBox(height: 15),
+                      const SizedBox(height: 15),
                       InputField(Comment, "Type a comment here..",
                           numbers: false),
                     ],
@@ -66,12 +66,12 @@ class PostsList extends StatelessWidget {
               Positioned(
                 bottom: 16,
                 right: 15,
-                child: Container(
+                child: SizedBox(
                   height: 35.0,
                   child: FloatingActionButton(
                     shape:
-                        BeveledRectangleBorder(borderRadius: BorderRadius.zero),
-                    backgroundColor: Color.fromARGB(240, 236, 239, 236),
+                        const BeveledRectangleBorder(borderRadius: BorderRadius.zero),
+                    backgroundColor: const Color.fromARGB(240, 236, 239, 236),
                     child: Icon(
                       Icons.send,
                       color: basecolor,

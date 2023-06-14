@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tutor/components/comp.dart';
@@ -18,22 +18,22 @@ class LectureList extends StatelessWidget {
     return GestureDetector(
       onTap: onPress,
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 16),
+        padding: const EdgeInsets.symmetric(vertical: 16),
         child: Row(
           children: [
-            Container(
+            SizedBox(
               width: 60,
               child: SvgPicture.asset('Assets/images/log.svg'),
             ),
-            SizedBox(
+            const SizedBox(
               width: 20,
             ),
             Text(
               group.course_name,
-              style: TextStyle(
+              style: const TextStyle(
                   fontFamily: 'sen', fontSize: 20, fontWeight: FontWeight.w400),
             ),
-            Spacer(),
+            const Spacer(),
             IconButton(
               icon: Icon(
                 Icons.chat_rounded,

@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -19,8 +19,8 @@ class MessageItem extends StatelessWidget {
     return Align(
       alignment: sentByMe ? Alignment.centerRight : Alignment.centerLeft,
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-        margin: EdgeInsets.symmetric(vertical: 3, horizontal: 10),
+        padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+        margin: const EdgeInsets.symmetric(vertical: 3, horizontal: 10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: sentByMe ? basecolor : Colors.grey[300],
@@ -30,7 +30,7 @@ class MessageItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.baseline,
           textBaseline: TextBaseline.alphabetic,
           children: [
-            SizedBox(width: 5),
+            const SizedBox(width: 5),
             Text(
               message,
               style:

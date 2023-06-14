@@ -1,20 +1,15 @@
 import 'dart:io';
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+// import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tutor/components/comp.dart';
-// import 'package:tutor/components/structureList.dart';
-// import 'package:tutor/pages/Classwork.dart';
-// import 'package:tutor/pages/Home.dart';
 import 'package:tutor/pages/Notification.dart';
 import 'package:tutor/pages/Profile.dart';
-// import 'package:tutor/pages/Schedule.dart';
 import 'package:tutor/service/store.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
-// import 'package:accordion/accordion.dart';
 
 import '../components/NavBar.dart';
 
@@ -91,8 +86,8 @@ class BroadCastState extends State<BroadCast> {
 
   Widget makeBot() {
     return Container(
-      decoration:
-          const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20))),
+      decoration: const BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(20))),
       child: Stack(
         children: [
           // Post content
@@ -117,7 +112,7 @@ class BroadCastState extends State<BroadCast> {
                 // to add file
                 FloatingActionButton(
                     backgroundColor: basecolor3,
-                    child: Icon(Icons.attach_file),
+                    child: const Icon(Icons.attach_file),
                     onPressed: () async {
                       final result = await FilePicker.platform.pickFiles();
                       // await FilePicker.platform.pickFiles(allowMultiple: true);
@@ -141,7 +136,7 @@ class BroadCastState extends State<BroadCast> {
                       print('From path: ${file.path!}');
                       print('to path: ${newFile.path}');
                     }),
-                SizedBox(width: 5),
+                const SizedBox(width: 5),
                 // to create Poll
                 FloatingActionButton(
                   backgroundColor: basecolor3,
@@ -156,7 +151,7 @@ class BroadCastState extends State<BroadCast> {
                             child: SvgPicture.asset('Assets/images/log.svg')),
                         // User name
                         Padding(
-                            padding: EdgeInsets.only(left: 10),
+                            padding: const EdgeInsets.only(left: 10),
                             child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -174,7 +169,7 @@ class BroadCastState extends State<BroadCast> {
                               InputField(options, 'First option'),
                             ],
                           ),
-                          SizedBox(height: 5),
+                          const SizedBox(height: 5),
                           InputField(options, 'Second option'),
 
                           // to add more options
@@ -194,9 +189,7 @@ class BroadCastState extends State<BroadCast> {
                         // Cancel
                         TextButton(
                           style: TextButton.styleFrom(
-                            primary: white,
-                            // elevation: 3,
-                            side: BorderSide(width: 3, color: basecolor),
+                            foregroundColor: white, side: BorderSide(width: 3, color: basecolor),
                             shape: const RoundedRectangleBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(25))),
@@ -208,7 +201,7 @@ class BroadCastState extends State<BroadCast> {
                                   color: basecolor,
                                   fontWeight: FontWeight.bold)),
                         ),
-                        Spacer(),
+                        const Spacer(),
                         // Create Poll
                         ElevatedButton(
                           //  ButtonStyle(
@@ -216,12 +209,12 @@ class BroadCastState extends State<BroadCast> {
                           //       MaterialStateProperty.all<Color>(basecolor),
                           // ),
                           style: ElevatedButton.styleFrom(
-                            primary: basecolor,
+                            backgroundColor: basecolor,
                             elevation: 3,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30)),
                             // shape: StadiumBorder(), primary: basecolor
-                            padding: EdgeInsets.all(25),
+                            padding: const EdgeInsets.all(25),
                           ),
                           onPressed: () {
                             print(textarea.text);
@@ -260,7 +253,7 @@ class BroadCastState extends State<BroadCast> {
                 // // to create Poll
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: basecolor,
+                    backgroundColor: basecolor,
                     elevation: 7,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15)),
@@ -285,12 +278,12 @@ class BroadCastState extends State<BroadCast> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.person),
         backgroundColor: basecolor,
         onPressed: () {
           Navigator.pushReplacement(context,
               MaterialPageRoute(builder: (context) => const ProfilePage()));
         },
+        child: const Icon(Icons.person),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       appBar: AppBar(
@@ -365,7 +358,10 @@ class BroadCastState extends State<BroadCast> {
                           },
                           child: ListTile(
                             title: Text("${branch['name']}",
-                                style: TextStyle(color: basecolor, fontSize: 14, fontWeight: FontWeight.bold)),
+                                style: TextStyle(
+                                    color: basecolor,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold)),
                           ),
                         );
                       },
@@ -390,14 +386,14 @@ class BroadCastState extends State<BroadCast> {
                                   children: [
                                     Checkbox(
                                       value: college['selected'],
-                                      onChanged: (new_val) {
+                                      onChanged: (newVal) {
                                         setState(() {
-                                          college['selected'] = new_val;
+                                          college['selected'] = newVal;
                                           for (int i = 0;
                                               i < college['departments'].length;
                                               i++) {
                                             college['departments'][i]
-                                                ['selected'] = new_val;
+                                                ['selected'] = newVal;
                                           }
                                         });
                                       },
@@ -408,7 +404,7 @@ class BroadCastState extends State<BroadCast> {
                             ...college['departments'].map<Widget>((dep) {
                               return Row(
                                 children: [
-                                  SizedBox(width: 25.0),
+                                  const SizedBox(width: 25.0),
                                   GestureDetector(
                                       onTap: () {
                                         setState(() =>
@@ -418,9 +414,9 @@ class BroadCastState extends State<BroadCast> {
                                         children: [
                                           Checkbox(
                                             value: dep['selected'],
-                                            onChanged: (new_val) {
+                                            onChanged: (newVal) {
                                               setState(() =>
-                                                  dep['selected'] = new_val);
+                                                  dep['selected'] = newVal);
                                             },
                                           ),
                                           Text(dep['name']),
@@ -437,23 +433,23 @@ class BroadCastState extends State<BroadCast> {
               // structure.map<Widget>((branch)){
               //   return Text("${structure[index]["name"]}");
               // },
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               Text("You selected ${count_all()} departments"),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               Text('Create Post',
                   style: TextStyle(
                       color: basecolor,
                       fontFamily: 'sen',
                       fontSize: 15,
                       fontWeight: FontWeight.bold)),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               makeBot()
             ],
           ),
         ),
       ),
       //bottom navigation bar on scaffold
-      bottomNavigationBar: NavBar(),
+      bottomNavigationBar: const NavBar(),
     );
   }
 }

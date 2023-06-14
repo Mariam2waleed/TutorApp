@@ -20,48 +20,39 @@ class NavBarState extends State<NavBar> {
   final navigationKey = GlobalKey<CurvedNavigationBarState>();
   int index = 0;
   final screens = [
-    HomePage(),
-    InboxPage(),
-    SchedulePage(),
-    NotificationPage(),
+    const HomePage(),
+    const InboxPage(),
+    const SchedulePage(),
+    const NotificationPage(),
   ];
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // decoration: BoxDecoration(
-      //     gradient: LinearGradient(
-      //       begin: Alignment.topCenter,
-      //       end: Alignment.bottomCenter,
-      //       colors: [Color(0xFFB48EE0), Color(0xFF6A1B9A)],
-      //     ),
-      //   ),
-      child: SafeArea(
-        top: false,
-        child: Scaffold(
-          extendBody: true,
-          // appBar: AppBar(),
-          body: screens[index],
-          bottomNavigationBar: Theme(
-            data: Theme.of(context)
-                .copyWith(iconTheme: IconThemeData(color: white)),
-            child: CurvedNavigationBar(
-              key: navigationKey,
-              color: basecolor,
-              buttonBackgroundColor: basecolor3,
-              backgroundColor: Colors.transparent,
-              animationCurve: Curves.easeInOut,
-              animationDuration: Duration(milliseconds: 300),
-              index: index,
-              items: <Widget>[
-                Icon(Icons.home, size: 30),
-                Icon(Icons.chat, size: 30),
-                Icon(Icons.calendar_today_rounded, size: 30),
-                Icon(Icons.notifications, size: 30),
-              ],
-              onTap: (index) => setState(() => this.index = index),
-              //Handle button tap
-            ),
+    return SafeArea(
+      top: false,
+      child: Scaffold(
+        extendBody: true,
+        // appBar: AppBar(),
+        body: screens[index],
+        bottomNavigationBar: Theme(
+          data: Theme.of(context)
+              .copyWith(iconTheme: IconThemeData(color: white)),
+          child: CurvedNavigationBar(
+            key: navigationKey,
+            color: basecolor,
+            buttonBackgroundColor: basecolor3,
+            backgroundColor: Colors.transparent,
+            animationCurve: Curves.easeInOut,
+            animationDuration: const Duration(milliseconds: 300),
+            index: index,
+            items: const <Widget>[
+              Icon(Icons.home, size: 30),
+              Icon(Icons.chat, size: 30),
+              Icon(Icons.calendar_today_rounded, size: 30),
+              Icon(Icons.notifications, size: 30),
+            ],
+            onTap: (index) => setState(() => this.index = index),
+            //Handle button tap
           ),
         ),
       ),

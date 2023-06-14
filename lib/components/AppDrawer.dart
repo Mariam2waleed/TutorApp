@@ -5,6 +5,8 @@ import 'package:tutor/pages/Login.dart';
 import '../service/store.dart';
 
 class AppDrawer extends StatefulWidget {
+  const AppDrawer({super.key});
+
   @override
   _AppDrawerState createState() => _AppDrawerState();
 }
@@ -16,15 +18,15 @@ class _AppDrawerState extends State<AppDrawer> {
         child: ListView(padding: EdgeInsets.zero, children: <Widget>[
       // Header
       UserAccountsDrawerHeader(
-        accountName: Text(currUser!.fname, style: TextStyle(fontSize: 20)),
-        accountEmail: Text(currUser!.email, style: TextStyle(fontSize: 15)),
+        accountName: Text(currUser!.fname, style: const TextStyle(fontSize: 20)),
+        accountEmail: Text(currUser!.email, style: const TextStyle(fontSize: 15)),
         currentAccountPicture: CircleAvatar(
             child: ClipOval(
                 child: Image.asset(currUser!.profileImage,
                     fit: BoxFit.cover, width: 90, height: 90))),
         decoration: BoxDecoration(
           color: basecolor,
-          image: DecorationImage(
+          image: const DecorationImage(
               fit: BoxFit.fill,
               image: NetworkImage(
                   'https://oflutter.com/wp-content/uploads/2021/02/profile-bg3.jpg')),
@@ -59,7 +61,7 @@ class _AppDrawerState extends State<AppDrawer> {
             onTap: () => {Navigator.pop(context)}),
         const Divider(),
         ListTile(
-            title: Text('LogOut'),
+            title: const Text('LogOut'),
             leading: Icon(Icons.exit_to_app, color: basecolor3),
             onTap: () => {
                   Navigator.pushReplacement(

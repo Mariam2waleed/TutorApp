@@ -1,6 +1,6 @@
 // import 'dart:html';
 
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tutor/components/comp.dart';
@@ -42,8 +42,7 @@ class NotificationPageState extends State<NotificationPage> {
   var desc = TextEditingController();
   //============================================================================
   insert() async {
-    var res = await http.post(
-        Uri.parse(EndPoints.product),
+    var res = await http.post(Uri.parse(EndPoints.product),
         body: {"name": name.text, "price": price.text, "desc": desc.text},
         headers: {"Content-Type": "application/x-www-form-urlencoded"});
   }
@@ -53,16 +52,6 @@ class NotificationPageState extends State<NotificationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // floatingActionButton: FloatingActionButton(
-      //   child: Icon(Icons.person),
-      //   backgroundColor: basecolor,
-      //   onPressed: () {
-      //     Navigator.pushReplacement(context,
-      //         MaterialPageRoute(builder: (context) => const ProfilePage()));
-      //   },
-      // ),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-
       appBar: AppBar(
           toolbarHeight: 110.0,
           elevation: 0,
@@ -126,7 +115,7 @@ class NotificationPageState extends State<NotificationPage> {
                       return null;
                     },
                     controller: price),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 TextFormField(
                     decoration: const InputDecoration(
                         border: UnderlineInputBorder(),
@@ -138,7 +127,7 @@ class NotificationPageState extends State<NotificationPage> {
                       return null;
                     },
                     controller: desc),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 // insert button
                 MaterialButton(
                     shape: RoundedRectangleBorder(
@@ -172,8 +161,8 @@ class NotificationPageState extends State<NotificationPage> {
                     // functionality
                     onPressed: () {
                       insert();
-                      final snackBar = SnackBar(
-                        content: const Text('Yay! A New Product !'),
+                      const snackBar = SnackBar(
+                        content: Text('Yay! A New Product !'),
                         // action: SnackBarAction(
                         //   label: 'Remove',
                         //   onPressed: () async {

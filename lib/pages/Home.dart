@@ -82,7 +82,7 @@ class HomePageState extends State<HomePage> {
                                 builder: (context) => const ProfilePage()))
                       })
             ]),
-        drawer: AppDrawer(),
+        drawer: const AppDrawer(),
 
         /////////////////////////////////////////////////
         body: ListView(children: [
@@ -108,7 +108,7 @@ class HomePageState extends State<HomePage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // Course Horizontal List
-                    Container(
+                    SizedBox(
                       height: 100.0,
                       child: ListView.builder(
                           // This next line does the trick.
@@ -163,7 +163,7 @@ class HomePageState extends State<HomePage> {
                                             ]))));
                           }),
                     ),
-                    SizedBox(height: 25),
+                    const SizedBox(height: 25),
                     // Home  Featured lists
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -173,15 +173,15 @@ class HomePageState extends State<HomePage> {
                                 color: basecolor,
                                 fontSize: 25,
                                 fontWeight: FontWeight.bold)),
-                        SizedBox(height: 2.5),
+                        const SizedBox(height: 2.5),
                         // Text('You can see all the new posts here',
                         //     style:
                         //         TextStyle(color: Colors.black54, fontSize: 15)),
                       ],
                     ),
-                    SizedBox(height: 15),
+                    const SizedBox(height: 15),
                     // Horizontal Featured lists
-                    Container(
+                    SizedBox(
                       height: 150.0,
                       child: ListView.builder(
                           // This next line does the trick.
@@ -194,7 +194,7 @@ class HomePageState extends State<HomePage> {
                                 child: Container(
                                     decoration: BoxDecoration(
                                       borderRadius:
-                                          BorderRadius.all(Radius.circular(50)),
+                                          const BorderRadius.all(Radius.circular(50)),
                                       color: group[index].course_color,
                                     ),
                                     width: 145.0,
@@ -236,12 +236,12 @@ class HomePageState extends State<HomePage> {
                                             ]))));
                           }),
                     ),
-                    SizedBox(height: 15),
-                    Divider(color: Colors.grey, thickness: 2),
-                    SizedBox(height: 15),
+                    const SizedBox(height: 15),
+                    const Divider(color: Colors.grey, thickness: 2),
+                    const SizedBox(height: 15),
                     // post
                     Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(15)),
                             color: Color.fromARGB(240, 236, 239, 236)),
                         child: Padding(
@@ -253,7 +253,7 @@ class HomePageState extends State<HomePage> {
                                     child: SvgPicture.asset(
                                         'Assets/images/log.svg')),
                                 Padding(
-                                    padding: EdgeInsets.only(left: 10),
+                                    padding: const EdgeInsets.only(left: 10),
                                     child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
@@ -272,12 +272,12 @@ class HomePageState extends State<HomePage> {
                                           ])
                                         ]))
                               ]),
-                              SizedBox(height: 15),
+                              const SizedBox(height: 15),
                               Text(
                                   'Dear Students,                                                                                                            Thursday lectures are cancelled due to public holiday. All assignments will be due Sunday 17th',
                                   style: TextStyle(color: black, fontSize: 10)),
-                              SizedBox(height: 15),
-                              CupertinoTextField(
+                              const SizedBox(height: 15),
+                              const CupertinoTextField(
                                   padding: EdgeInsets.all(15),
                                   placeholder: 'Type a comment here..')
                             ])))

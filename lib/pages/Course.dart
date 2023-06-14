@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+// import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tutor/components/comp.dart';
 import 'package:tutor/components/TAList.dart';
@@ -56,9 +56,9 @@ class CoursePageState extends State<CoursePage> {
           pressedColor: basecolor,
           unselectedColor: white,
           groupValue: network_type,
-          onValueChanged: (int new_index) {
+          onValueChanged: (int newIndex) {
             setState(() {
-              network_type = new_index;
+              network_type = newIndex;
             });
           },
           children: ["Posts", "Members"].asMap().map((index, value) {
@@ -82,7 +82,7 @@ class CoursePageState extends State<CoursePage> {
   Widget posts() {
     return ListView.builder(
       shrinkWrap: true,
-      physics: ScrollPhysics(),
+      physics: const ScrollPhysics(),
       itemCount: group.length,
       itemBuilder: (context, index) => PostsList(
         group: group[index],
@@ -168,7 +168,7 @@ class CoursePageState extends State<CoursePage> {
                 style: TextStyle(
                     color: black, fontSize: 25.0, fontWeight: FontWeight.bold),
               ),
-              Text('All course topics and assignments',
+              const Text('All course topics and assignments',
                   style: TextStyle(color: Colors.black38, fontSize: 14.0)),
             ]),
         actions: [
@@ -193,7 +193,7 @@ class CoursePageState extends State<CoursePage> {
         children: [
           // My body
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15),
+            padding: const EdgeInsets.symmetric(horizontal: 15),
             child: ListView(children: [
               // Posts .. Members
               network_type_selector(),
@@ -210,7 +210,7 @@ class CoursePageState extends State<CoursePage> {
               right: 16,
               child: FloatingActionButton(
                 backgroundColor: basecolor,
-                child: Icon(Icons.add),
+                child: const Icon(Icons.add),
                 onPressed: () => showDialog<String>(
                   context: context,
                   builder: (BuildContext context) => AlertDialog(
@@ -219,7 +219,7 @@ class CoursePageState extends State<CoursePage> {
                           //radius: 20,
                           child: SvgPicture.asset('Assets/images/log.svg')),
                       Padding(
-                          padding: EdgeInsets.only(left: 10),
+                          padding: const EdgeInsets.only(left: 10),
                           child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -248,7 +248,7 @@ class CoursePageState extends State<CoursePage> {
                           right: 5,
                           child: FloatingActionButton(
                               backgroundColor: basecolor3,
-                              child: Icon(Icons.attach_file),
+                              child: const Icon(Icons.attach_file),
                               onPressed: () async {
                                 final result =
                                     await FilePicker.platform.pickFiles();
@@ -280,20 +280,18 @@ class CoursePageState extends State<CoursePage> {
                       // Cancel
                       TextButton(
                         style: TextButton.styleFrom(
-                          primary: white,
-                          // elevation: 3,
-                          side: BorderSide(width: 3, color: basecolor),
-                          shape: RoundedRectangleBorder(
+                          foregroundColor: white, side: BorderSide(width: 3, color: basecolor),
+                          shape: const RoundedRectangleBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(25))),
-                          padding: EdgeInsets.all(25),
+                          padding: const EdgeInsets.all(25),
                         ),
                         onPressed: () => Navigator.pop(context, 'Cancel'),
                         child: Text('Cancel',
                             style: TextStyle(
                                 color: basecolor, fontWeight: FontWeight.bold)),
                       ),
-                      Spacer(),
+                      const Spacer(),
                       // Request
                       ElevatedButton(
                         //  ButtonStyle(
@@ -301,17 +299,17 @@ class CoursePageState extends State<CoursePage> {
                         //       MaterialStateProperty.all<Color>(basecolor),
                         // ),
                         style: ElevatedButton.styleFrom(
-                          primary: basecolor,
+                          backgroundColor: basecolor,
                           elevation: 3,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30)),
                           // shape: StadiumBorder(), primary: basecolor
-                          padding: EdgeInsets.all(25),
+                          padding: const EdgeInsets.all(25),
                         ),
                         onPressed: () {
                           print(textarea.text);
                         },
-                        child: Text("Request",
+                        child: const Text("Request",
                             style: TextStyle(fontWeight: FontWeight.bold)),
                       ),
                     ],

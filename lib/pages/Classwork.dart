@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:tutor/components/comp.dart';
 import 'package:tutor/pages/Notification.dart';
 import 'package:tutor/pages/Profile.dart';
@@ -48,7 +48,7 @@ class ClassworkPageState extends State<ClassworkPage> {
             children: [
               ListView.builder(
                 shrinkWrap: true,
-                physics: ScrollPhysics(),
+                physics: const ScrollPhysics(),
                 itemCount: group.length,
                 itemBuilder: (context, index) => TAList(
                   group: group[index],
@@ -64,12 +64,12 @@ class ClassworkPageState extends State<ClassworkPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.person),
         backgroundColor: basecolor,
         onPressed: () {
           Navigator.pushReplacement(context,
               MaterialPageRoute(builder: (context) => const ProfilePage()));
         },
+        child: const Icon(Icons.person),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       appBar: AppBar(
@@ -93,7 +93,7 @@ class ClassworkPageState extends State<ClassworkPage> {
             ]),
         actions: [
           IconButton(
-              padding: EdgeInsets.only(right: 40),
+              padding: const EdgeInsets.only(right: 40),
               icon: Icon(Icons.notifications, color: basecolor, size: 35),
               onPressed: () {
                 Navigator.push(

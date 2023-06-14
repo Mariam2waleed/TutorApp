@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tutor/components/comp.dart';
 import 'package:tutor/pages/Login.dart';
@@ -47,7 +47,7 @@ class SignUpPageState extends State<SignUpPage> {
                     fontWeight: FontWeight.bold,
                     color: white,
                     fontSize: 28)))),
-        body: ListView(padding: EdgeInsetsDirectional.only(top: 15), children: [
+        body: ListView(padding: const EdgeInsetsDirectional.only(top: 15), children: [
         //// Done button
           MaterialButton(
               // minWidth: 20,
