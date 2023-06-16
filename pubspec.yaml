@@ -58,6 +58,9 @@ dependencies:
   socket_io_client: ^2.0.2
   get: ^4.6.5
   shared_preferences: ^2.1.2
+  carousel_slider: ^4.2.1
+  flutter_bloc: ^8.1.3
+  flutter_screenutil: ^5.8.4
 
 
 dev_dependencies:
@@ -94,8 +97,10 @@ flutter:
       - ios/Runner/Assets.xcassets/AppIcon.appiconset/tutoricon.png
       - Assets/images/log.svg
       - Assets/images/logo.svg
-      - Assets/images/student.jpg
+      - Assets/images/student.png
+      - Assets/images/teacher.png
       - Assets/images/study.svg
+      # - Assets/images/study.jpg
       - Assets/images/Arabic.png
       - Assets/images/Me.jpeg
       - Assets/images/Splash.png

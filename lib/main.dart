@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:tutor/pages/Login.dart';
+import 'package:animated_splash_screen/animated_splash_screen.dart';
+
+import 'pages/Welcome.dart';
 // import 'package:tutor/components/NavBar.dart';
 // import 'package:tutor/components/comp.dart';
 // import 'package:tutor/pages/Broadcast.dart';
 // import 'package:tutor/pages/Classwork.dart';
 // import 'package:tutor/pages/ForgotPassword.dart';
-import 'package:tutor/pages/Login.dart';
 // import 'package:flutter_svg/svg.dart';
 // import 'package:tutor/pages/Inbox.dart';
 // import 'package:tutor/pages/Course.dart';
@@ -15,22 +18,24 @@ import 'package:tutor/pages/Login.dart';
 // import 'package:tutor/pages/Profile.dart';
 // import 'package:tutor/pages/Schedule.dart';
 // import 'package:tutor/service/store.dart';
-import 'package:animated_splash_screen/animated_splash_screen.dart';
 
 // import 'N/home.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+  // bool isDarkMode = false;
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      // theme: isDarkMode ? ThemeData.dark() : ThemeData.light(),
+
       // theme: ThemeData(
       //     scaffoldBackgroundColor: Colors.transparent,
       //     visualDensity: VisualDensity.adaptivePlatformDensity),
@@ -40,12 +45,12 @@ class MyApp extends StatelessWidget {
             duration: 1000,
             splashTransition: SplashTransition.fadeTransition,
             // backgroundColor: Colors.blueGrey,
-            nextScreen: const LoginPage()),
+            nextScreen: const RoleScreen()),
         Container(
             height: MediaQuery.of(context).size.height,
             decoration: const BoxDecoration(
                 image: DecorationImage(
-                    fit: BoxFit.fill,
+                    fit: BoxFit.cover,
                     image: AssetImage('Assets/images/SplashSC.png'))))
       ]),
 //===========================================================================
@@ -53,7 +58,7 @@ class MyApp extends StatelessWidget {
       // final double bottomBarHeight = MediaQuery.of(context).padding.bottom;
       // final double screenHeight =
       //     MediaQuery.of(context).size.height - statusBarHeight - bottomBarHeight;
-//===========================================================================      
+//===========================================================================
       //     //     AnimatedSplashScreen(
       //         splash:
       //     ///////Linear Gradient

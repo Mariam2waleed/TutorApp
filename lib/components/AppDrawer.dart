@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tutor/components/comp.dart';
 import 'package:tutor/pages/Login.dart';
+import 'package:tutor/pages/settings.dart';
 
+import '../pages/contactus.dart';
 import '../service/store.dart';
 
 class AppDrawer extends StatefulWidget {
@@ -18,8 +20,10 @@ class _AppDrawerState extends State<AppDrawer> {
         child: ListView(padding: EdgeInsets.zero, children: <Widget>[
       // Header
       UserAccountsDrawerHeader(
-        accountName: Text(currUser!.fname, style: const TextStyle(fontSize: 20)),
-        accountEmail: Text(currUser!.email, style: const TextStyle(fontSize: 15)),
+        accountName:
+            Text(currUser!.fname, style: const TextStyle(fontSize: 20)),
+        accountEmail:
+            Text(currUser!.email, style: const TextStyle(fontSize: 15)),
         currentAccountPicture: CircleAvatar(
             child: ClipOval(
                 child: Image.asset(currUser!.profileImage,
@@ -51,6 +55,20 @@ class _AppDrawerState extends State<AppDrawer> {
                   Navigator.pop(context) // close the drawer
                 }),
         ListTile(
+            leading: Icon(Icons.phone_iphone_rounded, color: basecolor3),
+            title: const Text('Contact Us'),
+            onTap: () => {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => ContactUsScreen(),
+                  ))
+                }
+            // Navigator.push(
+            //                           context,
+            //                           MaterialPageRoute(
+            //                               builder: (context) =>
+            //                                    ContactUsScreen()))},
+            ),
+        ListTile(
           leading: Icon(Icons.info, color: basecolor3),
           title: const Text('About'),
           onTap: () => {Navigator.pop(context)},
@@ -58,7 +76,10 @@ class _AppDrawerState extends State<AppDrawer> {
         ListTile(
             leading: Icon(Icons.settings, color: basecolor3),
             title: const Text('Settings'),
-            onTap: () => {Navigator.pop(context)}),
+            onTap: () => { Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => SettingsPage(),
+                  ))
+                }),
         const Divider(),
         ListTile(
             title: const Text('LogOut'),

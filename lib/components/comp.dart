@@ -103,62 +103,69 @@ Widget PasswordField(controller, placeholder, {numbers = false}) {
   });
 }
 
-Widget LoadButton(
-    {idle_txt = "", load_txt = "", action, args = const []}) {
+Widget LoadButton({idle_txt = "", load_txt = "", action, args = const []}) {
   bool loading = false;
   bool disabled = false;
-  return StatefulBuilder(builder: (context, setState) {
-    Future<void> makeAction() async {
-      if (loading) return;
-      setState(() => loading = true);
-      if (args.isEmpty) {
-        await action();
-      } else if (args.length == 1)
-        await action(args[0]);
-      else if (args.length == 2) await action(args[0], args[1]);
-      setState(() => loading = false);
-    }
+  return StatefulBuilder(
+    builder: (context, setState) {
+      Future<void> makeAction() async {
+        if (loading) return;
+        setState(() => loading = true);
+        if (args.isEmpty) {
+          await action();
+        } else if (args.length == 1)
+          await action(args[0]);
+        else if (args.length == 2) await action(args[0], args[1]);
+        setState(() => loading = false);
+      }
 
-    return MaterialButton(
-        minWidth: double.infinity,
-        height: 60.0,
-        onPressed: (disabled) ? null : makeAction,
-        color: const Color.fromRGBO(67, 144, 84, 1),
-        disabledColor: Colors.grey,
-        disabledTextColor: white,
-        shape: RoundedRectangleBorder(
-          // side: BorderSide(width: 2, color: (bcolor == white) ? fcolor : bcolor),
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: Container(
-            color:
-                (disabled) ? Colors.grey : const Color.fromRGBO(67, 144, 84, 1),
-            child: Row(children: <Widget>[
-              Expanded(
-                  flex: 2,
-                  child: (() {
-                    if (loading) {
-                      return SizedBox(
-                          height: 55.0,
-                          child: SpinKitRing(color: white, lineWidth: 4));
-                    } else {
-                      return Container();
-                    }
-                  })()),
-              Expanded(
-                  flex: 8,
-                  child: Text((loading) ? load_txt : idle_txt,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold))),
-              Expanded(
+      return Ink(
+        decoration: const BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Colors.deepPurple,
+                  Color.fromARGB(255, 188, 112, 207)
+                ]),
+            borderRadius: BorderRadius.all(Radius.circular(70.0))),
+        child: MaterialButton(
+          minWidth: double.infinity,
+          height: 60.0,
+          onPressed: (disabled) ? null : makeAction,
+          disabledTextColor: white,
+          // shape: RoundedRectangleBorder(
+              // side: BorderSide(width: 2, color: (bcolor == white) ? fcolor : bcolor),
+              // borderRadius: BorderRadius.circular(20)),
+          // padding: const EdgeInsets.all(0.0),
+          child: Row(children: <Widget>[
+            Expanded(
                 flex: 2,
-                child: Container(),
-              ),
-            ])));
-  });
+                child: (() {
+                  if (loading) {
+                    return SizedBox(
+                        height: 55.0,
+                        child: SpinKitRing(color: white, lineWidth: 4));
+                  } else {
+                    return Container();
+                  }
+                })()),
+            Expanded(
+              flex: 8,
+              child: Text((loading) ? load_txt : idle_txt,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: white, fontSize: 20, fontWeight: FontWeight.bold)),
+            ),
+            Expanded(
+              flex: 2,
+              child: Container(),
+            ),
+          ]),
+        ),
+      );
+    },
+  );
 }
 
 Widget baseButton(
@@ -208,4 +215,57 @@ Widget baseButton(
               ),
             ])));
   });
+}
+
+//////////////////////////////// Online ////////////////////////////////////
+
+class CustomButton extends StatelessWidget {
+  String text = 'click';
+  final VoidCallback? onTap;
+  bool fill;
+  double? height, width;
+  final Color? color;
+  EdgeInsetsGeometry? margin;
+  EdgeInsetsGeometry? padding;
+  CustomButton(
+      {Key? key,
+      required this.text,
+      required this.onTap,
+      this.fill = true,
+      this.height,
+      this.color,
+      this.width,
+      this.padding,
+      this.margin})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        padding: padding,
+        height: height ?? 50,
+        width: width,
+        margin: margin ?? const EdgeInsets.only(top: 10, right: 50, left: 50),
+        decoration: BoxDecoration(
+            // gradient: LinearGradient(colors: [
+            //   GlobalVariables.base,
+            //   GlobalVariables.base,
+            //   Colors.white
+            // ]),
+            borderRadius: BorderRadius.circular(10),
+            color: color ?? basecolor),
+        //width: MediaQuery.of(context).size.width / 1.5,
+        child: InkWell(
+          onTap: onTap,
+          child: Center(
+            child: Text(
+              text,
+              style: TextStyle(
+                  color: fill ? Colors.white : Colors.black,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500),
+            ),
+          ),
+        ));
+  }
 }

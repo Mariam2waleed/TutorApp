@@ -35,56 +35,59 @@ class ForgotPasswordState extends State<ForgotPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Container(
-          padding:  const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-          width: MediaQuery.of(context).size.width,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              SvgPicture.asset(
-                "Assets/images/log.svg",
-                width: MediaQuery.of(context).size.width * 0.5,
-                color: basecolor,
+      body: ListView(
+        children: [
+          Center(
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+              width: MediaQuery.of(context).size.width,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Image.asset("Assets/images/tutoricon.png",
+                      width: MediaQuery.of(context).size.width * 0.5,
+                      height: MediaQuery.of(context).size.height * 0.3),
+                  const SizedBox(height: 60.0),
+                  const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        // Title
+                        Text('Forgot Password?',
+                            style: TextStyle(
+                                fontFamily: 'sen',
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold)),
+                        SizedBox(height: 15.0),
+                        // Hint
+                        Text(
+                            'Don’t worry ! It happens. Please enter the phone number we will send the OTP in this phone number.',
+                            style:
+                                TextStyle(color: Colors.black54, fontSize: 15))
+                      ]),
+                  const SizedBox(height: 15.0),
+                  // Enter Phone Nuber
+                  InputField(ctrl_PhoneNumber, "Enter the phone Number",
+                      numbers: true),
+                  const SizedBox(height: 25.0),
+                  // Continue
+                  LoadButton(
+                      idle_txt: "Continue",
+                      load_txt: "Continue..",
+                      action: () async {
+                        // debugPrint("Loding");
+                        // await Future.delayed(Duration(seconds: 2));
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                OTP(PhoneNumber: ctrl_PhoneNumber.toString()),
+                          ),
+                        );
+                      }),
+                ],
               ),
-              const SizedBox(height: 70.0),
-              const Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-               // Title
-                Text(
-                  'Forgot Password?',
-                  style: TextStyle(
-                      fontFamily: 'sen',
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 15.0),
-                // Hint
-                Text(
-                    'Don’t worry ! It happens. Please enter the phone number we will send the OTP in this phone number.',
-                    style: TextStyle(color: Colors.black54, fontSize: 15))
-              ]),
-              const SizedBox(height: 15.0),
-              // Enter Phone Nuber
-              InputField(ctrl_PhoneNumber, "Enter the phone Number",
-                  numbers: true),
-              const SizedBox(height: 25.0),
-              // Continue
-              LoadButton(
-                  idle_txt: "Continue",
-                  load_txt: "Continue..",
-                  action: () async {
-                    // debugPrint("Loding");
-                    // await Future.delayed(Duration(seconds: 2));
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            OTP(PhoneNumber: ctrl_PhoneNumber.toString()),
-                      ),
-                    );
-                  }),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

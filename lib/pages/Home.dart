@@ -90,13 +90,12 @@ class HomePageState extends State<HomePage> {
           Row(
             children: [
               Text("Subject Categories",
-                  style: 
-                  // GoogleFonts.pacifico(),
-                  TextStyle(
-                      color: black,
-                      fontSize: 25.0,
-                      fontWeight: FontWeight.bold)
-                  ),
+                  style:
+                      // GoogleFonts.pacifico(),
+                      TextStyle(
+                          color: black,
+                          fontSize: 25.0,
+                          fontWeight: FontWeight.bold)),
               Icon(Icons.arrow_forward, color: black)
             ],
           ),
@@ -193,10 +192,9 @@ class HomePageState extends State<HomePage> {
                                     const EdgeInsets.symmetric(horizontal: 5),
                                 child: Container(
                                     decoration: BoxDecoration(
-                                      borderRadius:
-                                          const BorderRadius.all(Radius.circular(50)),
-                                      color: group[index].course_color,
-                                    ),
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.circular(50)),
+                                        color: group[index].course_color),
                                     width: 145.0,
                                     child: GestureDetector(
                                         onTap: () {
@@ -218,15 +216,10 @@ class HomePageState extends State<HomePage> {
                                                   borderRadius:
                                                       BorderRadius.circular(50),
                                                   child: Image.asset(
-                                                    'Assets/images/student.jpg',
-                                                    fit: BoxFit.cover,
-                                                    width: 130,
-                                                    height: 130,
-                                                  )),
-                                              // Image.asset(
-                                              //     'Assets/images/student.jpg',
-                                              //     width: 130,
-                                              //     height: 100),
+                                                      'Assets/images/student.png',
+                                                      fit: BoxFit.cover,
+                                                      width: 130,
+                                                      height: 130)),
                                               Text(group[index].course_name,
                                                   style: TextStyle(
                                                       color: black,
@@ -236,10 +229,11 @@ class HomePageState extends State<HomePage> {
                                             ]))));
                           }),
                     ),
+
                     const SizedBox(height: 15),
                     const Divider(color: Colors.grey, thickness: 2),
                     const SizedBox(height: 15),
-                    // post
+                    /////////////////////////////////// Post ////////////////////////////////////////
                     Container(
                         decoration: const BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(15)),
@@ -250,8 +244,12 @@ class HomePageState extends State<HomePage> {
                               Row(children: [
                                 CircleAvatar(
                                     radius: 20,
-                                    child: SvgPicture.asset(
-                                        'Assets/images/log.svg')),
+                                    backgroundColor: Colors.transparent,
+                                    child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(50),
+                                        child: Image.asset(
+                                            currUser!.profileImage,
+                                            fit: BoxFit.fill))),
                                 Padding(
                                     padding: const EdgeInsets.only(left: 10),
                                     child: Column(

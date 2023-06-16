@@ -65,7 +65,7 @@ class NewPasswordState extends State<NewPassword> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const LoginPage()));
+                              builder: (context) =>  LoginPage()));
                     } else {
                       ctrl_re_passcode.clear();
                     }

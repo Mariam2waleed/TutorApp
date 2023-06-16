@@ -1,4 +1,3 @@
-
 // import 'package:flutter/cupertino.dart';
 // import 'dart:convert';
 import 'package:flutter/gestures.dart';
@@ -15,50 +14,58 @@ import 'package:tutor/pages/ForgotPassword.dart';
 // import 'package:http/http.dart' as http;
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  // static const routeName = '/login';
+  // final Role role;
+  const LoginPage({
+    super.key,
+    //  required this.role
+  });
   @override
   State<StatefulWidget> createState() => LoginPageState();
 }
 
 class LoginPageState extends State<LoginPage> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  bool obscure = false;
+
   LoginPageState({Key? key});
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
 
   //============================================================================
+  // @override
+  // void initState() {
+  //   super.initState();
+  // }
+
+  // @override
+  // void didChangeDependencies() {
+  //   super.didChangeDependencies();
+  // }
+
+  // @override
+  // void dispose() {
+  //   super.dispose();
+  // }
   //============================================================================
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+
   //============================================================================
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
       child: Column(children: [
-        ///////////////// Icon //////////////////////////////////
+        ///////////////// Logo //////////////////////////////////
         Container(
-          width: double.infinity,
-          height: MediaQuery.of(context).size.height / 3,
-          decoration: const BoxDecoration(
-              color: Colors.transparent,
-              image: DecorationImage(
-                  fit: BoxFit.fitHeight,
-                  image: AssetImage('Assets/images/tutoricon.png'))),
-        ),
+            width: double.infinity,
+            height: MediaQuery.of(context).size.height / 3,
+            decoration: const BoxDecoration(
+                color: Colors.transparent,
+                image: DecorationImage(
+                    fit: BoxFit.fitHeight,
+                    image: AssetImage('Assets/images/tutoricon.png')))),
         const SizedBox(height: 15),
-        ///////////////// login  //////////////////////////////////
+        ///////////////// login Section //////////////////////////////////
         Expanded(
           child: Container(
             width: double.infinity,
@@ -102,46 +109,55 @@ class LoginPageState extends State<LoginPage> {
                     const SizedBox(height: 15),
                     Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: white,
-                        ),
+                            borderRadius: BorderRadius.circular(12),
+                            color: white),
                         child: TextField(
                             controller: passwordController,
                             style: TextStyle(color: black),
-                            obscureText: true,
+                            obscureText: obscure,
                             decoration: InputDecoration(
                                 border: InputBorder.none,
                                 prefixIcon: Icon(Icons.lock, color: black),
+                                suffix: IconButton(
+                                    onPressed: () {
+                                      setState(() {});
+                                      obscure = !obscure;
+                                    },
+                                    icon: Icon(obscure
+                                        ? Icons.visibility_off
+                                        : Icons.remove_red_eye),
+                                    iconSize: 20),
                                 hintText: 'Password',
-                                hintStyle: TextStyle(color: black)))),
+                                hintStyle: TextStyle(color: black),
+                                contentPadding:
+                                    const EdgeInsets.symmetric(vertical: 3)))),
                     const SizedBox(height: 10),
                     ///////////////// Forget password  //////////////////////////////////
                     RichText(
-                      text: TextSpan(
-                          text: " ",
-                          style: const TextStyle(
-                              // color: black,
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.bold),
-                          children: <TextSpan>[
-                            TextSpan(
-                                text: 'Forget your password?',
-                                style: const TextStyle(
-                                    // decoration: TextDecoration.underline,
-                                    decorationColor: Colors.blue,
-                                    // decorationThickness: 1.5,
-                                    color: Colors.blue,
-                                    // color: black,
-                                    fontSize: 15.0,
-                                    fontWeight: FontWeight.bold),
-                                recognizer: TapGestureRecognizer()
-                                  ..onTap = () => Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const ForgotPassword())))
-                          ]),
-                    ),
+                        text: TextSpan(
+                            text: " ",
+                            style: const TextStyle(
+                                // color: black,
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold),
+                            children: <TextSpan>[
+                          TextSpan(
+                              text: 'Forget your password?',
+                              style: const TextStyle(
+                                  // decoration: TextDecoration.underline,
+                                  decorationColor: Colors.blue,
+                                  // decorationThickness: 1.5,
+                                  color: Colors.blue,
+                                  // color: black,
+                                  fontSize: 15.0,
+                                  fontWeight: FontWeight.bold),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () => Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const ForgotPassword())))
+                        ])),
                     const SizedBox(height: 35),
                     ///////////////// Sign In button  //////////////////////////////////
                     MaterialButton(

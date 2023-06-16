@@ -144,15 +144,13 @@ class ChatPageState extends State<ChatPage> {
                   controller: msgInputController,
                   decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: basecolor),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
+                          borderSide: BorderSide(color: basecolor),
+                          borderRadius: BorderRadius.circular(10)),
                       suffixIcon: Container(
                         margin: const EdgeInsets.only(right: 10),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: basecolor,
-                        ),
+                            borderRadius: BorderRadius.circular(10),
+                            color: basecolor),
                         child: IconButton(
                           onPressed: () {
                             sendMessage(msgInputController.text);
@@ -166,7 +164,6 @@ class ChatPageState extends State<ChatPage> {
             ),
           ],
         )
-
         //////////////////////////// UI //////////////////////////
         //  Column(children: [
         //   const Expanded(child: ChatList()),
