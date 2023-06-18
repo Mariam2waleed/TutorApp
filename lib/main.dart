@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tutor/pages/Login.dart';
+import 'package:tutor/components/themeswitcher.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:tutor/pages/Login/welcome.dart';
 
-import 'pages/Welcome.dart';
 // import 'package:tutor/components/NavBar.dart';
 // import 'package:tutor/components/comp.dart';
 // import 'package:tutor/pages/Broadcast.dart';
@@ -18,11 +18,17 @@ import 'pages/Welcome.dart';
 // import 'package:tutor/pages/Profile.dart';
 // import 'package:tutor/pages/Schedule.dart';
 // import 'package:tutor/service/store.dart';
+import 'package:provider/provider.dart';
 
 // import 'N/home.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ThemeProvider(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

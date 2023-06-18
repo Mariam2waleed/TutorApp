@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tutor/api/api.dart';
-import 'package:tutor/components/NavBar.dart';
+// import 'package:tutor/api/api.dart';
+// import 'package:tutor/components/NavBar.dart';
 
-import '../components/comp.dart';
+import '../../components/comp.dart';
 
 class ContactUsScreen extends StatefulWidget {
   const ContactUsScreen({super.key});

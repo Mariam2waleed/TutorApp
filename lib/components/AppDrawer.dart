@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tutor/components/comp.dart';
-import 'package:tutor/pages/Login.dart';
-import 'package:tutor/pages/settings.dart';
+import 'package:tutor/pages/Login/login.dart';
+import 'package:tutor/pages/SideMenu/about.dart';
+import 'package:tutor/pages/SideMenu/settings.dart';
 
-import '../pages/contactus.dart';
+import '../pages/SideMenu/contactus.dart';
 import '../service/store.dart';
 
 class AppDrawer extends StatefulWidget {
@@ -69,14 +70,18 @@ class _AppDrawerState extends State<AppDrawer> {
             //                                    ContactUsScreen()))},
             ),
         ListTile(
-          leading: Icon(Icons.info, color: basecolor3),
-          title: const Text('About'),
-          onTap: () => {Navigator.pop(context)},
-        ),
+            leading: Icon(Icons.info, color: basecolor3),
+            title: const Text('About'),
+            onTap: () => {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => AboutPage(),
+                  ))
+                }),
         ListTile(
             leading: Icon(Icons.settings, color: basecolor3),
             title: const Text('Settings'),
-            onTap: () => { Navigator.of(context).push(MaterialPageRoute(
+            onTap: () => {
+                  Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => SettingsPage(),
                   ))
                 }),

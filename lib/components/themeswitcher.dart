@@ -19,6 +19,7 @@ class ThemeSwitcherState extends State<ThemeSwitcher> {
       onChanged: (value) {
         setState(() {
           isDarkMode = value;
+          print(isDarkMode);
         });
         final provider =
             Provider.of<ThemeProvider>(context, listen: false);
@@ -53,11 +54,11 @@ class ThemeProvider extends ChangeNotifier {
   }
 }
 
-void main() {
-  runApp(
-    ChangeNotifierProvider(
-      create: (context) => ThemeProvider(),
-      child: MyApp(),
-    ),
-  );
-}
+// void main() {
+//   runApp(
+//     ChangeNotifierProvider(
+//       create: (context) => ThemeProvider(),
+//       child: MyApp(),
+//     ),
+//   );
+// }

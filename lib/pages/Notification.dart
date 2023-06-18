@@ -41,7 +41,7 @@ class NotificationPageState extends State<NotificationPage> {
   var price = TextEditingController();
   var desc = TextEditingController();
   //============================================================================
-  insert() async {
+  get insert async {
     var res = await http.post(Uri.parse(EndPoints.product),
         body: {"name": name.text, "price": price.text, "desc": desc.text},
         headers: {"Content-Type": "application/x-www-form-urlencoded"});

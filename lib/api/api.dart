@@ -5,8 +5,8 @@ import '../service/EndPoints.dart';
 
 ///////////////////////////// LogIn ////////////////////////////
 
-Future<Map<String, dynamic>> login(String email, String password) async {
-  try {
+Future login(String email, String password) async {
+  
     final response = await http.post(
       Uri.parse(EndPoints.login),
       headers: {'Content-Type': 'application/json'},
@@ -23,11 +23,6 @@ Future<Map<String, dynamic>> login(String email, String password) async {
     } else {
       return {'success': false, 'message': responseData['message']};
     }
-  } catch (e) {
-    print(e);
-
-    return {'success': false, 'message': 'An error occurred: $e'};
-  }
 }
 
 ///////////////////////////// Get profile ////////////////////////////
@@ -50,4 +45,16 @@ Future<Map<String, dynamic>> getUserProfile(String token) async {
   }
 }
 
+
 ///////////////////////////// Gett ////////////////////////////
+
+///////////////////////////// insert product ////////////////////////////
+  // var formKey = GlobalKey<FormState>();
+  // var name = TextEditingController();
+  // var price = TextEditingController();
+  // var desc = TextEditingController();
+  // insert() async {
+  //   var res = await http.post(Uri.parse(EndPoints.product),
+  //       body: {"name": name.text, "price": price.text, "desc": desc.text},
+  //       headers: {"Content-Type": "application/x-www-form-urlencoded"});
+  // }

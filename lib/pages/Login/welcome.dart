@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 // import 'package:teachers_app/features/main/home/widgets/title_container.dart';
 // import 'package:teachers_app/router.dart';
 import 'package:tutor/components/comp.dart';
-import 'package:tutor/pages/Login.dart';
+import 'package:tutor/pages/Login/login.dart';
 
 class RoleScreen extends StatefulWidget {
   static const routeName = '/roles';

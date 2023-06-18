@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:tutor/api/api.dart';
-import 'package:tutor/components/NavBar.dart';
+// import 'package:tutor/api/api.dart';
+// import 'package:tutor/components/NavBar.dart';
 
-import '../components/themeswitcher.dart';
+import '../../components/themeswitcher.dart';
 
-import '../components/comp.dart';
+import '../../components/comp.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -59,7 +59,6 @@ class SettingsPage extends StatelessWidget {
                         ThemeSwitcher(),
                       ],
                     ),
-
                     const SizedBox(height: 15),
                     ///////////////// Email  //////////////////////////////////
                     const SizedBox(height: 15),

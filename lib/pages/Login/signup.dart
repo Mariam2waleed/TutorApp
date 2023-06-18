@@ -1,7 +1,7 @@
 // import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tutor/components/comp.dart';
-import 'package:tutor/pages/Login.dart';
+import 'package:tutor/pages/Login/login.dart';
 
 
 class SignUpPage extends StatefulWidget {

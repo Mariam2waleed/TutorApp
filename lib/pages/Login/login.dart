@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:tutor/api/api.dart';
 import 'package:tutor/components/NavBar.dart';
 import 'package:tutor/components/comp.dart';
-import 'package:tutor/pages/ForgotPassword.dart';
+import 'package:tutor/pages/Login/ForgotPassword.dart';
+import 'package:tutor/pages/Login/SignUp.dart';
 // import 'package:tutor/components/comp.dart';
 // import 'package:flutter_svg/svg.dart';
 // import 'package:tutor/pages/ForgotPassword.dart';
@@ -28,7 +29,7 @@ class LoginPageState extends State<LoginPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  bool obscure = false;
+  bool obscure = true;
 
   LoginPageState({Key? key});
 
@@ -94,6 +95,7 @@ class LoginPageState extends State<LoginPage> {
                         child: TextField(
                             controller: emailController,
                             style: TextStyle(color: black),
+                            
                             decoration: InputDecoration(
                                 border: InputBorder.none,
                                 prefixIcon: Icon(Icons.email, color: black),
@@ -244,7 +246,7 @@ class LoginPageState extends State<LoginPage> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              const ForgotPassword())))
+                                              const SignUpPage())))
                           ]),
                     ),
                   ],
