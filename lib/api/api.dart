@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'dart:html';
 import 'package:http/http.dart' as http;
+import 'package:tutor/service/models.dart';
 
 import '../service/EndPoints.dart';
 
@@ -26,6 +28,7 @@ Future login(String email, String password) async {
 }
 
 ///////////////////////////// Get profile ////////////////////////////
+
 Future<Map<String, dynamic>> getUserProfile(String token) async {
   try {
     final response = await http.get(
@@ -45,8 +48,26 @@ Future<Map<String, dynamic>> getUserProfile(String token) async {
   }
 }
 
+///////////////////////////// Contact US ////////////////////////////
 
-///////////////////////////// Gett ////////////////////////////
+Future<Map<String, dynamic>> contactUS(ContactFormData formData, String token) async {
+    final response = await http.post(
+      Uri.parse(EndPoints.contactus),
+      headers: {
+        'Authorization': 'Bearer $token',
+        'Content-Type': 'application/json',
+      },
+      body: jsonEncode(formData.toJson()),
+    );
+
+    final responseData = jsonDecode(response.body);
+
+    if (response.statusCode == 200) {
+      return {'success': true};
+    } else {
+      return {'success': false, 'message': responseData['message']};
+    }
+}
 
 ///////////////////////////// insert product ////////////////////////////
   // var formKey = GlobalKey<FormState>();

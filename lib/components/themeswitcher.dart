@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tutor/main.dart';
+// import 'package:tutor/main.dart';
 
 class ThemeSwitcher extends StatefulWidget {
   const ThemeSwitcher({Key? key}) : super(key: key);

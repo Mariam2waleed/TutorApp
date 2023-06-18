@@ -269,6 +269,22 @@ class Group {
 }
 
 //==============================================================================
+class ContactFormData {
+    String name;
+    String email;
+    String message;
+  
+    ContactFormData({required this.name, required this.email, required this.message});
+  
+    Map<String, dynamic> toJson() {
+      final Map<String, dynamic> data = Map<String, dynamic>();
+      data['name'] = name;
+      data['email'] = email;
+      data['message'] = message;
+      return data;
+    }
+  }
+//==============================================================================
 
 class Chat {
   final String name;

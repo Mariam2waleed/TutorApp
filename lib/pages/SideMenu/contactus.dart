@@ -12,6 +12,7 @@ class ContactUsScreen extends StatefulWidget {
 }
 
 class ContactUsScreenState extends State<ContactUsScreen> {
+  // final formKey = GlobalKey<FormState>();
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController messageController = TextEditingController();
@@ -172,93 +173,114 @@ class ContactUsScreenState extends State<ContactUsScreen> {
       ]),
     ));
 
-    //   body: SafeArea(
-    //     child: Padding(
-    //       padding: const EdgeInsets.all(16.0),
-    //       child: Column(
-    //         crossAxisAlignment: CrossAxisAlignment.stretch,
-    //         children: [
-    //           Text("Contact Us",
-    //               style:
-    //                   // GoogleFonts.pacifico(),
-    //                   TextStyle(
-    //                       color: black,
-    //                       fontSize: 35.0,
-    //                       fontWeight: FontWeight.bold)),
-    //           const Text(
-    //             'This is our info page',
-    //             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),
-    //           ),
-    //           const SizedBox(height: 16.0),
-    //           TextField(
-    //             controller: nameController,
-    //             decoration: const InputDecoration(
-    //               labelText: 'Name',
-    //               border: OutlineInputBorder(),
-    //             ),
-    //           ),
-    //           const SizedBox(height: 16.0),
-    //           TextField(
-    //             controller: emailController,
-    //             decoration: const InputDecoration(
-    //               labelText: 'Email Address',
-    //               border: OutlineInputBorder(),
-    //             ),
-    //           ),
-    //           const SizedBox(height: 16.0),
-    //           TextField(
-    //               controller: messageController,
-    //               maxLines: 5,
-    //               decoration: const InputDecoration(
-    //                   labelText: 'Message', border: OutlineInputBorder())),
-    //           const SizedBox(height: 16.0),
-    //           MaterialButton(
-    //               minWidth: 20,
-    //               shape: RoundedRectangleBorder(
-    //                   borderRadius: BorderRadius.circular(70.0)),
-    //               padding: const EdgeInsets.all(0.0),
-    //               child: Center(
-    //                   child: Ink(
-    //                       decoration: const BoxDecoration(
-    //                           gradient: LinearGradient(
-    //                               begin: Alignment.topCenter,
-    //                               end: Alignment.bottomCenter,
-    //                               colors: [
-    //                                 Colors.deepPurple,
-    //                                 Color.fromARGB(255, 188, 112, 207)
-    //                               ]),
-    //                           borderRadius:
-    //                               BorderRadius.all(Radius.circular(70.0))),
-    //                       child: Container(
-    //                           constraints: const BoxConstraints(
-    //                               maxWidth: 150,
-    //                               // minWidth: 30.0,
-    //                               minHeight:
-    //                                   44.0), // min sizes for Material buttons
-    //                           alignment: Alignment.center,
-    //                           child: Text('Submit',
-    //                               style: TextStyle(
-    //                                   color: white,
-    //                                   fontSize: 30,
-    //                                   fontWeight: FontWeight.bold),
-    //                               textAlign: TextAlign.center)))),
-    //               onPressed: () async {
-    //                 // debugPrint("Loding");
+// import 'package:flutter/material.dart';
+// import 'package:tutor/api/api.dart';
+// import 'package:tutor/models/contact_form_data.dart';
+// import 'package:tutor/service/auth.dart';
 
-    //                 if (messageController != null ||
-    //                     emailController != null) {
-    //                   await Future.delayed(const Duration(seconds: 2));
-    //                   Navigator.pop(context);
-    //                 } else {
-    //                   const snackBar =
-    //                       SnackBar(content: Text('Empty Text !'));
-    //                   ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    //                 }
-    //               }),
-    //         ],
-    //       ),
-    //     ),
-    //   ),
+// class ContactUsScreen extends StatefulWidget {
+//   const ContactUsScreen({Key? key});
+
+//   @override
+//   _ContactUsScreenState createState() => _ContactUsScreenState();
+// }
+
+// class _ContactUsScreenState extends State<ContactUsScreen> {
+//   final _formKey = GlobalKey<FormState>();
+//   final _nameController = TextEditingController();
+//   final _emailController = TextEditingController();
+//   final _messageController = TextEditingController();
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Contact Us'),
+//       ),
+//       body: SingleChildScrollView(
+//         child: Padding(
+//           padding: const EdgeInsets.all(16.0),
+//           child: Form(
+//             key: _formKey,
+//             child: Column(
+//               crossAxisAlignment: CrossAxisAlignment.stretch,
+//               children: [
+//                 TextFormField(
+//                   controller: _nameController,
+//                   decoration: InputDecoration(
+//                     labelText: 'Name',
+//                   ),
+//                   validator: (value) {
+//                     if (value!.isEmpty) {
+//                       return 'Please enter your name';
+//                     }
+//                     return null;
+//                   },
+//                 ),
+//                 SizedBox(height: 16.0),
+//                 TextFormField(
+//                   controller: _emailController,
+//                   keyboardType: TextInputType.emailAddress,
+//                   decoration: InputDecoration(
+//                     labelText: 'Email',
+//                   ),
+//                   validator: (value) {
+//                     if (value!.isEmpty) {
+//                       return 'Please enter your email';
+//                     }
+//                     return null;
+//                   },
+//                 ),
+//                 SizedBox(height: 16.0),
+//                 TextFormField(
+//                   controller: _messageController,
+//                   maxLines: 5,
+//                   decoration: InputDecoration(
+//                     labelText: 'Message',
+//                   ),
+//                   validator: (value) {
+//                     if (value!.isEmpty) {
+//                       return 'Please enter your message';
+//                     }
+//                     return null;
+//                   },
+//                 ),
+//                 SizedBox(height: 16.0),
+//                 ElevatedButton(
+//                   onPressed: () async {
+//                     if (_formKey.currentState!.validate()) {
+//                       final token = await AuthService.getToken();
+//                       final formData = ContactFormData(
+//                         name: _nameController.text,
+//                         email: _emailController.text,
+//                         message: _messageController.text,
+//                       );
+//                       final result = await Api.submitContactForm(formData, token!);
+//                       if (result['success']) {
+//                         ScaffoldMessenger.of(context).showSnackBar(
+//                           SnackBar(
+//                             content: Text('Form submitted successfully'),
+//                           ),
+//                         );
+//                         Navigator.pop(context);
+//                       } else {
+//                         ScaffoldMessenger.of(context).showSnackBar(
+//                           SnackBar(
+//                             content: Text(result['message'] ?? 'An error occurred'),
+//                           ),
+//                         );
+//                       }
+//                     }
+//                   },
+//                   child: Text('Submit'),
+//                 ),
+//               ],
+//             ),
+//           ),
+//         ),
+//       ),
     // );
+  // }
+// }
   }
 }
