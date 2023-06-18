@@ -3,7 +3,7 @@ import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:tutor/components/comp.dart';
 import 'package:tutor/service/models.dart';
 import 'package:tutor/service/store.dart';
-import '../components/messagesList.dart';
+import '../../components/messagesList.dart';
 
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 

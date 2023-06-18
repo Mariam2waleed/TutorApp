@@ -2,11 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:tutor/components/comp.dart';
 // import 'package:tutor/components/messagesList.dart';
-import 'package:tutor/pages/Chat.dart';
+import 'package:tutor/pages/Chatting/Chat.dart';
 import 'package:tutor/pages/Profile.dart';
 import 'package:tutor/service/store.dart';
 
-import '../components/AppDrawer.dart';
+import '../../components/AppDrawer.dart';
 
 class InboxPage extends StatefulWidget {
   const InboxPage({super.key});

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tutor/components/comp.dart';
 // import 'package:tutor/pages/Classwork.dart';
-import 'package:tutor/pages/Inbox.dart';
+import 'package:tutor/pages/Chatting/Inbox.dart';
 import 'package:tutor/pages/Home.dart';
 import 'package:tutor/pages/Notification.dart';
 // import 'package:tutor/pages/Profile.dart';
