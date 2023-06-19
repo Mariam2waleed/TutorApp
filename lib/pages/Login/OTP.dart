@@ -49,12 +49,10 @@ class OTPState extends State<OTP> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              SvgPicture.asset(
-                "Assets/images/log.svg",
-                width: MediaQuery.of(context).size.width * 0.5,
-                color: basecolor,
-              ),
-              const SizedBox(height: 70.0),
+             Image.asset("Assets/images/tutoricon.png",
+                      width: MediaQuery.of(context).size.width * 0.5,
+                      height: MediaQuery.of(context).size.height * 0.3),
+                   const SizedBox(height: 70.0),
               // title
               const Text(
                 'OTP VERIFICATION',

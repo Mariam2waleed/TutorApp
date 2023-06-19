@@ -44,10 +44,17 @@ class NewPasswordState extends State<NewPassword> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              SvgPicture.asset("Assets/images/log.svg",
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  color: basecolor),
-              const SizedBox(height: 100.0),
+             Image.asset("Assets/images/tutoricon.png",
+                      width: MediaQuery.of(context).size.width * 0.5,
+                      height: MediaQuery.of(context).size.height * 0.3),
+                  const SizedBox(height: 100.0),
+             const Text(
+                ' Change your password',
+                style: TextStyle(
+                    fontFamily: 'sen',
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold),
+              ),
               // New password
               PasswordField(ctrl_passcode, "Enter new password", numbers: true),
               const SizedBox(height: 25.0),

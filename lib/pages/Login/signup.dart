@@ -39,7 +39,7 @@ class SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            backgroundColor: basecolor,
+            backgroundColor: basecolor3,
             title: Text.rich(TextSpan(
                 text: 'Register',
                 style: TextStyle(
