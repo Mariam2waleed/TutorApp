@@ -1,7 +1,7 @@
 // import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tutor/components/comp.dart';
-import 'package:flutter_svg/svg.dart';
+// import 'package:flutter_svg/svg.dart';
 // import 'package:tutor/pages/ForgotPassword.dart';
 import 'package:tutor/pages/Login/login.dart';
 
@@ -44,17 +44,17 @@ class NewPasswordState extends State<NewPassword> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-             Image.asset("Assets/images/tutoricon.png",
-                      width: MediaQuery.of(context).size.width * 0.5,
-                      height: MediaQuery.of(context).size.height * 0.3),
-                  const SizedBox(height: 100.0),
-             const Text(
-                ' Change your password',
-                style: TextStyle(
-                    fontFamily: 'sen',
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold),
-              ),
+              Image.asset("Assets/images/tutoricon.png",
+                  width: MediaQuery.of(context).size.width * 0.5,
+                  height: MediaQuery.of(context).size.height * 0.3),
+              const SizedBox(height: 100.0),
+              const Text(' Change your password',
+                  style: TextStyle(
+                      fontFamily: 'sen',
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold)),
+              const SizedBox(height: 60.0),
+
               // New password
               PasswordField(ctrl_passcode, "Enter new password", numbers: true),
               const SizedBox(height: 25.0),
@@ -69,10 +69,8 @@ class NewPasswordState extends State<NewPassword> {
                     debugPrint("Loding");
                     await Future.delayed(const Duration(seconds: 1));
                     if (ctrl_passcode == ctrl_re_passcode) {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>  LoginPage()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => LoginPage()));
                     } else {
                       ctrl_re_passcode.clear();
                     }

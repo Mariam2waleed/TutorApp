@@ -111,7 +111,7 @@ class ContactUsScreenState extends State<ContactUsScreen> {
                             color: white),
                         child: TextField(
                             controller: messageController,
-                            maxLines: 5,
+                            maxLines: 4,
                             style: TextStyle(color: black),
                             decoration: InputDecoration(
                                 border: InputBorder.none,

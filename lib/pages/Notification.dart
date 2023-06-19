@@ -78,7 +78,7 @@ class NotificationPageState extends State<NotificationPage> {
                               builder: (context) => const ProfilePage()))
                     })
           ]),
-      drawer: AppDrawer(),
+      drawer: const AppDrawer(),
       //============================================================================
       body: Center(
         child: Column(
