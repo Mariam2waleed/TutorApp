@@ -1,5 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:tutor/components/AppDrawer.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tutor/components/comp.dart';
 // import 'package:tutor/pages/Classwork.dart';
@@ -8,6 +9,8 @@ import 'package:tutor/pages/Home.dart';
 import 'package:tutor/pages/Notification.dart';
 // import 'package:tutor/pages/Profile.dart';
 import 'package:tutor/pages/Schedule.dart';
+import 'package:tutor/pages/profile.dart';
+import 'package:tutor/service/store.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});
@@ -19,11 +22,18 @@ class NavBarState extends State<NavBar> {
   NavBarState({Key? key});
   final navigationKey = GlobalKey<CurvedNavigationBarState>();
   int index = 0;
-  final screens = [
+  List<Widget> screens = [
     const HomePage(),
     const InboxPage(),
     const SchedulePage(),
     const NotificationPage(),
+  ];
+
+  List<String> titles = [
+    'Home',
+    "Ibox",
+    "Schedule",
+    "Notification",
   ];
 
   @override
@@ -32,8 +42,38 @@ class NavBarState extends State<NavBar> {
       top: false,
       child: Scaffold(
         extendBody: true,
-        // appBar: AppBar(),
+        appBar: AppBar(
+            toolbarHeight: 110.0,
+            elevation: 0,
+            backgroundColor: white,
+            iconTheme: IconThemeData(color: black),
+            title: Center(
+                child: Text(
+              titles[index],
+              style: TextStyle(color: black, fontWeight: FontWeight.bold),
+            )),
+            actions: [
+              IconButton(
+                  highlightColor: Colors.deepPurple[300],
+                  iconSize: 48.0,
+                  icon:
+                      // ImageIcon(Image.asset('Assets/images/Me.jpeq').image)
+                      CircleAvatar(
+                          radius: 50,
+                          child: ClipRRect(
+                              borderRadius: BorderRadius.circular(50),
+                              child: Image.asset(currUser!.profileImage,
+                                  fit: BoxFit.cover))),
+                  onPressed: () => {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const ProfilePage()))
+                      })
+            ]),
+        drawer: const AppDrawer(),
         body: screens[index],
+        ///////////////////////
         bottomNavigationBar: Theme(
           data: Theme.of(context)
               .copyWith(iconTheme: IconThemeData(color: white)),
@@ -51,8 +91,8 @@ class NavBarState extends State<NavBar> {
               Icon(Icons.calendar_today_rounded, size: 30),
               Icon(Icons.notifications, size: 30),
             ],
-            onTap: (index) => setState(() => this.index = index),
             //Handle button tap
+            onTap: (index) => setState(() => this.index = index),
           ),
         ),
       ),
@@ -115,11 +155,6 @@ class NavBarState extends State<NavBar> {
 // }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-
-
-
 // class BottomNavBar extends StatelessWidget {
 //   BottomNavBar({super.key});
 //   int currentIndex = 0;
@@ -169,41 +204,41 @@ class NavBarState extends State<NavBar> {
 
 ////////////////////////////////////////////
 
-    // Container(
-    //   height: 80,
-    //   decoration: BoxDecoration(
-    //     color: basecolor,
-    //     shape : BoxShape.rectangle,
-    //     borderRadius: BorderRadius.only(
-    //       topLeft: Radius.circular(30),
-    //       topRight: Radius.circular(30),
-    //     ),
-    //   ),
-    //   child: Padding(
-    //     padding: const EdgeInsets.symmetric(horizontal: 20.0),
-    //     child: Row(
-    //       mainAxisSize: MainAxisSize.max,
-    //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    //       children: [
-    //         Opacity(
-    //           opacity: 0.5,
-    //           child: SvgPicture.asset('Assets/images/log.svg'),
-    //         ),
-    //         Opacity(
-    //           opacity: 0.5,
-    //           child: SvgPicture.asset('Assets/images/log.svg'),
-    //         ),
-    //         Opacity(
-    //           opacity: 0.5,
-    //           child: SvgPicture.asset('Assets/images/log.svg'),
-    //         ),
-    //         Opacity(
-    //           opacity: 0.5,
-    //           child: SvgPicture.asset('Assets/images/log.svg'),
-    //         ),
-    //       ],
-    //     ),
-    //   ),
-    // );
-  //}
+// Container(
+//   height: 80,
+//   decoration: BoxDecoration(
+//     color: basecolor,
+//     shape : BoxShape.rectangle,
+//     borderRadius: BorderRadius.only(
+//       topLeft: Radius.circular(30),
+//       topRight: Radius.circular(30),
+//     ),
+//   ),
+//   child: Padding(
+//     padding: const EdgeInsets.symmetric(horizontal: 20.0),
+//     child: Row(
+//       mainAxisSize: MainAxisSize.max,
+//       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//       children: [
+//         Opacity(
+//           opacity: 0.5,
+//           child: SvgPicture.asset('Assets/images/log.svg'),
+//         ),
+//         Opacity(
+//           opacity: 0.5,
+//           child: SvgPicture.asset('Assets/images/log.svg'),
+//         ),
+//         Opacity(
+//           opacity: 0.5,
+//           child: SvgPicture.asset('Assets/images/log.svg'),
+//         ),
+//         Opacity(
+//           opacity: 0.5,
+//           child: SvgPicture.asset('Assets/images/log.svg'),
+//         ),
+//       ],
+//     ),
+//   ),
+// );
+//}
 //}
