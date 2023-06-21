@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pb_ch_education_new_version/presentation/screens/blog/addBlogs.dart';
+// import 'package:pb_ch_education_new_version/presentation/screens/blog/addBlogs.dart';
+import 'package:tutor/pages/blog/addBlogs.dart';
 
 class ShowBlogs extends StatefulWidget {
   const ShowBlogs({super.key});
