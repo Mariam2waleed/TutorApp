@@ -8,5 +8,6 @@ class TutorAppManager extends Cubit<TutorAppState> {
   change() {
     test = true;
     emit(ChnageBool());
+    ////////
   }
 }
