@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'dart:html';
+// import 'dart:html';
 import 'package:http/http.dart' as http;
 import 'package:tutor/service/models.dart';
 
@@ -8,23 +8,22 @@ import '../service/EndPoints.dart';
 ///////////////////////////// LogIn ////////////////////////////
 
 Future login(String email, String password) async {
-  
-    final response = await http.post(
-      Uri.parse(EndPoints.login),
-      headers: {'Content-Type': 'application/json'},
-      body: jsonEncode(<String, String>{'email': email, 'password': password}),
-    );
+  final response = await http.post(
+    Uri.parse(EndPoints.login),
+    headers: {'Content-Type': 'application/json'},
+    body: jsonEncode(<String, String>{'email': email, 'password': password}),
+  );
 
-    final responseData = jsonDecode(response.body);
+  final responseData = jsonDecode(response.body);
 
-    if (response.statusCode == 200) {
-      final accessToken = responseData['accessToken'];
-      print(accessToken);
+  if (response.statusCode == 200) {
+    final accessToken = responseData['accessToken'];
+    print(accessToken);
 
-      return {'success': true, 'token': accessToken};
-    } else {
-      return {'success': false, 'message': responseData['message']};
-    }
+    return {'success': true, 'token': accessToken};
+  } else {
+    return {'success': false, 'message': responseData['message']};
+  }
 }
 
 ///////////////////////////// Get profile ////////////////////////////
@@ -50,23 +49,24 @@ Future<Map<String, dynamic>> getUserProfile(String token) async {
 
 ///////////////////////////// Contact US ////////////////////////////
 
-Future<Map<String, dynamic>> contactUS(ContactFormData formData, String token) async {
-    final response = await http.post(
-      Uri.parse(EndPoints.contactus),
-      headers: {
-        'Authorization': 'Bearer $token',
-        'Content-Type': 'application/json',
-      },
-      body: jsonEncode(formData.toJson()),
-    );
+Future<Map<String, dynamic>> contactUS(
+    ContactFormData formData, String token) async {
+  final response = await http.post(
+    Uri.parse(EndPoints.contactus),
+    headers: {
+      'Authorization': 'Bearer $token',
+      'Content-Type': 'application/json',
+    },
+    body: jsonEncode(formData.toJson()),
+  );
 
-    final responseData = jsonDecode(response.body);
+  final responseData = jsonDecode(response.body);
 
-    if (response.statusCode == 200) {
-      return {'success': true};
-    } else {
-      return {'success': false, 'message': responseData['message']};
-    }
+  if (response.statusCode == 200) {
+    return {'success': true};
+  } else {
+    return {'success': false, 'message': responseData['message']};
+  }
 }
 
 ///////////////////////////// insert product ////////////////////////////

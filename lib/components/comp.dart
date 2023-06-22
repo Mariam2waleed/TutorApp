@@ -1,7 +1,11 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:flutter/widgets.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:tutor/service/models.dart';
 
 // import '../pages/Classwork.dart';
 // import '../pages/Home.dart';
@@ -269,3 +273,311 @@ class CustomButton extends StatelessWidget {
         ));
   }
 }
+
+
+
+// _____________________________________________________________
+class CustomTextFiled extends StatelessWidget {
+  TextEditingController textController;
+
+  String labelText;
+
+  Widget? preIcon;
+
+  bool isPrivate;
+
+  double vMargin;
+  Widget? suffix;
+  bool ltr;
+  String? hintText;
+  int? max, min;
+  TextInputAction? action;
+  TextInputType? type;
+  var onChanged;
+  bool enabled;
+  CustomTextFiled(
+      {Key? key,
+      required this.textController,
+      required this.labelText,
+      this.preIcon,
+      required this.vMargin,
+      this.max,
+      this.onChanged,
+      this.min,
+      this.ltr = false,
+      this.suffix,
+      this.action,
+      this.enabled = true,
+      this.hintText,
+      this.type,
+      this.isPrivate = false})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 20, vertical: vMargin),
+      child: TextFormField(
+          enabled: enabled,
+          onChanged: onChanged,
+          textDirection: ltr ? TextDirection.ltr : null,
+          obscureText: isPrivate,
+          controller: textController,
+          textInputAction: action ?? TextInputAction.next,
+          keyboardType: type,
+          decoration: InputDecoration(
+              prefixIcon: preIcon,
+              focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: basecolor),
+                  borderRadius: BorderRadius.circular(10)),
+              suffixIcon: suffix,
+              isDense: true,
+              hintText: hintText,
+              labelStyle: TextStyle(color: basecolor),
+              contentPadding:
+                  const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
+              border: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Colors.black38),
+                  borderRadius: BorderRadius.circular(10)),
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: basecolor),
+                  borderRadius: BorderRadius.circular(10)),
+              label: Text(labelText))),
+    );
+  }
+}
+
+// _____________________________________________________________
+class Avatar extends StatelessWidget {
+  bool isTeacher = false;
+  Avatar({super.key, required this.isTeacher});
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.center,
+      child: CircleAvatar(
+        radius: 110.sp,
+        backgroundColor: Color.fromRGBO(140, 140, 140, 0.2),
+        child: Image(image: AssetImage('assets/images/logo.png')),
+      ),
+    );
+  }
+}
+
+// _____________________________________________________________
+class ImagePickerWidget extends StatelessWidget {
+  final String text;
+  ImagePickerWidget({
+    required this.text,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+        actionsAlignment: MainAxisAlignment.spaceAround,
+        content: Text(
+          text,
+          textAlign: TextAlign.center,
+          style: TextStyle(color: Theme.of(context).colorScheme.primary),
+        ),
+        actions: [
+          TextButton.icon(
+            icon: const Icon(Icons.camera),
+            label: Text("Camera"),
+            onPressed: () => Navigator.pop(context, ImageSource.camera),
+          ),
+          TextButton.icon(
+            icon: const Icon(Icons.image),
+            label: Text("Gallery"),
+            onPressed: () => Navigator.pop(context, ImageSource.gallery),
+          ),
+        ]);
+  }
+}
+// _____________________________________________________________
+
+class RolesSwitch extends StatelessWidget {
+  final VoidCallback onStudentSelected;
+  final VoidCallback onTutorSelected;
+  final bool isStudentSelected;
+  RolesSwitch(
+      {super.key,
+      required this.onStudentSelected,
+      required this.onTutorSelected,
+      required this.isStudentSelected});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 50.h,
+      width: 200.w,
+      decoration: BoxDecoration(
+        border: Border.all(width: 2.0, color: Colors.black),
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: GestureDetector(
+              onTap: onStudentSelected,
+              child: AnimatedContainer(
+                margin: EdgeInsets.all(5.sp),
+                duration: Duration(milliseconds: 300),
+                curve: Curves.easeInOut,
+                decoration: BoxDecoration(
+                    color: isStudentSelected ? basecolor : Colors.white,
+                    borderRadius: BorderRadius.circular(10)),
+                child: Center(
+                  child: Text(
+                    'Student',
+                    style: TextStyle(
+                      color: isStudentSelected ? Colors.white : Colors.black,
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: GestureDetector(
+              onTap: onTutorSelected,
+              child: AnimatedContainer(
+                margin: EdgeInsets.all(5.sp),
+                duration: Duration(milliseconds: 300),
+                curve: Curves.easeInOut,
+                decoration: BoxDecoration(
+                    color: !isStudentSelected ? basecolor : Colors.white,
+                    borderRadius: BorderRadius.circular(10)),
+                child: Center(
+                  child: Text(
+                    'Tutor',
+                    style: TextStyle(
+                      color: !isStudentSelected ? Colors.white : Colors.black,
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// _____________________________________________________________
+
+class SubjectDropwDown extends StatelessWidget {
+  final List<SubjectModel> subjects;
+  final Function(SubjectModel?)? onChanged;
+  final SubjectModel value;
+  const SubjectDropwDown(
+      {super.key, required this.subjects, this.onChanged, required this.value});
+
+  @override
+  Widget build(BuildContext context) {
+    print(subjects[0] == value);
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          "Subject :",
+          style: TextStyle(
+              fontWeight: FontWeight.bold, fontSize: 15.sp, color: basecolor),
+        ),
+        SizedBox(
+          width: 20.w,
+        ),
+        Container(
+          width: 150.w,
+          padding: EdgeInsets.all(8.sp),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(width: 1, color: basecolor)),
+          child: DropdownButtonHideUnderline(
+            child: DropdownButton<SubjectModel>(
+              borderRadius: BorderRadius.circular(10),
+              value: value,
+              items: subjects
+                  .map((e) => DropdownMenuItem<SubjectModel>(
+                        child: Text(
+                          e.subject_name,
+                          style: TextStyle(fontSize: 15.sp),
+                        ),
+                        value: e,
+                      ))
+                  .toList(),
+              onChanged: onChanged,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+// _____________________________________________________________
+
+class UpContainer extends StatelessWidget {
+  const UpContainer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.topCenter,
+      child: Container(
+        alignment: Alignment.center,
+        height: 100.h,
+        width: double.infinity,
+        decoration: BoxDecoration(
+            color: basecolor,
+            borderRadius: BorderRadius.only(
+              bottomRight: Radius.circular(55.sp),
+              bottomLeft: Radius.circular(55.sp),
+            )),
+        child: Text(
+          'Set Up Your Profile',
+          style: TextStyle(
+              color: Colors.white,
+              fontSize: 30.sp,
+              fontWeight: FontWeight.bold),
+        ),
+      ),
+    );
+  }
+}
+
+// _____________________________________________________________
+
+class HasAccountText extends StatelessWidget {
+  const HasAccountText({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment(-0.7, 1),
+      child: RichText(
+        text: TextSpan(
+            text: "Already have an account?",
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+            children: [
+              TextSpan(
+                  text: ' Log In instead',
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      Navigator.pop(context);
+                    },
+                  style: TextStyle(
+                      color: basecolor, fontWeight: FontWeight.normal))
+            ]),
+      ),
+    );
+  }
+}
+
+// _____________________________________________________________

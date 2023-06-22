@@ -4,8 +4,8 @@ class EndPoints {
 
   static const register = '$baseURL/auth/register';
   static const login = '$baseURL/auth/login';
-  static const getUserProfile = '$localURL/auth/login';
   static const product = '$baseURL/product';
   static const contactus = '$baseURL/contactus';
 
+  static const getUserProfile = '$localURL/auth/login';
 }

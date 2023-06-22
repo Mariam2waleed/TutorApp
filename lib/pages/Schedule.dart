@@ -3,11 +3,9 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import '../components/PostsList.dart';
 import '../components/comp.dart';
-import '../pages/Profile.dart';
 import '../service/store.dart';
 import 'package:http/http.dart' as http;
 import 'package:date_time_line/date_time_line.dart';
-import '../components/AppDrawer.dart';
 import '../components/NavBar.dart';
 import '../service/EndPoints.dart';
 
@@ -105,80 +103,6 @@ class SchedulePageState extends State<SchedulePage> {
         //   child: const Icon(Icons.person),
         // ),
         // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-
-        appBar: AppBar(
-            toolbarHeight: 110.0,
-            elevation: 0,
-            backgroundColor: white,
-            // automaticallyImplyLeading: false,
-            iconTheme: IconThemeData(color: black),
-            title: Center(
-                child: Text(
-              "Schedule",
-              style: TextStyle(color: black, fontWeight: FontWeight.bold),
-            )),
-            actions: [
-              IconButton(
-                  highlightColor: Colors.deepPurple[300],
-                  iconSize: 48.0,
-                  icon:
-                      // ImageIcon(Image.asset('Assets/images/Me.jpeq').image)
-                      CircleAvatar(
-                    radius: 50,
-                    child: ClipRRect(
-                        borderRadius: BorderRadius.circular(50),
-                        child: Image.asset(currUser!.profileImage,
-                            fit: BoxFit.cover)),
-                  ),
-                  onPressed: () => {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const ProfilePage()))
-                      })
-            ]),
-        drawer: const AppDrawer(),
-
-        // appBar: AppBar(
-        //   toolbarHeight: 110.0,
-        //   elevation: 0,
-        //   backgroundColor: white,
-        //   title: Column(
-        //       mainAxisAlignment: MainAxisAlignment.start,
-        //       crossAxisAlignment: CrossAxisAlignment.start,
-        //       children: [
-        //         // title
-        //         Text(
-        //           "Your Schedule",
-        //           style: TextStyle(
-        //               color: basecolor,
-        //               fontSize: 25.0,
-        //               fontWeight: FontWeight.bold),
-        //         ),
-        //         // subtitle
-        //         Text(
-        //           "Stay up to date with your class times.",
-        //           style: TextStyle(color: Colors.black87, fontSize: 14.0),
-        //         ),
-        //       ]),
-        //   actions: [
-        //     IconButton(
-        //         padding: EdgeInsets.only(right: 40),
-        //         icon: Icon(
-        //           Icons.notifications,
-        //           color: basecolor,
-        //           size: 35,
-        //         ),
-        //         onPressed: () {
-        //           Navigator.push(
-        //             context,
-        //             MaterialPageRoute(
-        //                 builder: (context) => const NotificationPage()),
-        //           );
-        //         })
-        //   ],
-        // ),
-        // Schedule
 
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),

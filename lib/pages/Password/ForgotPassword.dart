@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 // import 'package:flutter/cupertino.dart';
 import 'package:tutor/components/comp.dart';
 // import 'package:flutter_svg/svg.dart';
-import 'package:tutor/pages/Login/OTP.dart';
+import 'package:tutor/pages/Password/OTP.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});
