@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_screenutil/flutter_screenutil.dart';
-// import 'package:teachers_app/common/widgets/custom_button.dart';
-// import 'package:teachers_app/constants/global_variables.dart';
-// import 'package:teachers_app/features/auth/login/screen/login_screen.dart';
-// import 'package:teachers_app/features/auth/register/screens/register_screen.dart';
-// import 'package:teachers_app/features/auth/register/screens/setup_profile.dart';
-// import 'package:teachers_app/features/main/home/widgets/title_container.dart';
-// import 'package:teachers_app/router.dart';
+
 import 'package:tutor/components/comp.dart';
 import 'package:tutor/pages/Login/login.dart';
 
@@ -38,30 +31,28 @@ class _RoleScreenState extends State<RoleScreen> {
                 children: [
                   const SizedBox(height: 25),
                   //////////////////////////////// Teacher , Student //////////////////
-                  Stack(
-                    children: [
-                      Column(children: [
-                        Image.asset('Assets/images/teacher.png',
-                            height: 150, width: 255),
-                        Text('Teacher',
-                            style: TextStyle(fontSize: 25, color: basecolor))
-                      ]),
-                      Positioned(
-                        right: 0,
-                        child: Transform.scale(
-                            scale: 1.75,
-                            child: Radio(
-                                activeColor: basecolor,
-                                value: 1,
-                                groupValue: _selectedindex,
-                                onChanged: (value) {
-                                  setState(() {
-                                    _selectedindex = value!;
-                                  });
-                                })),
-                      ),
-                    ],
-                  ),
+                  Stack(children: [
+                    Column(children: [
+                      Image.asset('Assets/images/teacher.png',
+                          height: 150, width: 255),
+                      Text('Teacher',
+                          style: TextStyle(fontSize: 25, color: basecolor))
+                    ]),
+                    Positioned(
+                      right: 0,
+                      child: Transform.scale(
+                          scale: 1.75,
+                          child: Radio(
+                              activeColor: basecolor,
+                              value: 1,
+                              groupValue: _selectedindex,
+                              onChanged: (value) {
+                                setState(() {
+                                  _selectedindex = value!;
+                                });
+                              })),
+                    ),
+                  ]),
                   const SizedBox(height: 25),
                   Stack(
                     children: [
@@ -123,13 +114,11 @@ class _RoleScreenState extends State<RoleScreen> {
                       onPressed: () async {
                         // debugPrint("Loding");
                         // await Future.delayed(const Duration(seconds: 2));
-
                         if (_selectedindex == 1) {
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const LoginPage()));
-
                           // Navigator.push(
                           //     context,
                           //     generateRoute(RouteSettings(
@@ -140,7 +129,6 @@ class _RoleScreenState extends State<RoleScreen> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const LoginPage()));
-
                           // Navigator.push(
                           //     context,
                           //     generateRoute(RouteSettings(

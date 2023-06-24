@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:tutor/api/api.dart';
 import 'package:tutor/components/NavBar.dart';
 import 'package:tutor/components/comp.dart';
-import 'package:tutor/pages/Login/ForgotPassword.dart';
+import 'package:tutor/pages/Password/ForgotPassword.dart';
 import 'package:tutor/pages/Login/SignUp.dart';
 // import 'package:tutor/components/comp.dart';
 // import 'package:flutter_svg/svg.dart';
@@ -95,7 +95,6 @@ class LoginPageState extends State<LoginPage> {
                         child: TextField(
                             controller: emailController,
                             style: TextStyle(color: black),
-                            
                             decoration: InputDecoration(
                                 border: InputBorder.none,
                                 prefixIcon: Icon(Icons.email, color: black),
@@ -196,31 +195,35 @@ class LoginPageState extends State<LoginPage> {
                                   ))),
                         ),
                         onPressed: () async {
-                          final email = emailController.text;
-                          final password = passwordController.text;
-                          final response = await login(email, password);
-                          if (response['success']) {
-                            // Login successful
-                            final accessToken = response['accessToken'];
-                            debugPrint(accessToken);
-                            // Save token to local storage or global state
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const NavBar()));
-                          } else {
-                            // Login failed
-                            final message = response['message'];
-                            debugPrint(message);
-                            ScaffoldMessenger.of(context)
-                                .showSnackBar(SnackBar(content: Text(message)));
-                          }
-                          debugPrint("Loding");
-                          await Future.delayed(const Duration(seconds: 2));
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const NavBar()));
+                          // final email = emailController.text;
+                          // final password = passwordController.text;
+                          // final response = await login(email, password);
+                          // if (response['success']) {
+                          //   // Login successful
+                          //   final accessToken = response['accessToken'];
+                          //   debugPrint(accessToken);
+                          //   // Save token to local storage or global state
+                          //   Navigator.pushReplacement(
+                          //       context,
+                          //       MaterialPageRoute(
+                          //           builder: (context) => const NavBar()));
+                          // } else {
+                          //   // Login failed
+                          //   final message = response['message'];
+                          //   debugPrint(message);
+                          //   ScaffoldMessenger.of(context)
+                          //       .showSnackBar(SnackBar(content: Text(message)));
+                          // }
+                          // debugPrint("Loding");
+                          // await Future.delayed(const Duration(seconds: 2));
+                          // Navigator.pushReplacement(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (context) => const NavBar()));
+                           Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const NavBar()));
                         }),
                     const SizedBox(height: 55),
                     ///////////////// Don't have account  //////////////////////////////////

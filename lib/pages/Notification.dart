@@ -3,12 +3,12 @@
 // import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:tutor/components/comp.dart';
-import 'package:tutor/pages/Profile.dart';
-import 'package:tutor/service/store.dart';
+// import 'package:tutor/components/comp.dart';
+// import 'package:tutor/pages/Profile.dart';
+// import 'package:tutor/service/store.dart';
 import 'package:http/http.dart' as http;
 // import 'dart:io';
-import '../components/AppDrawer.dart';
+// import '../components/AppDrawer.dart';
 import '../service/EndPoints.dart';
 
 class NotificationPage extends StatefulWidget {
@@ -134,16 +134,14 @@ class NotificationPageState extends State<NotificationPage> {
                     // functionality
                     onPressed: () {
                       insert();
-                      const snackBar = SnackBar(
+                      var snackBar = SnackBar(
                         content: Text('Yay! A New Product !'),
-                        // action: SnackBarAction(
-                        //   label: 'Remove',
-                        //   onPressed: () async {
-                        //           await http.delete(Uri.parse(
-                        //               'https://tutor-running.herokuapp.com/product/$id'));
-                        //     // Some code to undo the change.
-                        //   },
-                        // ),
+                        action: SnackBarAction(
+                            label: 'Remove',
+                            onPressed: () async {
+                              await http.delete(Uri.parse(
+                                  'https://tutor-running.herokuapp.com/product/$id'));
+                            }),
                       );
                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
                       // Navigator.push(
@@ -159,6 +157,8 @@ class NotificationPageState extends State<NotificationPage> {
     );
   }
 }
+
+mixin id {}
 //============================================================================
 
 //===========================================================================

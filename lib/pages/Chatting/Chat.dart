@@ -81,25 +81,21 @@ class ChatPageState extends State<ChatPage> {
             actions: [
               IconButton(
                   onPressed: () => {
-                        //                List<DropdownMenuItem> choices = [
+                        //   List<DropdownMenuItem> choices = [
                         //   DropdownMenuItem(
                         //     value: 1,
                         //     child: Row(
                         //       children: [
                         //         Icon(Icons.image_search),
                         //         Text("  Choose from gallery", style: kMenuItemStyle),
-                        //       ],
-                        //     ),
-                        //   ),
+                        //       ])),
                         //   DropdownMenuItem(
                         //     value: 2,
                         //     child: Row(
                         //       children: [
                         //         Icon(Icons.camera_alt_outlined),
                         //         Text("  Take a photo", style: kMenuItemStyle),
-                        //       ],
-                        //     ),
-                        //   ),
+                        //       ])),
                         // ];
                       },
                   icon: const Icon(Icons.more_vert))
@@ -121,49 +117,45 @@ class ChatPageState extends State<ChatPage> {
             /////// message
             Expanded(
               flex: 9,
-              child: Obx(
-                () => ListView.builder(
-                    itemCount: chatController.ChatMessages.length,
-                    itemBuilder: (context, index) {
-                      var currentItem = chatController.ChatMessages[index];
-                      return MessageItem(
-                        sentByMe: currentItem.sentByMe == socket.id,
-                        message: currentItem.message,
-                      );
-                    }),
-              ),
+              child: Obx(() => ListView.builder(
+                  itemCount: chatController.ChatMessages.length,
+                  itemBuilder: (context, index) {
+                    var currentItem = chatController.ChatMessages[index];
+                    return MessageItem(
+                      sentByMe: currentItem.sentByMe == socket.id,
+                      message: currentItem.message,
+                    );
+                  })),
             ),
             ////// MessageBar
             Expanded(
               child: Container(
-                padding: const EdgeInsets.all(10),
-                // color: Colors.amber,
-                child: TextField(
-                  style: TextStyle(color: black),
-                  cursorColor: Colors.purple,
-                  controller: msgInputController,
-                  decoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: basecolor),
-                          borderRadius: BorderRadius.circular(10)),
-                      suffixIcon: Container(
-                        margin: const EdgeInsets.only(right: 10),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: basecolor),
-                        child: IconButton(
-                          onPressed: () {
-                            sendMessage(msgInputController.text);
-                            msgInputController.text = "";
-                          },
-                          icon: Icon(Icons.send_rounded, color: basecolor3),
-                        ),
-                      )),
-                ),
-              ),
-            ),
+                  padding: const EdgeInsets.all(10),
+                  // color: Colors.amber,
+                  child: TextField(
+                      style: TextStyle(color: black),
+                      cursorColor: Colors.purple,
+                      controller: msgInputController,
+                      decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: basecolor),
+                              borderRadius: BorderRadius.circular(10)),
+                          suffixIcon: Container(
+                              margin: const EdgeInsets.only(right: 10),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: basecolor),
+                              child: IconButton(
+                                onPressed: () {
+                                  sendMessage(msgInputController.text);
+                                  msgInputController.text = "";
+                                },
+                                icon:
+                                    Icon(Icons.send_rounded, color: basecolor3),
+                              ))))),
+            )
           ],
-        )
+        ),
         //////////////////////////// UI //////////////////////////
         //  Column(children: [
         //   const Expanded(child: ChatList()),
