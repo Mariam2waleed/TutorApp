@@ -53,28 +53,9 @@ class AboutPage extends StatelessWidget {
                     // mainAxisAlignment: MainAxisAlignment.center,
                     // children: [
                     Text(
-                        ' Welcome to our tutor application! We are committed to providing high-quality, personalized tutoring services to students of all ages and levels. ',
+                        ' Our application is designed to provide users with a seamless and user-friendly experience. We believe that technology should be empowering and accessible to everyone, and we strive to create products that reflect these values. ',
                         style: TextStyle(fontSize: 20, color: black)),
-                    Text(
-                        ' Our team of experienced tutors is dedicated to helping students achieve their academic goals and succeed in the classroom. Whether you need help with math, science, English, or any other subject, we have a tutor who can help. ',
-                        style: TextStyle(fontSize: 20, color: black)),
-                    // const Expanded(child: SizedBox()),
-                    Text(
-                        ' Our tutors are not only experts in their fields, but they are also skilled at working with students of all learning styles and abilities. They are patient, encouraging, and committed to helping each student reach their full potential. ',
-                        style: TextStyle(fontSize: 20, color: black)),
-                    // const Expanded(child: SizedBox()),
-                    Text(
-                        ' Our application offers a convenient and easy-to-use platform for scheduling tutoring sessions and communicating with your tutor. You can access our platform from anywhere, at any time, making it easy to fit tutoring into your busy schedule. ',
-                        style: TextStyle(fontSize: 20, color: black)),
-                    // const Expanded(child: SizedBox()),
-                    Text(
-                        ' We believe that education is the key to success, and we are passionate about helping students achieve their academic goals. Whether you need help preparing for an exam, catching up on missed assignments, or mastering a challenging subject, we are here to help. ',
-                        style: TextStyle(fontSize: 20, color: black)),
-                    // const Expanded(child: SizedBox()),
-                    Text(
-                        ' Thank you for choosing our tutor application. We look forward to helping you achieve your academic goals and succeed in the classroom. ',
-                        style: TextStyle(fontSize: 20, color: black)),
-                  ],
+                   ],
                 ),
               ),
             ),

@@ -13,13 +13,10 @@ Future login(String email, String password) async {
     headers: {'Content-Type': 'application/json'},
     body: jsonEncode(<String, String>{'email': email, 'password': password}),
   );
-
   final responseData = jsonDecode(response.body);
-
   if (response.statusCode == 200) {
     final accessToken = responseData['accessToken'];
     print(accessToken);
-
     return {'success': true, 'token': accessToken};
   } else {
     return {'success': false, 'message': responseData['message']};

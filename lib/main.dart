@@ -46,20 +46,20 @@ class MyApp extends StatelessWidget {
       // theme: ThemeData(
       //     scaffoldBackgroundColor: Colors.transparent,
       //     visualDensity: VisualDensity.adaptivePlatformDensity),
-      home: Stack(children: [
-        AnimatedSplashScreen(
-            splash: Container(),
-            duration: 1000,
-            splashTransition: SplashTransition.fadeTransition,
-            // backgroundColor: Colors.blueGrey,
-            nextScreen: const RoleScreen()),
-        Container(
-            height: MediaQuery.of(context).size.height,
-            decoration: const BoxDecoration(
-                image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage('Assets/images/SplashSC.png'))))
-      ]),
+          home: Stack(children: [
+            AnimatedSplashScreen(
+                splash: Container(),
+                duration: 1000,
+                splashTransition: SplashTransition.fadeTransition,
+                // backgroundColor: Colors.blueGrey,
+                nextScreen: const RoleScreen()),
+            Container(
+                height: MediaQuery.of(context).size.height,
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage('Assets/images/SplashSC.png'))))
+          ]),
 //===========================================================================
       // final double statusBarHeight = MediaQuery.of(context).padding.top;
       // final double bottomBarHeight = MediaQuery.of(context).padding.bottom;

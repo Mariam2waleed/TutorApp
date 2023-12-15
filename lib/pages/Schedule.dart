@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import '../components/PostsList.dart';
@@ -94,67 +93,49 @@ class SchedulePageState extends State<SchedulePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // floatingActionButton: FloatingActionButton(
-        //   backgroundColor: basecolor,
-        //   onPressed: () {
-        //     Navigator.pushReplacement(context,
-        //         MaterialPageRoute(builder: (context) => const ProfilePage()));
-        //   },
-        //   child: const Icon(Icons.person),
-        // ),
-        // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
-          child: Column(children: [
-            // Body of home page
-            DateTimeLine(
-                width: MediaQuery.of(context).size.width,
-                color: basecolor3,
-                hintText: "10 task today",
-                onSelected: (value) {
-                  setState(() {
-                    // var date = value;
-                  });
-                }),
-            const SizedBox(height: 20),
-            //////////////////////////////
-            Expanded(
-                child: FutureBuilder(
-                    future: getProduct(),
-                    builder: (context, snapshot) {
-                      if (snapshot.data != null) {
-                        return ListView.builder(
-                            itemCount: (snapshot.data as List<dynamic>).length,
-                            itemBuilder: (context, index) {
-                              return Card(
-                                  elevation: 4,
-                                  child: ListTile(
-                                      title: Text((snapshot.data as List<dynamic>)[index]
-                                          ['name']),
-                                      subtitle: Text((snapshot.data
-                                          as List<dynamic>)[index]["desc"]),
-                                      trailing: IconButton(
-                                          icon: Icon(Icons.delete,
-                                              color: basecolor3),
-                                          onPressed: () => ConirmDelete(
-                                              (snapshot.data as List<dynamic>)[index]
-                                                  ["id"]))));
-                            });
-                      } //else if (snapshot.hasError) {
-                      // return Center(
-                      // child: Text('Error: ${snapshot.error}'),
-                      // );}
-                      else {
-                        return const CircularProgressIndicator();
-                      }
-                    }))
-          ]),
-        )
-
-        //bottom navigation bar on scaffold
-        // bottomNavigationBar: NavBar(),
-        );
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      child: Column(children: [
+        // Body of home page
+        DateTimeLine(
+            width: MediaQuery.of(context).size.width,
+            color: basecolor3,
+            hintText: "10 task today",
+            onSelected: (value) {
+              setState(() {
+                // var date = value;
+              });
+            }),
+        const SizedBox(height: 20),
+        //////////////////////////////
+        Expanded(
+            child: FutureBuilder(
+                future: getProduct(),
+                builder: (context, snapshot) {
+                  if (snapshot.data != null) {
+                    return ListView.builder(
+                        itemCount: (snapshot.data as List<dynamic>).length,
+                        itemBuilder: (context, index) {
+                          return Card(
+                              elevation: 4,
+                              child: ListTile(
+                                  title: Text((snapshot.data
+                                      as List<dynamic>)[index]['name']),
+                                  subtitle: Text((snapshot.data
+                                      as List<dynamic>)[index]["desc"]),
+                                  trailing: IconButton(
+                                      icon:
+                                          Icon(Icons.delete, color: basecolor3),
+                                      onPressed: () => ConirmDelete((snapshot
+                                              .data as List<dynamic>)[index]
+                                          ["id"]))));
+                        });
+                  } else {
+                    return const CircularProgressIndicator();
+                  }
+                }))
+      ]),
+    ));
   }
 }
 //============================================================================
